@@ -1,6 +1,128 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import { Compass, BookCheck, Bot, Network, Sparkles, TrendingUp, Cpu, Award, CheckCircle } from 'lucide-react';
 
+const AI_PROMPTS = [
+  'Pronto para apoiar seu time operacional...',
+  'Qual fórmula de estoque de segurança você precisa calcular?',
+  'Analisando impacto da Reforma Tributária em fretes fracionados...',
+  'Simulando dimensionamento de frota e SLA de entrega...',
+  'Consultando jurisprudência e normas de transporte no acervo...',
+];
+
 export default function Ecosystem() {
+  // --- Animação das Barras e Contadores (ao aparecer na tela) ---
+  const diagnosticRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedBars, setHasAnimatedBars] = useState(false);
+  const [wmsValue, setWmsValue] = useState(0);
+  const [costsValue, setCostsValue] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimatedBars) {
+          setHasAnimatedBars(true);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    const currentRef = diagnosticRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [hasAnimatedBars]);
+
+  useEffect(() => {
+    if (!hasAnimatedBars) return;
+
+    const duration = 1400; // ms
+    const startTime = performance.now();
+
+    const updateCounters = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Curva suave ease-out exponencial
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      setWmsValue(Math.round(easeProgress * 88));
+      setCostsValue(Math.round(easeProgress * 64));
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounters);
+      }
+    };
+
+    const frameId = requestAnimationFrame(updateCounters);
+    return () => cancelAnimationFrame(frameId);
+  }, [hasAnimatedBars]);
+
+  // --- Efeito Máquina de Escrever (Typewriter) Simulação de IA ---
+  const aiRef = useRef<HTMLDivElement>(null);
+  const [isAiActive, setIsAiActive] = useState(false);
+  const [promptIndex, setPromptIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsAiActive(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const currentAiRef = aiRef.current;
+    if (currentAiRef) {
+      observer.observe(currentAiRef);
+    }
+
+    return () => {
+      if (currentAiRef) observer.unobserve(currentAiRef);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isAiActive) return;
+
+    const fullText = AI_PROMPTS[promptIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting) {
+      if (displayText.length < fullText.length) {
+        // Digitando letra por letra
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.slice(0, displayText.length + 1));
+        }, 36 + Math.random() * 20);
+      } else {
+        // Pausa após terminar de digitar a mensagem inteira
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 3600);
+      }
+    } else {
+      if (displayText.length > 0) {
+        // Apagando letra por letra
+        timeout = setTimeout(() => {
+          setDisplayText(fullText.slice(0, displayText.length - 1));
+        }, 18);
+      } else {
+        // Avança para a próxima mensagem da IA
+        setIsDeleting(false);
+        setPromptIndex((prev) => (prev + 1) % AI_PROMPTS.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, promptIndex, isAiActive]);
+
   return (
     <section id="ecossistema" data-theme="light" className="py-28 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -43,21 +165,35 @@ export default function Ecosystem() {
               </p>
             </div>
 
-            {/* Simulação Visual do Diagnóstico */}
-            <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100 space-y-3 font-mono text-xs">
-              <div className="flex justify-between text-gray-700 font-semibold">
+            {/* Simulação Visual do Diagnóstico com animação ao rolar na tela */}
+            <div
+              ref={diagnosticRef}
+              className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-100 space-y-3.5 font-mono text-xs"
+            >
+              <div className="flex justify-between text-gray-700 font-semibold items-center">
                 <span>Maturidade em WMS & Acuracidade de Estoque</span>
-                <span className="text-[#ff3d03] font-bold">88%</span>
+                <span className="text-[#ff3d03] font-bold tabular-nums text-sm">
+                  {wmsValue}%
+                </span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-[#ff3d03] h-2 rounded-full w-[88%]" />
+              <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                <div
+                  className="bg-[#ff3d03] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(255,61,3,0.3)]"
+                  style={{ width: `${hasAnimatedBars ? 88 : 0}%` }}
+                />
               </div>
-              <div className="flex justify-between text-gray-700 font-semibold pt-1">
+
+              <div className="flex justify-between text-gray-700 font-semibold items-center pt-1.5">
                 <span>Engenharia de Custos de Fretes & Tributário</span>
-                <span className="text-orange-600 font-bold">64%</span>
+                <span className="text-orange-600 font-bold tabular-nums text-sm">
+                  {costsValue}%
+                </span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
-                <div className="bg-orange-500 h-2 rounded-full w-[64%]" />
+              <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
+                <div
+                  className="bg-orange-500 h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(249,115,22,0.3)]"
+                  style={{ width: `${hasAnimatedBars ? 64 : 0}%` }}
+                />
               </div>
             </div>
           </div>
@@ -82,11 +218,24 @@ export default function Ecosystem() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs font-mono text-gray-700 flex items-center gap-3">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span className="truncate">"Pronto para apoiar seu time operacional..."</span>
+            {/* Simulação de conversa com IA: efeito máquina de escrever com cursor pulsante */}
+            <div
+              ref={aiRef}
+              className="p-4 rounded-xl bg-[#0c1017] border border-gray-800 text-xs font-mono flex items-start sm:items-center gap-3 min-h-[58px] shadow-inner"
+            >
+              <span className="relative flex h-2.5 w-2.5 shrink-0 mt-0.5 sm:mt-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              </span>
+              <div className="leading-relaxed flex-1">
+                <span className="text-gray-200 font-medium">
+                  &ldquo;{displayText}&rdquo;
+                </span>
+                <span className="inline-block w-1.5 h-3.5 bg-[#ff3d03] ml-1 animate-pulse align-middle" />
+              </div>
             </div>
           </div>
+
 
           {/* Card 3 Médio (Col 5): Conteúdo Prático & Ferramentas */}
           <div className="md:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col justify-between group hover:border-[#ff3d03]/60">
