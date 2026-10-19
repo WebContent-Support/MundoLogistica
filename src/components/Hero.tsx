@@ -277,7 +277,7 @@ export default function Hero() {
             <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#06080d] to-transparent z-10" />
 
             {/* Marquee Track Infinito com pause no hover */}
-            <div className="flex gap-4 sm:gap-6 w-max animate-marquee py-2">
+            <div className="flex gap-4 sm:gap-6 w-max marquee-track animate-marquee py-2">
               {[...PARTNERS, ...PARTNERS].map((company, index) => (
                 <div
                   key={`${company.name}-${index}`}

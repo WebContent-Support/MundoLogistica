@@ -65,22 +65,27 @@
 }
 
 /* Animação Marquee Infinito de Parceiros */
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
+@theme {
+  --animate-marquee: partnerMarquee 28s linear infinite;
+
+  @keyframes partnerMarquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }
 
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 35s linear infinite;
+.marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: partnerMarquee 28s linear infinite !important;
+  will-change: transform;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+.marquee-track:hover {
+  animation-play-state: paused !important;
 }
 
