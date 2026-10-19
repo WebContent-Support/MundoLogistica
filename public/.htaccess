@@ -1,0 +1,86 @@
+# ==============================================================================
+# .htaccess para Next.js Static Export no Servidor Apache
+# Projeto: MundoLogística • Plataforma Educacional & Suite Corporativa B2B
+# ==============================================================================
+
+# 1. Habilitar Rewrite Engine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Tratar rotas limpas e páginas estáticas
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 2. Página de Erro 404 customizada gerada pelo Next.js
+ErrorDocument 404 /404.html
+
+# 3. Compressão Gzip / Deflate para carregamento ultra-rápido
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/woff2
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/eot
+</IfModule>
+
+# 4. Políticas de Cache Inteligente (Cache-Control & Expires)
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Padrão: 1 hora
+  ExpiresDefault "access plus 1 hour"
+
+  # HTML: Não armazenar em cache para garantir que atualizações apareçam na hora
+  ExpiresByType text/html "access plus 0 seconds"
+
+  # Imagens, Vetores e Mídias: 1 Mês
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+
+  # Fontes: 1 Ano
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Bundles do Next.js possuem hash no nome, podem ser cacheados com segurança
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML sempre revalida para receber novos deploys
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Headers de Segurança
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 5. Desativar listagem de diretórios
+Options -Indexes
