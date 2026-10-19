@@ -1,20 +1,87 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import { LineChart, Users, CheckCircle, Clock, Eye, TrendingUp, Layers, Activity } from 'lucide-react';
 
 const TEAM_MEMBERS = [
-  { name: 'Lucas Ferreira', role: 'Supervisor de Armazém', course: 'Otimização de Armazenagem e WMS', progress: 85, status: 'Em andamento' },
-  { name: 'Mariana Costa', role: 'Analista de Planejamento', course: 'Gestão Baseada em Dados e S&OP', progress: 100, status: 'Certificado Emitido' },
-  { name: 'Rodrigo Silveira', role: 'Coordenador de Fretes', course: 'Reforma Tributária e Transportes', progress: 60, status: 'Em andamento' },
-  { name: 'Beatriz Almeida', role: 'Gerente de Supply Chain', course: 'Customer Centricity na Logística', progress: 100, status: 'Certificado Emitido' },
+  { name: 'Lucas Ferreira', role: 'Supervisor de Armazém', course: 'Otimização de Armazenagem e WMS', targetProgress: 85, status: 'Em andamento' },
+  { name: 'Mariana Costa', role: 'Analista de Planejamento', course: 'Gestão Baseada em Dados e S&OP', targetProgress: 100, status: 'Certificado Emitido' },
+  { name: 'Rodrigo Silveira', role: 'Coordenador de Fretes', course: 'Reforma Tributária e Transportes', targetProgress: 60, status: 'Em andamento' },
+  { name: 'Beatriz Almeida', role: 'Gerente de Supply Chain', course: 'Customer Centricity na Logística', targetProgress: 100, status: 'Certificado Emitido' },
 ];
 
 export default function DashboardSection() {
+  const dashboardRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  // Contadores numéricos rápidos
+  const [hours, setHours] = useState(0);
+  const [coursesCount, setCoursesCount] = useState(0);
+  const [engagement, setEngagement] = useState(0);
+
+  // Progresso individual dos colaboradores
+  const [memberValues, setMemberValues] = useState([0, 0, 0, 0]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    const el = dashboardRef.current;
+    if (el) observer.observe(el);
+
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!hasAnimated) return;
+
+    const duration = 1500; // ms
+    const startTime = performance.now();
+
+    const updateCounters = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Suave curva ease-out exponencial
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      setHours(Math.round(easeProgress * 428));
+      setCoursesCount(Math.round(easeProgress * 54));
+      setEngagement(Number((easeProgress * 93.4).toFixed(1)));
+
+      setMemberValues([
+        Math.round(easeProgress * 85),
+        Math.round(easeProgress * 100),
+        Math.round(easeProgress * 60),
+        Math.round(easeProgress * 100),
+      ]);
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounters);
+      }
+    };
+
+    const frameId = requestAnimationFrame(updateCounters);
+    return () => cancelAnimationFrame(frameId);
+  }, [hasAnimated]);
+
   return (
     <section id="dashboard" data-theme="light" className="py-28 bg-[#f8fafc] text-gray-900 border-t border-gray-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Mockup HUD do Gestor em Estilo Claro Executivo */}
           <div className="lg:col-span-7 order-2 lg:order-1">
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200/90 shadow-xl space-y-6 relative group">
+            <div
+              ref={dashboardRef}
+              className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200/90 shadow-xl space-y-6 relative group"
+            >
               {/* Cantoneira Laranja da Marca MundoLogística */}
               <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03]" />
               <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03]" />
@@ -37,19 +104,19 @@ export default function DashboardSection() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-500 block mb-1">Horas de Estudo da Equipe</span>
-                  <div className="text-3xl font-black text-gray-950">428h</div>
+                  <div className="text-3xl font-black text-gray-950 tabular-nums">{hours}h</div>
                   <span className="text-[10px] font-mono text-emerald-600 font-bold mt-1 block">+38% vs. mês anterior</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-500 block mb-1">Cursos Concluídos</span>
-                  <div className="text-3xl font-black text-[#ff3d03]">54</div>
+                  <div className="text-3xl font-black text-[#ff3d03] tabular-nums">{coursesCount}</div>
                   <span className="text-[10px] font-mono text-gray-500 font-bold mt-1 block">98.2% taxa de aprovação</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-500 block mb-1">Engajamento Semanal</span>
-                  <div className="text-3xl font-black text-gray-950">93.4%</div>
+                  <div className="text-3xl font-black text-gray-950 tabular-nums">{engagement}%</div>
                   <span className="text-[10px] font-mono text-emerald-600 font-bold mt-1 block">Ativos nos últimos 7 dias</span>
                 </div>
               </div>
@@ -60,7 +127,7 @@ export default function DashboardSection() {
                   Progresso Individual dos Colaboradores
                 </h4>
                 <div className="space-y-3">
-                  {TEAM_MEMBERS.map((member) => (
+                  {TEAM_MEMBERS.map((member, idx) => (
                     <div
                       key={member.name}
                       className="p-4 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs"
@@ -76,11 +143,13 @@ export default function DashboardSection() {
                       <div className="flex items-center gap-3 sm:w-48 shrink-0">
                         <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                           <div
-                            className="bg-gradient-to-r from-[#ff3d03] to-[#ff7b4d] h-2 rounded-full transition-all duration-500"
-                            style={{ width: `${member.progress}%` }}
+                            className="bg-gradient-to-r from-[#ff3d03] to-[#ff7b4d] h-2 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${hasAnimated ? member.targetProgress : 0}%` }}
                           />
                         </div>
-                        <span className="font-mono font-bold text-gray-900 w-8 text-right">{member.progress}%</span>
+                        <span className="font-mono font-bold text-gray-900 w-10 text-right tabular-nums">
+                          {memberValues[idx]}%
+                        </span>
                       </div>
                     </div>
                   ))}
@@ -88,6 +157,7 @@ export default function DashboardSection() {
               </div>
             </div>
           </div>
+
 
           {/* Coluna Texto Persuasivo */}
           <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
