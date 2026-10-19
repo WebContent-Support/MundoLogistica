@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-4">
             <Link href="/" className="inline-block py-1">
               <img
-                src="/logo-white.webp"
+                src="/logo-white.png"
                 alt="MundoLogística"
                 className="h-9 w-auto object-contain"
               />

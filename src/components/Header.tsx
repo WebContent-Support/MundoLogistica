@@ -12,7 +12,7 @@ export default function Header() {
     let ticking = false;
 
     const handleScroll = () => {
-      // Amostragem na altura do centro do cabeçalho sticky (~50px do topo da viewport)
+      // Amostragem na altura do centro do cabeçalho (~50px do topo)
       const sampleY = 50;
       const elements = document.querySelectorAll<HTMLElement>('[data-theme]');
 
@@ -54,22 +54,17 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all">
       <div className="max-w-7xl mx-auto">
-        {/* Cápsula Flutuante Adaptativa com transição suave */}
-        <div
-          className={`rounded-2xl px-5 py-3 flex items-center justify-between transition-all duration-300 ease-in-out ${
-            isDark
-              ? 'glass-panel border border-white/10 shadow-2xl shadow-black/80'
-              : 'bg-white/95 backdrop-blur-xl border border-gray-200/90 shadow-xl shadow-gray-900/10'
-          }`}
-        >
-          {/* Logo Oficial MundoLogística com troca dinâmica de logo (pre-carregado para zero delay e sem layout shift) */}
+        {/* Cápsula Flutuante Única com Fundo Transparente Frosted Glass & Backdrop-Blur para TODAS as seções */}
+        <div className="rounded-2xl px-5 py-3 flex items-center justify-between backdrop-blur-xl sm:backdrop-blur-2xl bg-neutral-900/[0.08] dark:bg-black/20 border border-neutral-400/20 shadow-xl shadow-black/5 transition-all duration-300 ease-in-out">
+          
+          {/* Logo Oficial MundoLogística com troca de cor perfeitamente alinhada (0px de mudança de tamanho) */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative py-1 h-8 sm:h-9 w-36 sm:w-44 flex items-center">
+            <div className="relative py-1 h-8 sm:h-9 w-[158px] sm:w-[178px] flex items-center">
               {/* Versão Branca para seções escuras */}
               <img
-                src="/logo-white.webp"
+                src="/logo-white.png"
                 alt="MundoLogística"
-                className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 group-hover:scale-105 ${
                   isDark
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
@@ -79,7 +74,7 @@ export default function Header() {
               <img
                 src="/logo-oficial.png"
                 alt="MundoLogística"
-                className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 group-hover:scale-105 ${
                   !isDark
                     ? 'opacity-100 pointer-events-auto'
                     : 'opacity-0 pointer-events-none'
@@ -90,7 +85,7 @@ export default function Header() {
             {/* Divisor & Subtítulo Corporativo */}
             <div
               className={`hidden sm:flex flex-col border-l pl-3 transition-colors duration-300 ${
-                isDark ? 'border-white/15' : 'border-gray-300'
+                isDark ? 'border-white/15' : 'border-neutral-400/30'
               }`}
             >
               <span
@@ -106,20 +101,14 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Navegação Desktop */}
-          <nav
-            className={`hidden lg:flex items-center gap-1 p-1.5 rounded-xl transition-all duration-300 ${
-              isDark
-                ? 'bg-white/[0.04] border border-white/5'
-                : 'bg-gray-100/90 border border-gray-200/80'
-            }`}
-          >
+          {/* Navegação Desktop sem background interno (100% transparente sobre o blur da cápsula) */}
+          <nav className="hidden lg:flex items-center gap-1">
             <Link
               href="#ecossistema"
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Ecossistema
@@ -129,7 +118,7 @@ export default function Header() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Vitrine de Cursos
@@ -148,7 +137,7 @@ export default function Header() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
@@ -159,7 +148,7 @@ export default function Header() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Dashboard RH
@@ -169,7 +158,7 @@ export default function Header() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Planos
@@ -179,7 +168,7 @@ export default function Header() {
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-white shadow-none hover:shadow-sm'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               FAQ
@@ -218,10 +207,10 @@ export default function Header() {
         {/* Menu Mobile */}
         {mobileMenuOpen && (
           <div
-            className={`lg:hidden mt-2 rounded-2xl p-5 space-y-3 animate-fade-in transition-all duration-300 ${
+            className={`lg:hidden mt-2 rounded-2xl p-5 space-y-3 animate-fade-in transition-all duration-300 backdrop-blur-2xl ${
               isDark
-                ? 'glass-panel-glow border border-white/10 text-gray-200'
-                : 'bg-white/98 backdrop-blur-xl border border-gray-200 shadow-2xl text-gray-800'
+                ? 'bg-[#06080d]/90 border border-white/10 text-gray-200'
+                : 'bg-white/95 border border-gray-200 shadow-2xl text-gray-800'
             }`}
           >
             <Link
