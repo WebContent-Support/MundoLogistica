@@ -1,4 +1,4 @@
-import { Quote, Play, Star, Building2 } from 'lucide-react';
+import { Quote, Star, Building2, ShieldCheck, Play } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
@@ -26,38 +26,42 @@ const TESTIMONIALS = [
 
 export default function SocialProof() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-28 bg-[#090d14] text-white border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100/70 px-3.5 py-1.5 rounded-full">
-            Resultados Comprovados
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+            Autoridade Comprovada
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-950 mt-4 mb-4 tracking-tight">
-            O que dizem os líderes que transformaram suas equipes
+          <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-4 tracking-tight">
+            Validado por quem lidera as maiores operações
           </h2>
-          <p className="text-gray-600 text-lg">
-            Mais de 400 empresas confiam na MundoLogística para elevar o patamar técnico de suas operações.
+          <p className="text-gray-400 text-lg">
+            Mais de 400 corporações confiam na curadoria técnica da MundoLogística para formar seus quadros de especialistas.
           </p>
         </div>
 
-        {/* Vídeo Institucional Oficial */}
-        <div className="max-w-4xl mx-auto mb-20 rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-100 bg-gray-900 aspect-video relative group">
-          <iframe
-            src="https://www.youtube.com/embed/Yho4vdRKQOs"
-            title="Conheça a Plataforma MundoLogística"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full border-0"
-          />
+        {/* Player de Vídeo Estilo Cinema com Glow Neon */}
+        <div className="max-w-4xl mx-auto mb-20 relative">
+          <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#ff3d03]/50 to-orange-600/30 blur-2xl opacity-40 pointer-events-none" />
+          
+          <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/15 aspect-video shadow-2xl">
+            <iframe
+              src="https://www.youtube.com/embed/Yho4vdRKQOs"
+              title="Conheça a Plataforma MundoLogística"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full border-0"
+            />
+          </div>
         </div>
 
-        {/* Grid de Depoimentos */}
+        {/* Grid de Depoimentos em Dark Glass */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.author}
-              className="bg-gray-50 rounded-2xl p-8 border border-gray-200/80 hover:border-[#ff3d03]/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="glass-panel rounded-3xl p-8 border border-white/10 hover:border-[#ff3d03]/50 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
             >
               <div>
                 <div className="flex items-center gap-1 text-[#ff3d03] mb-6">
@@ -65,22 +69,22 @@ export default function SocialProof() {
                     <Star key={i} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
-                <Quote className="w-8 h-8 text-orange-200 mb-3" />
-                <p className="text-gray-700 text-sm sm:text-base leading-relaxed italic mb-8">
+                <Quote className="w-8 h-8 text-[#ff3d03]/40 mb-3" />
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed italic mb-8">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 pt-4 border-t border-gray-200/60">
+              <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                 <img
                   src={t.avatar}
                   alt={t.author}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-orange-200"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#ff3d03]/60 shadow-md shadow-[#ff3d03]/20"
                 />
                 <div>
-                  <h4 className="font-bold text-gray-900 text-sm">{t.author}</h4>
-                  <p className="text-xs text-gray-500">{t.role}</p>
-                  <p className="text-xs font-bold text-[#ff3d03] flex items-center gap-1 mt-0.5">
+                  <h4 className="font-bold text-white text-sm">{t.author}</h4>
+                  <p className="text-xs text-gray-400">{t.role}</p>
+                  <p className="text-xs font-mono font-bold text-[#ff3d03] flex items-center gap-1 mt-0.5">
                     <Building2 className="w-3 h-3" />
                     {t.company}
                   </p>

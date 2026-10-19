@@ -4,6 +4,7 @@ import Ecosystem from '@/components/Ecosystem';
 import CourseShowcase from '@/components/CourseShowcase';
 import LogGPTSection from '@/components/LogGPTSection';
 import DashboardSection from '@/components/DashboardSection';
+import RoiCalculator from '@/components/RoiCalculator';
 import SocialProof from '@/components/SocialProof';
 import PricingB2B from '@/components/PricingB2B';
 import LeadForm from '@/components/LeadForm';
@@ -12,7 +13,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900 selection:bg-[#ff3d03] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#06080d] text-white selection:bg-[#ff3d03] selection:text-white">
       <Header />
       <main className="flex-1">
         <Hero />
@@ -20,6 +21,7 @@ export default function Home() {
         <CourseShowcase />
         <LogGPTSection />
         <DashboardSection />
+        <RoiCalculator />
         <SocialProof />
         <PricingB2B />
         <LeadForm />

@@ -1,39 +1,39 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Clock, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Flame } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 text-white pt-16 pb-12 border-t border-gray-900">
+    <footer className="bg-[#040609] text-white pt-20 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
           {/* Logo e Missão */}
           <div className="lg:col-span-5 space-y-4">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-[#ff3d03] flex items-center justify-center text-white font-extrabold text-xl shadow-md shadow-[#ff3d03]/20">
-                ML
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#e03502] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-[#ff3d03]/30">
+                <Flame className="w-6 h-6 text-white" />
               </div>
               <div className="flex flex-col">
                 <span className="text-xl font-black tracking-tight text-white leading-none">
                   Mundo<span className="text-[#ff3d03]">Logística</span>
                 </span>
-                <span className="text-[10px] font-semibold tracking-wider text-gray-400 uppercase mt-0.5">
-                  Educação & Capacitação Corporativa
+                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mt-1">
+                  Corporate Learning Suite
                 </span>
               </div>
             </Link>
 
             <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
-              O maior ecossistema de conteúdo, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
+              O maior ecossistema de conteúdo especializado, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
-            <div className="pt-2 text-xs text-gray-500">
+            <div className="pt-2 text-xs font-mono text-gray-500">
               © {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.
             </div>
           </div>
 
           {/* Links Rápidos */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Navegação</h4>
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Navegação</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <Link href="#ecossistema" className="hover:text-[#ff3d03] transition-colors">
@@ -65,7 +65,7 @@ export default function Footer() {
 
           {/* Dados de Contato Oficial */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Atendimento Corporativo</h4>
+            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Atendimento Corporativo</h4>
             <ul className="space-y-3 text-xs sm:text-sm text-gray-400">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ff3d03] shrink-0 mt-0.5" />
