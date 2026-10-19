@@ -4,15 +4,16 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Sparkles, CheckCircle2, ShieldCheck, Flame, Play, Bot, TrendingUp, Users } from 'lucide-react';
 
-const PARTNER_LOGOS = [
-  'Pfizer',
-  'Dafiti',
-  'Yara Brasil',
-  'Ambev',
-  'DHL Supply Chain',
-  'Mercado Livre',
-  'Suzano',
-  'Natura'
+const PARTNERS = [
+  { name: 'Ambev', logo: '/partners/ambev.svg' },
+  { name: 'DHL Supply Chain', logo: '/partners/dhl.svg' },
+  { name: 'Mercado Livre', logo: '/partners/mercado-livre.svg' },
+  { name: 'Nestlé', logo: '/partners/nestle.svg' },
+  { name: 'Pfizer', logo: '/partners/pfizer.svg' },
+  { name: 'Suzano', logo: '/partners/suzano.svg' },
+  { name: 'Natura', logo: '/partners/natura.svg' },
+  { name: 'Yara Brasil', logo: '/partners/yara.svg' },
+  { name: 'Dafiti', logo: '/partners/dafiti.svg' },
 ];
 
 const TABS: ('cursos' | 'loggpt' | 'dashboard')[] = ['cursos', 'loggpt', 'dashboard'];
@@ -264,20 +265,34 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Faixa de Grandes Clientes com visual Neon */}
+        {/* Faixa de Grandes Clientes com visual Neon e Marquee Infinito */}
         <div className="pt-10 border-t border-white/10">
-          <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-500 mb-8">
+          <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-500 mb-6">
             Capacitando as maiores operações logísticas do continente
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 items-center justify-items-center opacity-60 hover:opacity-100 transition-opacity">
-            {PARTNER_LOGOS.map((company) => (
-              <div
-                key={company}
-                className="text-base sm:text-lg font-black tracking-tighter text-gray-300 hover:text-[#ff3d03] transition-colors py-1 cursor-default"
-              >
-                {company}
-              </div>
-            ))}
+
+          <div className="relative w-full overflow-hidden">
+            {/* Gradientes de fade suave nas laterais estilo Linear/Stripe */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-r from-[#06080d] to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 sm:w-36 bg-gradient-to-l from-[#06080d] to-transparent z-10" />
+
+            {/* Marquee Track Infinito com pause no hover */}
+            <div className="flex gap-4 sm:gap-6 w-max animate-marquee py-2">
+              {[...PARTNERS, ...PARTNERS].map((company, index) => (
+                <div
+                  key={`${company.name}-${index}`}
+                  className="group flex items-center justify-center px-6 sm:px-8 py-3.5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#ff3d03]/40 hover:bg-white/[0.06] hover:shadow-[0_0_25px_-5px_rgba(255,61,3,0.25)] transition-all duration-300 shrink-0 select-none cursor-default"
+                  title={company.name}
+                >
+                  <img
+                    src={company.logo}
+                    alt={company.name}
+                    className="h-7 sm:h-8 w-auto max-w-[110px] sm:max-w-[130px] object-contain opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 brightness-0 invert"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
