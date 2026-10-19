@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, BookOpen, Sparkles, CheckCircle2, ShieldCheck, Flame, Play, Bot, TrendingUp, Users } from 'lucide-react';
 
@@ -15,8 +15,24 @@ const PARTNER_LOGOS = [
   'Natura'
 ];
 
+const TABS: ('cursos' | 'loggpt' | 'dashboard')[] = ['cursos', 'loggpt', 'dashboard'];
+
 export default function Hero() {
   const [activeTab, setActiveTab] = useState<'cursos' | 'loggpt' | 'dashboard'>('cursos');
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveTab((current) => {
+        const nextIndex = (TABS.indexOf(current) + 1) % TABS.length;
+        return TABS[nextIndex];
+      });
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, activeTab]);
 
   return (
     <section data-theme="dark" className="relative overflow-hidden pt-8 pb-24 lg:pt-16 lg:pb-32 bg-[#06080d]">
@@ -94,7 +110,11 @@ export default function Hero() {
         <div className="relative max-w-5xl mx-auto mb-20">
           <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-[#ff3d03]/40 via-orange-500/10 to-[#ff3d03]/40 blur-xl opacity-60" />
           
-          <div className="relative glass-panel rounded-3xl border border-white/15 p-4 sm:p-6 shadow-2xl overflow-hidden">
+          <div
+            className="relative glass-panel rounded-3xl border border-white/15 p-4 sm:p-6 shadow-2xl overflow-hidden group"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             {/* Topbar da Janela com Abas */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-6 border-b border-white/10 gap-4">
               <div className="flex items-center gap-2">
@@ -102,38 +122,54 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                 <span className="text-xs font-mono text-gray-400 ml-2">mundologistica.app • suite corporativa</span>
+
+                {/* Indicador de Rotação Automática / Pausado */}
+                {isPaused ? (
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                    Pausado (cursor sobre a área)
+                  </span>
+                ) : (
+                  <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Troca automática (5s)
+                  </span>
+                )}
               </div>
 
               {/* Botões de Troca de Visão */}
               <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/5">
                 <button
                   onClick={() => setActiveTab('cursos')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
                     activeTab === 'cursos'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
+                  title="Ver Cursos e Especialistas"
                 >
                   Vitrine de Cursos
                 </button>
                 <button
                   onClick={() => setActiveTab('loggpt')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 relative ${
                     activeTab === 'loggpt'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
+                  title="Ver Demonstração do LogGPT IA"
                 >
                   <Bot className="w-3.5 h-3.5" />
                   LogGPT IA
                 </button>
                 <button
                   onClick={() => setActiveTab('dashboard')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
                     activeTab === 'dashboard'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30'
-                      : 'text-gray-400 hover:text-white'
+                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
+                      : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
+                  title="Ver Métricas de Telemetria RH"
                 >
                   Dashboard RH
                 </button>
