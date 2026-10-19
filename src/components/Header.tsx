@@ -51,6 +51,27 @@ export default function Header() {
 
   const isDark = currentTheme === 'dark';
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      const headerOffset = 85;
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      if (window.history.pushState) {
+        window.history.pushState(null, '', `#${targetId}`);
+      }
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pb-2 transition-all">
       <div className="max-w-7xl mx-auto">
@@ -103,19 +124,21 @@ export default function Header() {
 
           {/* Navegação Desktop sem background interno (100% transparente sobre o blur da cápsula) */}
           <nav className="hidden lg:flex items-center gap-1">
-            <Link
+            <a
               href="#ecossistema"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+              onClick={(e) => handleNavClick(e, 'ecossistema')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Ecossistema
-            </Link>
-            <Link
+            </a>
+            <a
               href="#cursos"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 ${
+              onClick={(e) => handleNavClick(e, 'cursos')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -131,10 +154,11 @@ export default function Header() {
               >
                 NOVO
               </span>
-            </Link>
-            <Link
+            </a>
+            <a
               href="#loggpt"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1 ${
+              onClick={(e) => handleNavClick(e, 'loggpt')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -142,57 +166,61 @@ export default function Header() {
             >
               <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
               LogGPT (IA)
-            </Link>
-            <Link
+            </a>
+            <a
               href="#dashboard"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+              onClick={(e) => handleNavClick(e, 'dashboard')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Dashboard RH
-            </Link>
-            <Link
+            </a>
+            <a
               href="#planos"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+              onClick={(e) => handleNavClick(e, 'planos')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               Planos
-            </Link>
-            <Link
+            </a>
+            <a
               href="#faq"
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 ${
+              onClick={(e) => handleNavClick(e, 'faq')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
               FAQ
-            </Link>
+            </a>
           </nav>
 
-          {/* CTA Header */}
+          {/* CTA Header: Solicitar Proposta B2B com rolagem suave instantânea */}
           <div className="hidden sm:flex items-center gap-3">
-            <Link
+            <a
               href="#proposta"
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#ff3d03] to-[#ff5c2b] shadow-lg shadow-[#ff3d03]/30 hover:shadow-[#ff3d03]/60 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-400/30"
+              onClick={(e) => handleNavClick(e, 'proposta')}
+              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#ff3d03] to-[#ff5c2b] shadow-lg shadow-[#ff3d03]/30 hover:shadow-[#ff3d03]/60 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-400/30 cursor-pointer active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Solicitar Proposta B2B
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Botão Mobile */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 transition-colors duration-200 focus:outline-none ${
+              className={`p-2 transition-colors duration-200 focus:outline-none cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white'
                   : 'text-gray-700 hover:text-gray-950'
@@ -213,81 +241,81 @@ export default function Header() {
                 : 'bg-white/95 border border-gray-200 shadow-2xl text-gray-800'
             }`}
           >
-            <Link
+            <a
               href="#ecossistema"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'ecossistema')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               Ecossistema
-            </Link>
-            <Link
+            </a>
+            <a
               href="#cursos"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'cursos')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               Vitrine de Cursos
-            </Link>
-            <Link
+            </a>
+            <a
               href="#loggpt"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'loggpt')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               LogGPT (IA Especialista)
-            </Link>
-            <Link
+            </a>
+            <a
               href="#dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'dashboard')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               Dashboard do Gestor
-            </Link>
-            <Link
+            </a>
+            <a
               href="#planos"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'planos')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               Planos Corporativos
-            </Link>
-            <Link
+            </a>
+            <a
               href="#faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors ${
+              onClick={(e) => handleNavClick(e, 'faq')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
               Perguntas Frequentes
-            </Link>
+            </a>
             <div className="pt-2">
-              <Link
+              <a
                 href="#proposta"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white bg-[#ff3d03] hover:bg-[#e03502] transition-colors"
+                onClick={(e) => handleNavClick(e, 'proposta')}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white bg-[#ff3d03] hover:bg-[#e03502] transition-colors cursor-pointer active:scale-95"
               >
                 Solicitar Proposta para Equipe
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         )}

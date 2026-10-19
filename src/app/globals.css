@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+section[id] {
+  scroll-margin-top: 100px;
+}
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+
   body {
     background-color: #06080d;
     color: #e2e8f0;
@@ -8,6 +22,7 @@
     overflow-x: hidden;
   }
 }
+
 
 /* Utilitários visuais de ponta inspirados em Linear, Vercel e Stripe */
 .bg-grid-pattern {
