@@ -122,26 +122,13 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                 <span className="text-xs font-mono text-gray-400 ml-2">mundologistica.app • suite corporativa</span>
-
-                {/* Indicador de Rotação Automática / Pausado */}
-                {isPaused ? (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Pausado (cursor sobre a área)
-                  </span>
-                ) : (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Troca automática (5s)
-                  </span>
-                )}
               </div>
 
               {/* Botões de Troca de Visão */}
               <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/5">
                 <button
                   onClick={() => setActiveTab('cursos')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative ${
                     activeTab === 'cursos'
                       ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -152,7 +139,7 @@ export default function Hero() {
                 </button>
                 <button
                   onClick={() => setActiveTab('loggpt')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-1 relative ${
                     activeTab === 'loggpt'
                       ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -164,7 +151,7 @@ export default function Hero() {
                 </button>
                 <button
                   onClick={() => setActiveTab('dashboard')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative ${
                     activeTab === 'dashboard'
                       ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
                       : 'text-gray-400 hover:text-white hover:bg-white/5'
@@ -176,81 +163,104 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Conteúdo Dinâmico da Janela */}
-            {activeTab === 'cursos' && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 animate-fade-in">
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
-                  <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
-                    Supply Chain
-                  </span>
-                  <h4 className="text-sm font-bold text-white mt-2 mb-1">Customer Centricity na Logística</h4>
-                  <p className="text-xs text-gray-400">Profa. Tania Heck Trotta (Ex-executiva FMCG e Pharma)</p>
-                  <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
-                    <span>12h de aulas</span>
-                    <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+            {/* Conteúdo Dinâmico da Janela com Transição Fade Suave */}
+            <div className="grid grid-cols-1">
+              {/* Tab 1: Vitrine de Cursos */}
+              <div
+                className={`col-start-1 row-start-1 transition-all duration-700 ease-in-out ${
+                  activeTab === 'cursos'
+                    ? 'opacity-100 translate-y-0 pointer-events-auto z-10'
+                    : 'opacity-0 translate-y-2 pointer-events-none z-0'
+                }`}
+              >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
+                    <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
+                      Supply Chain
+                    </span>
+                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Customer Centricity na Logística</h4>
+                    <p className="text-xs text-gray-400">Profa. Tania Heck Trotta (Ex-executiva FMCG e Pharma)</p>
+                    <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
+                      <span>12h de aulas</span>
+                      <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
-                  <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
-                    Tributário & Custos
-                  </span>
-                  <h4 className="text-sm font-bold text-white mt-2 mb-1">Reforma Tributária e Transportes</h4>
-                  <p className="text-xs text-gray-400">Rafael Brito (CEO & Especialista Tributário)</p>
-                  <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
-                    <span>10h de aulas</span>
-                    <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
+                    <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
+                      Tributário & Custos
+                    </span>
+                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Reforma Tributária e Transportes</h4>
+                    <p className="text-xs text-gray-400">Rafael Brito (CEO & Especialista Tributário)</p>
+                    <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
+                      <span>10h de aulas</span>
+                      <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
-                  <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
-                    Tecnologia & IA
-                  </span>
-                  <h4 className="text-sm font-bold text-white mt-2 mb-1">Veículos Autônomos na Logística</h4>
-                  <p className="text-xs text-gray-400">Marilia Ramalho (Americas Supply Chain Director)</p>
-                  <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
-                    <span>10h de aulas</span>
-                    <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-all">
+                    <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
+                      Tecnologia & IA
+                    </span>
+                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Veículos Autônomos na Logística</h4>
+                    <p className="text-xs text-gray-400">Marilia Ramalho (Americas Supply Chain Director)</p>
+                    <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
+                      <span>10h de aulas</span>
+                      <span className="text-[#ff3d03] font-bold">Certificado Oficial</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            )}
 
-            {activeTab === 'loggpt' && (
-              <div className="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 animate-fade-in font-mono text-xs">
-                <div className="flex items-center gap-2 text-[#ff3d03]">
-                  <Bot className="w-4 h-4" />
-                  <span className="font-bold">LogGPT v3 Enterprise Console:</span>
-                </div>
-                <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <span className="text-orange-400">&gt; Pergunta do Gestor:</span> "Qual a fórmula para cálculo de estoque de segurança com lead time volátil?"
-                </div>
-                <div className="p-4 rounded-xl bg-[#ff3d03]/10 border border-[#ff3d03]/30 text-white leading-relaxed">
-                  <span className="text-emerald-400">&gt; Resposta LogGPT:</span> SS = Z × √[(LT × σD²) + (D² × σLT²)]. Recomendamos o fator Z=1.65 (95% OTIF). Baseado no acervo técnico MundoLogística.
+              {/* Tab 2: LogGPT Console */}
+              <div
+                className={`col-start-1 row-start-1 transition-all duration-700 ease-in-out ${
+                  activeTab === 'loggpt'
+                    ? 'opacity-100 translate-y-0 pointer-events-auto z-10'
+                    : 'opacity-0 translate-y-2 pointer-events-none z-0'
+                }`}
+              >
+                <div className="p-6 rounded-2xl bg-black/60 border border-white/10 space-y-4 font-mono text-xs">
+                  <div className="flex items-center gap-2 text-[#ff3d03]">
+                    <Bot className="w-4 h-4" />
+                    <span className="font-bold">LogGPT v3 Enterprise Console:</span>
+                  </div>
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-gray-300">
+                    <span className="text-orange-400">&gt; Pergunta do Gestor:</span> "Qual a fórmula para cálculo de estoque de segurança com lead time volátil?"
+                  </div>
+                  <div className="p-4 rounded-xl bg-[#ff3d03]/10 border border-[#ff3d03]/30 text-white leading-relaxed">
+                    <span className="text-emerald-400">&gt; Resposta LogGPT:</span> SS = Z × √[(LT × σD²) + (D² × σLT²)]. Recomendamos o fator Z=1.65 (95% OTIF). Baseado no acervo técnico MundoLogística.
+                  </div>
                 </div>
               </div>
-            )}
 
-            {activeTab === 'dashboard' && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 animate-fade-in">
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-                  <span className="text-xs text-gray-400">Horas de Treinamento da Equipe</span>
-                  <div className="text-3xl font-black text-white mt-1">428h</div>
-                  <span className="text-[11px] text-emerald-400 font-bold mt-1 block">+38% vs. mês anterior</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-                  <span className="text-xs text-gray-400">Cursos Concluídos</span>
-                  <div className="text-3xl font-black text-white mt-1">54</div>
-                  <span className="text-[11px] text-[#ff3d03] font-bold mt-1 block">98.2% aprovação nos testes</span>
-                </div>
-                <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
-                  <span className="text-xs text-gray-400">Colaboradores Ativos</span>
-                  <div className="text-3xl font-black text-white mt-1">28 / 30</div>
-                  <span className="text-[11px] text-emerald-400 font-bold mt-1 block">93.3% engajamento semanal</span>
+              {/* Tab 3: Dashboard RH */}
+              <div
+                className={`col-start-1 row-start-1 transition-all duration-700 ease-in-out ${
+                  activeTab === 'dashboard'
+                    ? 'opacity-100 translate-y-0 pointer-events-auto z-10'
+                    : 'opacity-0 translate-y-2 pointer-events-none z-0'
+                }`}
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                    <span className="text-xs text-gray-400">Horas de Treinamento da Equipe</span>
+                    <div className="text-3xl font-black text-white mt-1">428h</div>
+                    <span className="text-[11px] text-emerald-400 font-bold mt-1 block">+38% vs. mês anterior</span>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                    <span className="text-xs text-gray-400">Cursos Concluídos</span>
+                    <div className="text-3xl font-black text-white mt-1">54</div>
+                    <span className="text-[11px] text-[#ff3d03] font-bold mt-1 block">98.2% aprovação nos testes</span>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10">
+                    <span className="text-xs text-gray-400">Colaboradores Ativos</span>
+                    <div className="text-3xl font-black text-white mt-1">28 / 30</div>
+                    <span className="text-[11px] text-emerald-400 font-bold mt-1 block">93.3% engajamento semanal</span>
+                  </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
 
