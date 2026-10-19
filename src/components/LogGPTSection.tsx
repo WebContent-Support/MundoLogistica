@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Bot, Sparkles, Send, ShieldCheck, Database, Zap, Terminal, CornerDownLeft } from 'lucide-react';
 
 const SAMPLE_CONVERSATIONS = [
@@ -26,6 +26,63 @@ const SAMPLE_CONVERSATIONS = [
 
 export default function LogGPTSection() {
   const [activeChat, setActiveChat] = useState(0);
+  const [displayedAnswer, setDisplayedAnswer] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const consoleRef = useRef<HTMLDivElement>(null);
+
+  // Observa quando a seção entra na tela do usuário
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const el = consoleRef.current;
+    if (el) observer.observe(el);
+
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, []);
+
+  // Efeito Máquina de Escrever (Typewriter streaming de IA)
+  useEffect(() => {
+    if (!isInView) return;
+
+    const fullAnswer = SAMPLE_CONVERSATIONS[activeChat].answer;
+    setDisplayedAnswer('');
+    setIsTyping(true);
+
+    let charIndex = 0;
+    const interval = setInterval(() => {
+      charIndex += 1;
+      setDisplayedAnswer(fullAnswer.slice(0, charIndex));
+
+      if (charIndex >= fullAnswer.length) {
+        clearInterval(interval);
+        setIsTyping(false);
+      }
+    }, 14);
+
+    return () => clearInterval(interval);
+  }, [activeChat, isInView]);
+
+  // Rotação automática a cada 6 segundos após a conclusão da resposta
+  useEffect(() => {
+    if (!isInView || isTyping || isPaused) return;
+
+    const timer = setTimeout(() => {
+      setActiveChat((curr) => (curr + 1) % SAMPLE_CONVERSATIONS.length);
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, [isInView, isTyping, isPaused, activeChat]);
 
   return (
     <section id="loggpt" data-theme="dark" className="py-28 bg-[#090d14] text-white relative overflow-hidden border-t border-white/10">
@@ -90,7 +147,12 @@ export default function LogGPTSection() {
 
           {/* Coluna Console Futurista LogGPT */}
           <div className="lg:col-span-7">
-            <div className="glass-panel-glow rounded-3xl border border-[#ff3d03]/30 p-6 sm:p-8 shadow-2xl relative">
+            <div
+              ref={consoleRef}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              className="glass-panel-glow rounded-3xl border border-[#ff3d03]/30 p-6 sm:p-8 shadow-2xl relative transition-all"
+            >
               {/* Header do Terminal */}
               <div className="flex items-center justify-between pb-5 mb-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
@@ -119,7 +181,7 @@ export default function LogGPTSection() {
                     <button
                       key={idx}
                       onClick={() => setActiveChat(idx)}
-                      className={`text-xs px-3.5 py-1.5 rounded-xl font-semibold transition-all ${
+                      className={`text-xs px-3.5 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
                         activeChat === idx
                           ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 font-bold scale-105'
                           : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10'
@@ -143,13 +205,24 @@ export default function LogGPTSection() {
 
                 {/* Resposta */}
                 <div className="flex justify-start">
-                  <div className="bg-black/70 text-gray-200 rounded-2xl rounded-tl-none p-5 sm:p-6 text-sm max-w-[95%] border border-[#ff3d03]/30 space-y-3">
-                    <div className="flex items-center gap-1.5 text-xs text-[#ff3d03] font-bold font-mono">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>LogGPT Análise Técnica:</span>
+                  <div className="bg-black/70 text-gray-200 rounded-2xl rounded-tl-none p-5 sm:p-6 text-sm max-w-[95%] border border-[#ff3d03]/30 space-y-3 w-full">
+                    <div className="flex items-center justify-between text-xs font-mono">
+                      <div className="flex items-center gap-1.5 text-[#ff3d03] font-bold">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>LogGPT Análise Técnica:</span>
+                      </div>
+                      {isTyping && (
+                        <span className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-mono">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          Processando resposta...
+                        </span>
+                      )}
                     </div>
-                    <p className="leading-relaxed text-gray-300 text-xs sm:text-sm font-sans">
-                      {SAMPLE_CONVERSATIONS[activeChat].answer}
+                    <p className="leading-relaxed text-gray-300 text-xs sm:text-sm font-sans min-h-[4.5rem]">
+                      {displayedAnswer}
+                      {isTyping && (
+                        <span className="inline-block w-1.5 h-4 bg-[#ff3d03] ml-1 animate-pulse align-middle" />
+                      )}
                     </p>
                     <div className="pt-2 text-[10px] font-mono text-gray-400 flex items-center justify-between border-t border-white/10">
                       <span>{SAMPLE_CONVERSATIONS[activeChat].source}</span>
@@ -158,6 +231,7 @@ export default function LogGPTSection() {
                   </div>
                 </div>
               </div>
+
 
               {/* Input Fake Terminal */}
               <div className="flex items-center gap-3 bg-black/80 rounded-2xl p-3 border border-white/10">
