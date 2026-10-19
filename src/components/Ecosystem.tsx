@@ -2,7 +2,7 @@ import { Compass, BookCheck, Bot, Network, Sparkles, TrendingUp, Cpu, Award, Che
 
 export default function Ecosystem() {
   return (
-    <section id="ecossistema" className="py-28 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200">
+    <section id="ecossistema" data-theme="light" className="py-28 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho Bento */}
         <div className="text-center max-w-3xl mx-auto mb-20">

@@ -12,7 +12,7 @@ export default function RoiCalculator() {
   const estimatedSavings = (teamSize * 4500).toLocaleString('pt-BR');
 
   return (
-    <section className="py-24 bg-white text-gray-900 border-t border-gray-100 relative overflow-hidden">
+    <section data-theme="light" className="py-24 bg-white text-gray-900 border-t border-gray-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-gray-50/80 rounded-3xl p-8 sm:p-12 border border-gray-200/90 shadow-lg max-w-5xl mx-auto relative group">
           {/* O Quadrado / Cantoneira Laranja da Marca MundoLogística */}

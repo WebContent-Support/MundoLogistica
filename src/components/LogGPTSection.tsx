@@ -28,7 +28,7 @@ export default function LogGPTSection() {
   const [activeChat, setActiveChat] = useState(0);
 
   return (
-    <section id="loggpt" className="py-28 bg-[#090d14] text-white relative overflow-hidden border-t border-white/10">
+    <section id="loggpt" data-theme="dark" className="py-28 bg-[#090d14] text-white relative overflow-hidden border-t border-white/10">
       {/* Luz ambiente de fundo neon */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff3d03]/15 blur-[150px] pointer-events-none rounded-full" />
 

@@ -38,7 +38,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-28 bg-[#f8fafc] text-gray-900 border-t border-gray-200">
+    <section id="faq" data-theme="light" className="py-28 bg-[#f8fafc] text-gray-900 border-t border-gray-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">

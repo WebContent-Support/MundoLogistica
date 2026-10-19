@@ -26,7 +26,7 @@ const TESTIMONIALS = [
 
 export default function SocialProof() {
   return (
-    <section className="py-28 bg-[#090d14] text-white border-t border-white/10 relative">
+    <section data-theme="dark" className="py-28 bg-[#090d14] text-white border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center max-w-3xl mx-auto mb-16">

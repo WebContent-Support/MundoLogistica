@@ -14,7 +14,7 @@ export default function PricingB2B() {
   const [selectedTier, setSelectedTier] = useState('medium');
 
   return (
-    <section id="planos" className="py-28 bg-white text-gray-900 border-t border-gray-100 relative">
+    <section id="planos" data-theme="light" className="py-28 bg-white text-gray-900 border-t border-gray-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center max-w-3xl mx-auto mb-16">

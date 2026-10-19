@@ -28,7 +28,7 @@ export default function CourseShowcase() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="cursos" className="py-28 bg-white text-gray-900 relative border-t border-gray-100">
+    <section id="cursos" data-theme="light" className="py-28 bg-white text-gray-900 relative border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da Seção */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">

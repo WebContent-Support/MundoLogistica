@@ -19,7 +19,7 @@ export default function Hero() {
   const [activeTab, setActiveTab] = useState<'cursos' | 'loggpt' | 'dashboard'>('cursos');
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-24 lg:pt-16 lg:pb-32 bg-[#06080d]">
+    <section data-theme="dark" className="relative overflow-hidden pt-8 pb-24 lg:pt-16 lg:pb-32 bg-[#06080d]">
       {/* Luz ambiente de fundo neon laranja */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-gradient-to-b from-[#ff3d03]/25 via-[#ff3d03]/10 to-transparent blur-[120px] pointer-events-none rounded-full" />
       

@@ -26,7 +26,7 @@ export default function LeadForm() {
   };
 
   return (
-    <section id="proposta" className="py-28 bg-[#06080d] text-white relative border-t border-white/10">
+    <section id="proposta" data-theme="dark" className="py-28 bg-[#06080d] text-white relative border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto glass-panel-glow rounded-3xl p-8 sm:p-14 border border-[#ff3d03]/30 shadow-2xl relative overflow-hidden">
           {/* Luz de destaque Laranja Neon */}
