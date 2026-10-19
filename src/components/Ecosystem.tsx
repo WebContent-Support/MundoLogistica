@@ -62,6 +62,60 @@ export default function Ecosystem() {
     return () => cancelAnimationFrame(frameId);
   }, [hasAnimatedBars]);
 
+  // --- Animação dos Números da Faixa de Métricas (Scroll Trigger) ---
+  const metricsRef = useRef<HTMLDivElement>(null);
+  const [hasAnimatedMetrics, setHasAnimatedMetrics] = useState(false);
+  const [metricYears, setMetricYears] = useState(0);
+  const [metricLeaders, setMetricLeaders] = useState(0);
+  const [metricCourses, setMetricCourses] = useState(0);
+  const [metricValid, setMetricValid] = useState(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimatedMetrics) {
+          setHasAnimatedMetrics(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const currentRef = metricsRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [hasAnimatedMetrics]);
+
+  useEffect(() => {
+    if (!hasAnimatedMetrics) return;
+
+    const duration = 1600; // ms
+    const startTime = performance.now();
+
+    const updateCounters = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Suave curva ease-out exponencial
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+      setMetricYears(Math.round(easeProgress * 18));
+      setMetricLeaders(Math.round(easeProgress * 400));
+      setMetricCourses(Math.round(easeProgress * 30));
+      setMetricValid(Math.round(easeProgress * 100));
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounters);
+      }
+    };
+
+    const frameId = requestAnimationFrame(updateCounters);
+    return () => cancelAnimationFrame(frameId);
+  }, [hasAnimatedMetrics]);
+
   // --- Efeito Máquina de Escrever (Typewriter) Simulação de IA ---
   const aiRef = useRef<HTMLDivElement>(null);
   const [isAiActive, setIsAiActive] = useState(false);
@@ -295,33 +349,39 @@ export default function Ecosystem() {
           </div>
         </div>
 
-        {/* Faixa de Métricas em Fundo Escuro com Cantoneira Laranja */}
-        <div className="bg-gray-950 text-white rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-2xl relative overflow-hidden">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-800">
+        {/* Faixa de Métricas em Fundo Escuro com Cantoneira Laranja e Contadores Animados */}
+        <div
+          ref={metricsRef}
+          className="bg-gray-950 text-white rounded-3xl p-8 sm:p-12 border border-gray-800 shadow-2xl relative overflow-hidden"
+        >
+          {/* Brilho neon sutil de fundo */}
+          <div className="absolute top-0 right-1/4 w-96 h-48 bg-[#ff3d03]/10 blur-[80px] pointer-events-none rounded-full" />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-800 relative z-10">
             <div className="pt-4 lg:pt-0 lg:px-4">
-              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-                <span className="text-[#ff3d03]">+18</span> Anos
+              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2 tabular-nums">
+                <span className="text-[#ff3d03]">+{metricYears}</span> Anos
               </div>
               <p className="text-xs sm:text-sm text-gray-400 font-medium">De liderança editorial e curadoria técnica no Brasil</p>
             </div>
 
             <div className="pt-4 lg:pt-0 lg:px-4">
-              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-                <span className="text-[#ff3d03]">+400</span> Líderes
+              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2 tabular-nums">
+                <span className="text-[#ff3d03]">+{metricLeaders}</span> Líderes
               </div>
               <p className="text-xs sm:text-sm text-gray-400 font-medium">Grandes corporações capacitando seus times ativos</p>
             </div>
 
             <div className="pt-4 lg:pt-0 lg:px-4">
-              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-                <span className="text-[#ff3d03]">+30</span> Cursos
+              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2 tabular-nums">
+                <span className="text-[#ff3d03]">+{metricCourses}</span> Cursos
               </div>
               <p className="text-xs sm:text-sm text-gray-400 font-medium">Ministrados por diretores atuantes nas maiores cadeias</p>
             </div>
 
             <div className="pt-4 lg:pt-0 lg:px-4">
-              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2">
-                <span className="text-[#ff3d03]">100%</span> Válido
+              <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2 tabular-nums">
+                <span className="text-[#ff3d03]">{metricValid}%</span> Válido
               </div>
               <p className="text-xs sm:text-sm text-gray-400 font-medium">Certificação corporativa reconhecida por todo o setor</p>
             </div>
