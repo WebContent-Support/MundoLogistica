@@ -25,7 +25,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Tania Heck Trotta',
       role: 'Executiva Sênior de Supply Chain',
       companyOrExperience: '+20 anos de FMCG, Pharma e Medical Devices',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/tania-heck.png',
     },
     summary: 'Como transformar a logística em um diferencial competitivo de fidelização, conectando Supply Chain com Comercial e Finanças.',
     modules: [
@@ -45,7 +45,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Rafael Brito',
       role: 'CEO & Especialista Tributário',
       companyOrExperience: '+15 anos em estratégia financeira e tributos',
-      avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/rafael-brito.jpg',
     },
     summary: 'Análise minuciosa da nova legislação tributária brasileira (IBS e CBS) e como recalcular custos de frete e margens.',
     modules: [
@@ -65,7 +65,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Ricardo Mello',
       role: 'COO & Executivo de Operações',
       companyOrExperience: 'Ex-executivo Cargill, Johnson & Johnson e Accenture',
-      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/ricardo-mello.jpg',
     },
     summary: 'Estruturação de governança de dados para planejamento integrado de vendas e operações (S&OP) com foco em previsibilidade.',
     modules: [
@@ -85,7 +85,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Danilo Doriguelo de Melo',
       role: 'Diretor Executivo de Supply Chain',
       companyOrExperience: 'Coautor de "Logística Viva" e pós-graduado Oxford',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/danilo-doriguelo.jpg',
     },
     summary: 'Implementação de rotas descarbonizadas, economia circular e conformidade social na cadeia de fornecedores.',
     modules: [
@@ -105,7 +105,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Marilia Ramalho',
       role: 'Americas Supply Chain Director',
       companyOrExperience: 'Fundadora do Women in Logistics, +25 anos de carreira',
-      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/marilia-ramalho.jpg',
     },
     summary: 'Como as novas tecnologias de telemetria autônoma, drones e inteligência de frotas estão transformando custos de transporte.',
     modules: [
@@ -125,7 +125,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Francisco Tarosso',
       role: 'Diretor Sênior de Operações',
       companyOrExperience: 'Liderança em grandes multinacionais globais',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/francisco-tarosso.jpg',
     },
     summary: 'Construção de culturas operacionais de alta performance, engajamento e redução drástica do turnover em galpões e estradas.',
     modules: [
@@ -145,7 +145,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Daiana Nunes',
       role: 'Professora e Executiva de Supply Chain',
       companyOrExperience: 'Ex-Amazon Brasil, Petz e DPSP; Doutoranda FGV',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80',
+      avatar: '/instructors/daiana-nunes.jpg',
     },
     summary: 'A convergência entre algoritmos de roteirização, automação e a gestão humana para entrega no mesmo dia (Same Day Delivery).',
     modules: [

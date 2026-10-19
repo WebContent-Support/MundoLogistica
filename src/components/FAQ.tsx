@@ -38,16 +38,16 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-28 bg-[#090d14] text-white border-t border-white/10">
+    <section id="faq" className="py-28 bg-[#f8fafc] text-gray-900 border-t border-gray-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
             Tire Suas Dúvidas
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-3 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mt-4 mb-3 tracking-tight">
             Perguntas Frequentes
           </h2>
-          <p className="text-gray-400 text-base">
+          <p className="text-gray-600 text-base">
             Tudo o que você precisa saber sobre a contratação corporativa da MundoLogística.
           </p>
         </div>
@@ -58,18 +58,23 @@ export default function FAQ() {
             return (
               <div
                 key={index}
-                className="glass-panel rounded-2xl border border-white/10 overflow-hidden transition-all duration-300"
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-xs transition-all duration-300 relative group"
               >
+                {/* Cantoneira Laranja da Marca MundoLogística no item aberto */}
+                {isOpen && (
+                  <div className="absolute top-2 left-2 w-2 h-2 border-t-2 border-l-2 border-[#ff3d03]" />
+                )}
+
                 <button
                   onClick={() => toggle(index)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                 >
-                  <span className="text-base font-bold text-white pr-4">
+                  <span className="text-base font-bold text-gray-900 pr-4">
                     {item.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all ${
-                      isOpen ? 'bg-[#ff3d03] text-white rotate-180' : 'bg-white/5 text-gray-400'
+                      isOpen ? 'bg-[#ff3d03] text-white rotate-180' : 'bg-gray-100 text-gray-500'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
@@ -77,7 +82,7 @@ export default function FAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 text-sm text-gray-300 leading-relaxed border-t border-white/5 font-sans">
+                  <div className="px-6 pb-6 pt-2 text-sm text-gray-600 leading-relaxed border-t border-gray-100 font-sans">
                     {item.answer}
                   </div>
                 )}

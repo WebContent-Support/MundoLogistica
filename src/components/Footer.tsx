@@ -1,29 +1,23 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Clock, Flame } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-[#040609] text-white pt-20 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
-          {/* Logo e Missão */}
+          {/* Logo Oficial e Missão */}
           <div className="lg:col-span-5 space-y-4">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#e03502] flex items-center justify-center text-white font-black text-xl shadow-lg shadow-[#ff3d03]/30">
-                <Flame className="w-6 h-6 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-white leading-none">
-                  Mundo<span className="text-[#ff3d03]">Logística</span>
-                </span>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 mt-1">
-                  Corporate Learning Suite
-                </span>
-              </div>
+            <Link href="/" className="inline-block py-1">
+              <img
+                src="/logo-white.webp"
+                alt="MundoLogística"
+                className="h-9 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
-              O maior ecossistema de conteúdo especializado, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
+              O maior ecossistema de conteúdo técnico, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
             <div className="pt-2 text-xs font-mono text-gray-500">
