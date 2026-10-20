@@ -41,7 +41,7 @@ export default function RoiCalculator() {
                   <label htmlFor="team-size-slider" className="text-gray-700 cursor-pointer">
                     Tamanho da Equipe:
                   </label>
-                  <span className="text-2xl font-black text-[#c23300] font-mono">{teamSize} colaboradores</span>
+                  <span className="text-2xl font-black text-[#d53300] font-mono">{teamSize} colaboradores</span>
                 </div>
 
                 <input
@@ -54,7 +54,7 @@ export default function RoiCalculator() {
                   step="1"
                   value={teamSize}
                   onChange={(e) => setTeamSize(Number(e.target.value))}
-                  className="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c92e00]"
+                  className="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#df3500]"
                 />
 
                 <div className="flex justify-between text-[11px] font-mono text-gray-600">
@@ -75,19 +75,19 @@ export default function RoiCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
                   <div className="flex items-center gap-2 text-gray-700 text-xs mb-1 font-medium">
-                    <Clock className="w-3.5 h-3.5 text-[#c23300]" />
+                    <Clock className="w-3.5 h-3.5 text-[#d53300]" />
                     <span>Horas de Capacitação</span>
                   </div>
-                  <div className="text-2xl font-black text-gray-900 font-mono">{trainingHours}h</div>
+                  <div className="text-2xl font-black text-gray-950 font-mono">{trainingHours}h</div>
                   <span className="text-[10px] text-gray-600">no ano</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
                   <div className="flex items-center gap-2 text-gray-700 text-xs mb-1 font-medium">
-                    <Award className="w-3.5 h-3.5 text-[#c23300]" />
+                    <Award className="w-3.5 h-3.5 text-[#d53300]" />
                     <span>Certificados Oficiais</span>
                   </div>
-                  <div className="text-2xl font-black text-gray-900 font-mono">{certifiedProfessionals}</div>
+                  <div className="text-2xl font-black text-gray-950 font-mono">{certifiedProfessionals}</div>
                   <span className="text-[10px] text-gray-600">profissionais</span>
                 </div>
               </div>
@@ -96,7 +96,7 @@ export default function RoiCalculator() {
                 <span className="text-xs text-orange-950 font-mono font-bold block mb-1">
                   Economia e Eficiência Operacional Estimada:
                 </span>
-                <div className="text-3xl font-black text-[#c23300] font-mono">
+                <div className="text-3xl font-black text-[#d53300] font-mono">
                   R$ {estimatedSavings}
                 </div>
                 <span className="text-[11px] text-gray-700 mt-1 block">
@@ -106,7 +106,7 @@ export default function RoiCalculator() {
 
               <a
                 href="#proposta"
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-xs text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 uppercase tracking-wider cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-xs text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 uppercase tracking-wider cursor-pointer"
               >
                 Solicitar Cotação para {teamSize} Pessoas
                 <ArrowRight className="w-4 h-4" />

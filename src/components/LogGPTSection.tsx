@@ -183,7 +183,7 @@ export default function LogGPTSection() {
                       onClick={() => setActiveChat(idx)}
                       className={`text-xs px-3.5 py-1.5 rounded-xl font-semibold transition-all cursor-pointer ${
                         activeChat === idx
-                          ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 font-bold scale-105'
+                          ? 'bg-[#df3500] text-white shadow-md shadow-[#df3500]/30 font-bold scale-105'
                           : 'bg-white/5 text-gray-200 hover:bg-white/10 border border-white/10'
                       }`}
                     >
@@ -246,7 +246,7 @@ export default function LogGPTSection() {
                   type="button"
                   disabled
                   aria-label="Enviar pergunta ao LogGPT"
-                  className="w-8 h-8 rounded-xl bg-[#c92e00]/60 flex items-center justify-center text-white shrink-0 cursor-not-allowed"
+                  className="w-8 h-8 rounded-xl bg-[#df3500]/70 flex items-center justify-center text-white shrink-0 cursor-not-allowed"
                 >
                   <CornerDownLeft className="w-4 h-4" />
                 </button>

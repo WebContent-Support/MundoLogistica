@@ -75,7 +75,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link
               href="#proposta"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-[#d83300] to-[#b82a00] hover:from-[#e03502] hover:to-[#c22d00] transition-all shadow-[0_0_40px_-5px_rgba(216,51,0,0.5)] hover:shadow-[0_0_50px_0px_rgba(216,51,0,0.7)] hover:scale-105 active:scale-95 border border-orange-400/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] transition-all shadow-[0_0_40px_-5px_rgba(255,61,3,0.5)] hover:shadow-[0_0_50px_0px_rgba(255,61,3,0.7)] hover:scale-105 active:scale-95 border border-orange-400/30"
             >
               SOLICITAR PROPOSTA CORPORATIVA
               <ArrowRight className="w-4 h-4" />
@@ -132,7 +132,7 @@ export default function Hero() {
                   onClick={() => setActiveTab('cursos')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative cursor-pointer ${
                     activeTab === 'cursos'
-                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 scale-100'
+                      ? 'bg-[#df3500] text-white shadow-md shadow-[#df3500]/30 scale-100'
                       : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                   title="Ver Cursos e Especialistas"

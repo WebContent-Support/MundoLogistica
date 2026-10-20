@@ -208,7 +208,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Compass className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d53300] block mb-2">
                 Pilar 01 • Diagnóstico de Competências
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-4">
@@ -226,20 +226,20 @@ export default function Ecosystem() {
             >
               <div className="flex justify-between text-gray-900 font-bold items-center">
                 <span>Maturidade em WMS & Acuracidade de Estoque</span>
-                <span className="text-[#992200] font-black tabular-nums text-sm">
+                <span className="text-[#d53300] font-black tabular-nums text-sm">
                   {wmsValue}%
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
                 <div
-                  className="bg-[#c92e00] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(201,46,0,0.3)]"
+                  className="bg-[#df3500] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(223,53,0,0.3)]"
                   style={{ width: `${hasAnimatedBars ? 88 : 0}%` }}
                 />
               </div>
 
               <div className="flex justify-between text-gray-900 font-bold items-center pt-1.5">
                 <span>Engenharia de Custos de Fretes & Tributário</span>
-                <span className="text-[#992200] font-black tabular-nums text-sm">
+                <span className="text-[#d53300] font-black tabular-nums text-sm">
                   {costsValue}%
                 </span>
               </div>
@@ -261,7 +261,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Bot className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d53300] block mb-2">
                 Pilar 02 • Inteligência Artificial
               </span>
               <h3 className="text-2xl font-black text-gray-950 mb-3">
@@ -300,7 +300,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <BookCheck className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d53300] block mb-2">
                 Pilar 03 • Aplicação Imediata
               </span>
               <h3 className="text-2xl font-black text-gray-950 mb-3">
@@ -321,7 +321,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Network className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d53300] block mb-2">
                 Pilar 04 • Jornadas de Carreira
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-4">
@@ -339,7 +339,7 @@ export default function Ecosystem() {
               <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">
                 #Supervisores de Armazém
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-orange-100 text-[#c23300] border border-orange-200">
+              <span className="px-3 py-1.5 rounded-lg bg-orange-100 text-[#d53300] border border-orange-200">
                 #Gerentes de Supply Chain
               </span>
               <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">

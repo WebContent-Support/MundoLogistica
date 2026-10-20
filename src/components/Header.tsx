@@ -195,7 +195,7 @@ export default function Header() {
             <a
               href="#proposta"
               onClick={(e) => handleNavClick(e, 'proposta')}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#c92e00] hover:bg-[#b02800] shadow-md shadow-[#c92e00]/30 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-500/30 cursor-pointer active:scale-95"
+              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-md shadow-[#df3500]/30 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-400/30 cursor-pointer active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Solicitar Proposta B2B
@@ -299,7 +299,7 @@ export default function Header() {
               <a
                 href="#proposta"
                 onClick={(e) => handleNavClick(e, 'proposta')}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white bg-[#c92e00] hover:bg-[#b02800] transition-colors cursor-pointer active:scale-95"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] transition-colors cursor-pointer active:scale-95"
               >
                 Solicitar Proposta para Equipe
                 <ArrowRight className="w-4 h-4" />

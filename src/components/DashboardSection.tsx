@@ -105,19 +105,19 @@ export default function DashboardSection() {
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-600 block mb-1">Horas de Estudo da Equipe</span>
                   <div className="text-3xl font-black text-gray-950 tabular-nums">{hours}h</div>
-                  <span className="text-[10px] font-mono text-emerald-800 font-bold mt-1 block">+38% vs. mês anterior</span>
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold mt-1 block">+38% vs. mês anterior</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-600 block mb-1">Cursos Concluídos</span>
-                  <div className="text-3xl font-black text-[#c92e00] tabular-nums">{coursesCount}</div>
+                  <div className="text-3xl font-black text-[#d53300] tabular-nums">{coursesCount}</div>
                   <span className="text-[10px] font-mono text-gray-600 font-bold mt-1 block">98.2% taxa de aprovação</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
                   <span className="text-[11px] font-mono text-gray-600 block mb-1">Engajamento Semanal</span>
                   <div className="text-3xl font-black text-gray-950 tabular-nums">{engagement}%</div>
-                  <span className="text-[10px] font-mono text-emerald-800 font-bold mt-1 block">Ativos nos últimos 7 dias</span>
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold mt-1 block">Ativos nos últimos 7 dias</span>
                 </div>
               </div>
 
@@ -161,12 +161,12 @@ export default function DashboardSection() {
 
           {/* Coluna Texto Persuasivo */}
           <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300] bg-orange-100/70 border border-orange-300 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#d53300] bg-orange-100/70 border border-orange-300 px-3.5 py-1.5 rounded-full inline-block">
               Visibilidade & ROI para a Liderança
             </span>
 
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 tracking-tight leading-[1.1]">
-              O desenvolvimento do time <span className="text-[#c23300]">não fica mais invisível</span>.
+              O desenvolvimento do time <span className="text-[#d53300]">não fica mais invisível</span>.
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed">
@@ -181,7 +181,7 @@ export default function DashboardSection() {
                 'Emissão e controle centralizado de certificados oficiais',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 text-sm text-gray-700 font-medium">
-                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#c23300] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#d53300] flex items-center justify-center shrink-0">
                     <CheckCircle className="w-3.5 h-3.5" />
                   </div>
                   <span>{item}</span>
@@ -192,7 +192,7 @@ export default function DashboardSection() {
             <div className="pt-4">
               <a
                 href="#proposta"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 cursor-pointer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer"
               >
                 Solicitar Demonstração do Painel
               </a>

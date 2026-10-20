@@ -83,7 +83,7 @@ export default function CourseShowcase() {
           {/* Categorias / Trilhas */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-gray-700 mr-2 shrink-0">
-              <Filter className="w-3.5 h-3.5 text-[#c23300]" />
+              <Filter className="w-3.5 h-3.5 text-[#d53300]" />
               TRILHA:
             </div>
             {CATEGORIES.map((category) => {
@@ -94,7 +94,7 @@ export default function CourseShowcase() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/25 scale-105'
+                      ? 'bg-[#df3500] text-white shadow-md shadow-[#df3500]/25 scale-105'
                       : 'bg-white text-gray-800 hover:text-black hover:bg-gray-100 border border-gray-300'
                   }`}
                 >
@@ -134,7 +134,7 @@ export default function CourseShowcase() {
                 <div className="p-7">
                   {/* Badges do Curso */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[10px] font-mono font-bold text-[#c23300] bg-orange-50 border border-orange-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span className="text-[10px] font-mono font-bold text-[#d53300] bg-orange-50 border border-orange-200 px-3 py-1 rounded-full uppercase tracking-wider">
                       {course.category}
                     </span>
                     <span className="text-[10px] font-mono text-gray-700 font-bold bg-gray-100 px-2.5 py-0.5 rounded-md">
@@ -209,7 +209,7 @@ export default function CourseShowcase() {
         {/* Faixa inferior de incentivo */}
         <div className="mt-16 bg-orange-50/70 border border-orange-200/80 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div>
-            <span className="text-[11px] font-mono font-bold text-[#c23300] uppercase tracking-wider block mb-1">
+            <span className="text-[11px] font-mono font-bold text-[#d53300] uppercase tracking-wider block mb-1">
               Customização Corporativa
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-2">
@@ -221,7 +221,7 @@ export default function CourseShowcase() {
           </div>
           <a
             href="#proposta"
-            className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 cursor-pointer"
+            className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer"
           >
             Falar com Consultor B2B
           </a>
@@ -244,7 +244,7 @@ export default function CourseShowcase() {
             {/* Cabeçalho do Modal com a Cantoneira da Marca */}
             <div className="mb-6 relative pl-3">
               <div className="absolute top-0 left-0 w-2 h-full border-l-2 border-[#ff3d03]" />
-              <span className="text-xs font-mono font-bold text-[#c23300] bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
+              <span className="text-xs font-mono font-bold text-[#d53300] bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
                 {activeCourse.category}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 leading-tight mb-3">
