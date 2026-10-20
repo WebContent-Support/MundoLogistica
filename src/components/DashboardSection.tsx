@@ -103,21 +103,21 @@ export default function DashboardSection() {
               {/* Cards de Métricas Rápidas */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                  <span className="text-[11px] font-mono text-gray-500 block mb-1">Horas de Estudo da Equipe</span>
+                  <span className="text-[11px] font-mono text-gray-600 block mb-1">Horas de Estudo da Equipe</span>
                   <div className="text-3xl font-black text-gray-950 tabular-nums">{hours}h</div>
-                  <span className="text-[10px] font-mono text-emerald-600 font-bold mt-1 block">+38% vs. mês anterior</span>
+                  <span className="text-[10px] font-mono text-emerald-800 font-bold mt-1 block">+38% vs. mês anterior</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                  <span className="text-[11px] font-mono text-gray-500 block mb-1">Cursos Concluídos</span>
-                  <div className="text-3xl font-black text-[#ff3d03] tabular-nums">{coursesCount}</div>
-                  <span className="text-[10px] font-mono text-gray-500 font-bold mt-1 block">98.2% taxa de aprovação</span>
+                  <span className="text-[11px] font-mono text-gray-600 block mb-1">Cursos Concluídos</span>
+                  <div className="text-3xl font-black text-[#c92e00] tabular-nums">{coursesCount}</div>
+                  <span className="text-[10px] font-mono text-gray-600 font-bold mt-1 block">98.2% taxa de aprovação</span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                  <span className="text-[11px] font-mono text-gray-500 block mb-1">Engajamento Semanal</span>
+                  <span className="text-[11px] font-mono text-gray-600 block mb-1">Engajamento Semanal</span>
                   <div className="text-3xl font-black text-gray-950 tabular-nums">{engagement}%</div>
-                  <span className="text-[10px] font-mono text-emerald-600 font-bold mt-1 block">Ativos nos últimos 7 dias</span>
+                  <span className="text-[10px] font-mono text-emerald-800 font-bold mt-1 block">Ativos nos últimos 7 dias</span>
                 </div>
               </div>
 
@@ -192,7 +192,7 @@ export default function DashboardSection() {
             <div className="pt-4">
               <a
                 href="#proposta"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-md shadow-[#ff3d03]/25"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 cursor-pointer"
               >
                 Solicitar Demonstração do Painel
               </a>

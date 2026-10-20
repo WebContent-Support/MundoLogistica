@@ -75,7 +75,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
             <Link
               href="#proposta"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#e03502] hover:from-[#ff521d] hover:to-[#ff3d03] transition-all shadow-[0_0_40px_-5px_rgba(255,61,3,0.5)] hover:shadow-[0_0_50px_0px_rgba(255,61,3,0.7)] hover:scale-105 active:scale-95 border border-orange-400/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-black text-white bg-gradient-to-r from-[#d83300] to-[#b82a00] hover:from-[#e03502] hover:to-[#c22d00] transition-all shadow-[0_0_40px_-5px_rgba(216,51,0,0.5)] hover:shadow-[0_0_50px_0px_rgba(216,51,0,0.7)] hover:scale-105 active:scale-95 border border-orange-400/30"
             >
               SOLICITAR PROPOSTA CORPORATIVA
               <ArrowRight className="w-4 h-4" />
@@ -91,7 +91,7 @@ export default function Hero() {
           </div>
 
           {/* Badges de Confiança Corporativa */}
-          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold text-gray-400">
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-semibold text-gray-300">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#ff3d03]" />
               <span>Painel de gestão em tempo real para o RH</span>
@@ -122,28 +122,30 @@ export default function Hero() {
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                <span className="text-xs font-mono text-gray-400 ml-2">mundologistica.app • suite corporativa</span>
+                <span className="text-xs font-mono text-gray-300 ml-2">mundologistica.app • suite corporativa</span>
               </div>
 
               {/* Botões de Troca de Visão */}
               <div className="flex items-center gap-1.5 bg-black/40 p-1 rounded-xl border border-white/5">
                 <button
+                  type="button"
                   onClick={() => setActiveTab('cursos')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative cursor-pointer ${
                     activeTab === 'cursos'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 scale-100'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                   title="Ver Cursos e Especialistas"
                 >
                   Vitrine de Cursos
                 </button>
                 <button
+                  type="button"
                   onClick={() => setActiveTab('loggpt')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-1 relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 flex items-center gap-1 relative cursor-pointer ${
                     activeTab === 'loggpt'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 scale-100'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                   title="Ver Demonstração do LogGPT IA"
                 >
@@ -151,11 +153,12 @@ export default function Hero() {
                   LogGPT IA
                 </button>
                 <button
+                  type="button"
                   onClick={() => setActiveTab('dashboard')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-300 relative cursor-pointer ${
                     activeTab === 'dashboard'
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-100'
-                      : 'text-gray-400 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 scale-100'
+                      : 'text-gray-300 hover:text-white hover:bg-white/10'
                   }`}
                   title="Ver Métricas de Telemetria RH"
                 >

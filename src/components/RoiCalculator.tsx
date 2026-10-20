@@ -38,18 +38,23 @@ export default function RoiCalculator() {
               {/* Slider Interativo */}
               <div className="space-y-3 pt-2">
                 <div className="flex justify-between items-center text-sm font-bold">
-                  <span className="text-gray-700">Tamanho da Equipe:</span>
+                  <label htmlFor="team-size-slider" className="text-gray-700 cursor-pointer">
+                    Tamanho da Equipe:
+                  </label>
                   <span className="text-2xl font-black text-[#c23300] font-mono">{teamSize} colaboradores</span>
                 </div>
 
                 <input
+                  id="team-size-slider"
+                  name="teamSize"
+                  aria-label="Tamanho da equipe de logística em colaboradores"
                   type="range"
                   min="2"
                   max="100"
                   step="1"
                   value={teamSize}
                   onChange={(e) => setTeamSize(Number(e.target.value))}
-                  className="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#ff3d03]"
+                  className="w-full h-2.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c92e00]"
                 />
 
                 <div className="flex justify-between text-[11px] font-mono text-gray-600">
@@ -101,7 +106,7 @@ export default function RoiCalculator() {
 
               <a
                 href="#proposta"
-                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-xs text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-md shadow-[#ff3d03]/25 uppercase tracking-wider"
+                className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-xs text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 uppercase tracking-wider cursor-pointer"
               >
                 Solicitar Cotação para {teamSize} Pessoas
                 <ArrowRight className="w-4 h-4" />

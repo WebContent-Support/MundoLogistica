@@ -83,84 +83,97 @@ export default function LeadForm() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="lead-name" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         Nome Completo *
                       </label>
                       <input
+                        id="lead-name"
+                        name="name"
                         type="text"
                         required
                         placeholder="Ex: Carlos Eduardo"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="lead-email" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         E-mail Corporativo *
                       </label>
                       <input
+                        id="lead-email"
+                        name="email"
                         type="email"
                         required
                         placeholder="carlos@suaempresa.com.br"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="lead-phone" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         WhatsApp com DDD *
                       </label>
                       <input
+                        id="lead-phone"
+                        name="phone"
                         type="tel"
                         required
                         placeholder="(11) 98765-4321"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="lead-company" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         Nome da Empresa *
                       </label>
                       <input
+                        id="lead-company"
+                        name="company"
                         type="text"
                         required
                         placeholder="Ex: Logística Brasil S/A"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="lead-role" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         Cargo / Função *
                       </label>
                       <input
+                        id="lead-role"
+                        name="role"
                         type="text"
                         required
                         placeholder="Ex: Diretor de Supply Chain / RH"
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-mono font-bold uppercase text-gray-400 mb-1.5">
+                      <label htmlFor="teamSizeSelect" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
                         Tamanho da Equipe
                       </label>
                       <select
+                        id="teamSizeSelect"
+                        name="teamSize"
+                        aria-label="Tamanho da Equipe"
                         value={formData.teamSize}
                         onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all cursor-pointer"
                       >
                         <option value="1 a 5 colaboradores">1 a 5 colaboradores</option>
                         <option value="6 a 15 colaboradores">6 a 15 colaboradores</option>
@@ -174,7 +187,7 @@ export default function LeadForm() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#ff3d03] to-[#e03502] hover:scale-[1.02] transition-all shadow-xl shadow-[#ff3d03]/30 hover:shadow-[#ff3d03]/50 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 border border-orange-400/40"
+                      className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#d83300] to-[#b82a00] hover:scale-[1.02] transition-all shadow-xl shadow-[#d83300]/30 hover:shadow-[#d83300]/50 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 border border-orange-500/40"
                     >
                       {loading ? (
                         <span>Processando solicitação...</span>

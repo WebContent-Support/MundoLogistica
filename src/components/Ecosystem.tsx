@@ -224,22 +224,22 @@ export default function Ecosystem() {
               ref={diagnosticRef}
               className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-100 space-y-3.5 font-mono text-xs"
             >
-              <div className="flex justify-between text-gray-700 font-semibold items-center">
+              <div className="flex justify-between text-gray-900 font-bold items-center">
                 <span>Maturidade em WMS & Acuracidade de Estoque</span>
-                <span className="text-[#c23300] font-bold tabular-nums text-sm">
+                <span className="text-[#992200] font-black tabular-nums text-sm">
                   {wmsValue}%
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
                 <div
-                  className="bg-[#ff3d03] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(255,61,3,0.3)]"
+                  className="bg-[#c92e00] h-full rounded-full transition-all duration-1000 ease-out shadow-[0_0_12px_rgba(201,46,0,0.3)]"
                   style={{ width: `${hasAnimatedBars ? 88 : 0}%` }}
                 />
               </div>
 
-              <div className="flex justify-between text-gray-700 font-semibold items-center pt-1.5">
+              <div className="flex justify-between text-gray-900 font-bold items-center pt-1.5">
                 <span>Engenharia de Custos de Fretes & Tributário</span>
-                <span className="text-orange-600 font-bold tabular-nums text-sm">
+                <span className="text-[#992200] font-black tabular-nums text-sm">
                   {costsValue}%
                 </span>
               </div>

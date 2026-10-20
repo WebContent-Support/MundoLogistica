@@ -36,7 +36,7 @@ export default function PricingB2B() {
                 onClick={() => setSelectedTier(tier.id)}
                 className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   selectedTier === tier.id
-                    ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-105'
+                    ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/30 scale-105'
                     : 'text-gray-700 hover:text-gray-950 hover:bg-gray-100'
                 }`}
               >
@@ -102,7 +102,7 @@ export default function PricingB2B() {
             <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-[#ff3d03]" />
 
             {/* Badge de Destaque */}
-            <div className="absolute -top-4 right-8 bg-[#ff3d03] text-white text-xs font-mono font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md shadow-[#ff3d03]/30 flex items-center gap-1.5">
+            <div className="absolute -top-4 right-8 bg-[#c92e00] text-white text-xs font-mono font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-md shadow-[#c92e00]/30 flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5" />
               Recomendado pela Liderança
             </div>
@@ -134,7 +134,7 @@ export default function PricingB2B() {
                     'Suporte consultivo e onboarding guiado para toda a equipe',
                   ].map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-950 font-medium">
-                      <div className="w-5 h-5 rounded-full bg-[#ff3d03] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                      <div className="w-5 h-5 rounded-full bg-[#c92e00] text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
                       <span>{feat}</span>
@@ -147,7 +147,7 @@ export default function PricingB2B() {
             <div className="pt-8 mt-6">
               <a
                 href="#proposta"
-                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-lg shadow-[#ff3d03]/25 hover:shadow-[#ff3d03]/40 cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-lg shadow-[#c92e00]/25 hover:shadow-[#c92e00]/40 cursor-pointer"
               >
                 Solicitar Proposta para {TEAM_TIERS.find((t) => t.id === selectedTier)?.label}
                 <ArrowRight className="w-4 h-4" />

@@ -8,11 +8,30 @@
   RewriteEngine On
   RewriteBase /
 
+  # Servir versões gzip pré-comprimidas automaticamente se existirem
+  RewriteCond %{HTTP:Accept-Encoding} gzip
+  RewriteCond %{REQUEST_FILENAME}\.gz -s
+  RewriteRule ^(.*)\.(css|js)$ $1\.$2\.gz [QSA]
+
   # Tratar rotas limpas e páginas estáticas
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Tipos e headers para arquivos .gz servidos
+<IfModule mod_headers.c>
+  <FilesMatch "\.css\.gz$">
+    ForceType text/css
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+  <FilesMatch "\.js\.gz$">
+    ForceType application/javascript
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  </FilesMatch>
 </IfModule>
 
 # 2. Página de Erro 404 customizada gerada pelo Next.js

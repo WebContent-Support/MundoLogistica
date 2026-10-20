@@ -92,10 +92,10 @@ export default function CourseShowcase() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 ${
+                  className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer ${
                     isSelected
-                      ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/25 scale-105'
-                      : 'bg-white text-gray-700 hover:text-gray-900 hover:bg-gray-100 border border-gray-200'
+                      ? 'bg-[#c92e00] text-white shadow-md shadow-[#c92e00]/25 scale-105'
+                      : 'bg-white text-gray-800 hover:text-black hover:bg-gray-100 border border-gray-300'
                   }`}
                 >
                   {category}
@@ -221,7 +221,7 @@ export default function CourseShowcase() {
           </div>
           <a
             href="#proposta"
-            className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-md shadow-[#ff3d03]/25"
+            className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#c92e00] hover:bg-[#b02800] transition-all shadow-md shadow-[#c92e00]/25 cursor-pointer"
           >
             Falar com Consultor B2B
           </a>
