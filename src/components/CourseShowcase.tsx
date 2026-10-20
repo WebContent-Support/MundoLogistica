@@ -197,7 +197,7 @@ export default function CourseShowcase() {
                     onClick={() => setActiveCourse(course)}
                     className="inline-flex items-center gap-1 text-xs font-bold text-[#c23300] hover:text-[#9e2a00] transition-colors group/btn cursor-pointer"
                   >
-                    <span>Ver Ementa</span>
+                    <span>Ver detalhes</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
