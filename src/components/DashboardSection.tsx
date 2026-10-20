@@ -123,9 +123,9 @@ export default function DashboardSection() {
 
               {/* Lista de Membros da Equipe */}
               <div>
-                <h4 className="text-[11px] font-mono font-bold uppercase tracking-widest text-gray-400 mb-3">
+                <p className="text-[11px] font-mono font-bold uppercase tracking-widest text-gray-600 mb-3">
                   Progresso Individual dos Colaboradores
-                </h4>
+                </p>
                 <div className="space-y-3">
                   {TEAM_MEMBERS.map((member, idx) => (
                     <div
@@ -135,9 +135,9 @@ export default function DashboardSection() {
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-gray-900">{member.name}</span>
-                          <span className="text-gray-500 font-mono text-[11px]">• {member.role}</span>
+                          <span className="text-gray-600 font-mono text-[11px]">• {member.role}</span>
                         </div>
-                        <span className="text-gray-500 text-[11px] block mt-0.5">{member.course}</span>
+                        <span className="text-gray-600 text-[11px] block mt-0.5">{member.course}</span>
                       </div>
 
                       <div className="flex items-center gap-3 sm:w-48 shrink-0">
@@ -161,12 +161,12 @@ export default function DashboardSection() {
 
           {/* Coluna Texto Persuasivo */}
           <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100/70 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300] bg-orange-100/70 border border-orange-300 px-3.5 py-1.5 rounded-full inline-block">
               Visibilidade & ROI para a Liderança
             </span>
 
             <h2 className="text-3xl sm:text-5xl font-black text-gray-950 tracking-tight leading-[1.1]">
-              O desenvolvimento do time <span className="text-[#ff3d03]">não fica mais invisível</span>.
+              O desenvolvimento do time <span className="text-[#c23300]">não fica mais invisível</span>.
             </h2>
 
             <p className="text-gray-600 text-lg leading-relaxed">
@@ -181,7 +181,7 @@ export default function DashboardSection() {
                 'Emissão e controle centralizado de certificados oficiais',
               ].map((item, idx) => (
                 <li key={idx} className="flex items-center gap-3 text-sm text-gray-700 font-medium">
-                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#ff3d03] flex items-center justify-center shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#c23300] flex items-center justify-center shrink-0">
                     <CheckCircle className="w-3.5 h-3.5" />
                   </div>
                   <span>{item}</span>

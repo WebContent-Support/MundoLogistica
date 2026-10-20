@@ -41,7 +41,7 @@ export default function FAQ() {
     <section id="faq" data-theme="light" className="py-28 bg-[#f8fafc] text-gray-900 border-t border-gray-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300] bg-orange-100 border border-orange-300 px-3.5 py-1.5 rounded-full inline-block">
             Tire Suas Dúvidas
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mt-4 mb-3 tracking-tight">
@@ -67,14 +67,14 @@ export default function FAQ() {
 
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
                 >
                   <span className="text-base font-bold text-gray-900 pr-4">
                     {item.question}
                   </span>
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all ${
-                      isOpen ? 'bg-[#ff3d03] text-white rotate-180' : 'bg-gray-100 text-gray-500'
+                      isOpen ? 'bg-[#ff3d03] text-white rotate-180' : 'bg-gray-100 text-gray-700'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />

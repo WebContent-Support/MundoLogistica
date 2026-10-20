@@ -18,7 +18,7 @@ export default function PricingB2B() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Cabeçalho */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-orange-100 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300] bg-orange-100 border border-orange-300 px-3.5 py-1.5 rounded-full inline-block">
             Investimento Corporativo B2B
           </span>
           <h2 className="text-3xl sm:text-5xl font-black text-gray-950 mt-4 mb-4 tracking-tight">
@@ -34,10 +34,10 @@ export default function PricingB2B() {
               <button
                 key={tier.id}
                 onClick={() => setSelectedTier(tier.id)}
-                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   selectedTier === tier.id
                     ? 'bg-[#ff3d03] text-white shadow-md shadow-[#ff3d03]/30 scale-105'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    : 'text-gray-700 hover:text-gray-950 hover:bg-gray-100'
                 }`}
               >
                 {tier.label}
@@ -52,7 +52,7 @@ export default function PricingB2B() {
           <div className="bg-gray-50/70 rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-sm flex flex-col justify-between">
             <div>
               <div className="mb-6">
-                <span className="text-xs font-mono font-bold text-gray-500 uppercase tracking-widest block mb-2">
+                <span className="text-xs font-mono font-bold text-gray-600 uppercase tracking-widest block mb-2">
                   Plano Essencial
                 </span>
                 <h3 className="text-2xl font-black text-gray-950">Standard Corporativo</h3>
@@ -62,7 +62,7 @@ export default function PricingB2B() {
               </div>
 
               <div className="py-6 border-y border-gray-200 space-y-4 text-sm">
-                <div className="font-mono text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <div className="font-mono text-xs font-bold text-gray-800 uppercase tracking-wider">
                   Recursos Inclusos:
                 </div>
                 <ul className="space-y-3">
@@ -75,7 +75,7 @@ export default function PricingB2B() {
                     'Ferramenta avançada de busca temática',
                   ].map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-3 text-gray-700">
-                      <div className="w-5 h-5 rounded-full bg-white text-gray-500 flex items-center justify-center shrink-0 mt-0.5 border border-gray-200 shadow-xs">
+                      <div className="w-5 h-5 rounded-full bg-white text-gray-600 flex items-center justify-center shrink-0 mt-0.5 border border-gray-200 shadow-xs">
                         <Check className="w-3.5 h-3.5" />
                       </div>
                       <span>{feat}</span>
@@ -88,7 +88,7 @@ export default function PricingB2B() {
             <div className="pt-8 mt-6">
               <a
                 href="#proposta"
-                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-gray-800 bg-white hover:bg-gray-100 border border-gray-200 shadow-sm transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-gray-800 bg-white hover:bg-gray-100 border border-gray-200 shadow-sm transition-colors cursor-pointer"
               >
                 Solicitar Cotação Standard
               </a>
@@ -109,7 +109,7 @@ export default function PricingB2B() {
 
             <div>
               <div className="mb-6">
-                <span className="text-xs font-mono font-bold text-[#ff3d03] uppercase tracking-widest block mb-2">
+                <span className="text-xs font-mono font-bold text-[#c23300] uppercase tracking-widest block mb-2">
                   Suite Completa de Capacitação
                 </span>
                 <h3 className="text-2xl font-black text-gray-950">Premium Corporativo</h3>
@@ -121,7 +121,7 @@ export default function PricingB2B() {
               <div className="py-6 border-y border-gray-100 space-y-4 text-sm">
                 <div className="font-mono text-xs font-bold text-gray-900 uppercase tracking-wider flex items-center justify-between">
                   <span>Tudo do Standard, mais:</span>
-                  <span className="text-[#ff3d03] font-bold">100% Liberado</span>
+                  <span className="text-[#c23300] font-bold">100% Liberado</span>
                 </div>
 
                 <ul className="space-y-3">
@@ -147,12 +147,12 @@ export default function PricingB2B() {
             <div className="pt-8 mt-6">
               <a
                 href="#proposta"
-                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-lg shadow-[#ff3d03]/25 hover:shadow-[#ff3d03]/40"
+                className="w-full inline-flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-bold text-sm text-white bg-[#ff3d03] hover:bg-[#e03502] transition-all shadow-lg shadow-[#ff3d03]/25 hover:shadow-[#ff3d03]/40 cursor-pointer"
               >
                 Solicitar Proposta para {TEAM_TIERS.find((t) => t.id === selectedTier)?.label}
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <p className="text-[11px] font-mono text-center text-gray-400 mt-2">
+              <p className="text-[11px] font-mono text-center text-gray-600 mt-2">
                 Faturamento via boleto corporativo • Sem taxas ocultas
               </p>
             </div>

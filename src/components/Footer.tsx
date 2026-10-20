@@ -12,23 +12,27 @@ export default function Footer() {
               <img
                 src="/logo-white.png"
                 alt="MundoLogística"
+                width={178}
+                height={36}
+                loading="lazy"
+                decoding="async"
                 className="h-9 w-auto object-contain"
               />
             </Link>
 
-            <p className="text-sm text-gray-400 max-w-sm leading-relaxed">
+            <p className="text-sm text-gray-300 max-w-sm leading-relaxed">
               O maior ecossistema de conteúdo técnico, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
-            <div className="pt-2 text-xs font-mono text-gray-500">
+            <div className="pt-2 text-xs font-mono text-gray-400">
               © {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.
             </div>
           </div>
 
           {/* Links Rápidos */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Navegação</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Navegação</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
               <li>
                 <Link href="#ecossistema" className="hover:text-[#ff3d03] transition-colors">
                   A Plataforma
@@ -59,8 +63,8 @@ export default function Footer() {
 
           {/* Dados de Contato Oficial */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Atendimento Corporativo</h4>
-            <ul className="space-y-3 text-xs sm:text-sm text-gray-400">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Atendimento Corporativo</h3>
+            <ul className="space-y-3 text-xs sm:text-sm text-gray-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ff3d03] shrink-0 mt-0.5" />
                 <span>Av. São Paulo, 620 - Sala 11 - Zona 01, Maringá - PR</span>
@@ -82,7 +86,7 @@ export default function Footer() {
         </div>
 
         {/* Rodapé inferior */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
           <p>Desenvolvido para MundoLogística Educação por WebContent Soluções Digitais.</p>
           <div className="flex items-center gap-6">
             <a

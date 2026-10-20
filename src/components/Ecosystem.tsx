@@ -182,14 +182,14 @@ export default function Ecosystem() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho Bento */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-[#ff3d03]/30 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#c23300]" />
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300]">
               Metodologia de Capacitação B2B
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-gray-950 tracking-tight leading-tight">
-            O ecossistema definitivo para <span className="text-[#ff3d03]">forjar líderes</span> em Supply Chain
+            O ecossistema definitivo para <span className="text-[#c23300]">forjar líderes</span> em Supply Chain
           </h2>
           <p className="text-gray-600 text-lg mt-4 leading-relaxed">
             Eliminamos a distância entre teorias acadêmicas abstratas e a pressão real por corte de custos, assertividade de inventário e SLA nas operações.
@@ -208,7 +208,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Compass className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ff3d03] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
                 Pilar 01 • Diagnóstico de Competências
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-4">
@@ -226,7 +226,7 @@ export default function Ecosystem() {
             >
               <div className="flex justify-between text-gray-700 font-semibold items-center">
                 <span>Maturidade em WMS & Acuracidade de Estoque</span>
-                <span className="text-[#ff3d03] font-bold tabular-nums text-sm">
+                <span className="text-[#c23300] font-bold tabular-nums text-sm">
                   {wmsValue}%
                 </span>
               </div>
@@ -261,7 +261,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Bot className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ff3d03] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
                 Pilar 02 • Inteligência Artificial
               </span>
               <h3 className="text-2xl font-black text-gray-950 mb-3">
@@ -300,7 +300,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <BookCheck className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ff3d03] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
                 Pilar 03 • Aplicação Imediata
               </span>
               <h3 className="text-2xl font-black text-gray-950 mb-3">
@@ -321,7 +321,7 @@ export default function Ecosystem() {
               <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#ff3d03] mb-6 shadow-sm">
                 <Network className="w-6 h-6" />
               </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#ff3d03] block mb-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#c23300] block mb-2">
                 Pilar 04 • Jornadas de Carreira
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-4">
@@ -339,7 +339,7 @@ export default function Ecosystem() {
               <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">
                 #Supervisores de Armazém
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-orange-100 text-[#ff3d03] border border-orange-200">
+              <span className="px-3 py-1.5 rounded-lg bg-orange-100 text-[#c23300] border border-orange-200">
                 #Gerentes de Supply Chain
               </span>
               <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">

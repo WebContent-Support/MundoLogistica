@@ -179,7 +179,7 @@ export default function Hero() {
                     <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
                       Supply Chain
                     </span>
-                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Customer Centricity na Logística</h4>
+                    <p className="text-sm font-bold text-white mt-2 mb-1">Customer Centricity na Logística</p>
                     <p className="text-xs text-gray-400">Profa. Tania Heck Trotta (Ex-executiva FMCG e Pharma)</p>
                     <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
                       <span>12h de aulas</span>
@@ -191,7 +191,7 @@ export default function Hero() {
                     <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
                       Tributário & Custos
                     </span>
-                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Reforma Tributária e Transportes</h4>
+                    <p className="text-sm font-bold text-white mt-2 mb-1">Reforma Tributária e Transportes</p>
                     <p className="text-xs text-gray-400">Rafael Brito (CEO & Especialista Tributário)</p>
                     <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
                       <span>10h de aulas</span>
@@ -203,7 +203,7 @@ export default function Hero() {
                     <span className="text-[10px] font-mono text-[#ff3d03] bg-[#ff3d03]/10 px-2.5 py-0.5 rounded-full uppercase">
                       Tecnologia & IA
                     </span>
-                    <h4 className="text-sm font-bold text-white mt-2 mb-1">Veículos Autônomos na Logística</h4>
+                    <p className="text-sm font-bold text-white mt-2 mb-1">Veículos Autônomos na Logística</p>
                     <p className="text-xs text-gray-400">Marilia Ramalho (Americas Supply Chain Director)</p>
                     <div className="mt-4 flex items-center justify-between text-[11px] text-gray-400 border-t border-white/5 pt-2">
                       <span>10h de aulas</span>
@@ -267,7 +267,7 @@ export default function Hero() {
 
         {/* Faixa de Grandes Clientes com visual Neon e Marquee Infinito */}
         <div className="pt-10 border-t border-white/10">
-          <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-500 mb-6">
+          <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-400 mb-6">
             Capacitando as maiores operações logísticas do continente
           </p>
 
@@ -287,6 +287,9 @@ export default function Hero() {
                   <img
                     src={company.logo}
                     alt={company.name}
+                    width={120}
+                    height={32}
+                    decoding="async"
                     className="h-7 sm:h-8 w-auto max-w-[110px] sm:max-w-[130px] object-contain opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 brightness-0 invert"
                     loading="lazy"
                   />

@@ -37,13 +37,13 @@ export default function LeadForm() {
               <div className="w-16 h-16 rounded-full bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center mx-auto border border-[#ff3d03]/40">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-3xl font-black text-white">Solicitação Recebida com Sucesso!</h3>
+              <h2 className="text-3xl font-black text-white">Solicitação Recebida com Sucesso!</h2>
               <p className="text-gray-300 max-w-lg mx-auto text-base">
                 Obrigado pelo contato, <strong className="text-white">{formData.name}</strong>. Nossa equipe comercial entrará em contato via WhatsApp e e-mail em até <strong>2 horas úteis</strong> com a proposta para a <strong className="text-[#ff3d03]">{formData.company}</strong>.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-6 inline-flex items-center gap-2 text-xs font-mono font-bold text-[#ff3d03] hover:underline uppercase"
+                className="mt-6 inline-flex items-center gap-2 text-xs font-mono font-bold text-[#ff3d03] hover:underline uppercase cursor-pointer"
               >
                 Enviar nova solicitação
               </button>
@@ -55,9 +55,9 @@ export default function LeadForm() {
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
                   Atendimento Corporativo
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
                   Solicite uma proposta personalizada
-                </h3>
+                </h2>
                 <p className="text-gray-400 text-sm leading-relaxed">
                   Preencha os dados da sua empresa para receber uma demonstração executiva do acervo de cursos, do LogGPT e condições especiais de faturamento.
                 </p>

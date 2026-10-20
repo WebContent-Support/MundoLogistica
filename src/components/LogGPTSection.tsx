@@ -119,7 +119,7 @@ export default function LogGPTSection() {
                   <Database className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Acervo Fechado & Confiável</h4>
+                  <h3 className="text-sm font-bold text-white">Acervo Fechado & Confiável</h3>
                   <p className="text-xs text-gray-400 mt-0.5">Sem respostas genéricas ou alucinações. 100% embasado nas normas da ANTT, boas práticas de S&OP e jurisprudência tributária.</p>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function LogGPTSection() {
                   <Zap className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Validação Imediata de Fórmulas</h4>
+                  <h3 className="text-sm font-bold text-white">Validação Imediata de Fórmulas</h3>
                   <p className="text-xs text-gray-400 mt-0.5">Seus analistas validam dimensionamento de frotas, inventários de segurança e reajuste paramétrico de diesel em segundos.</p>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default function LogGPTSection() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h4 className="font-bold text-white text-sm">LogGPT Enterprise Engine</h4>
+                      <h3 className="font-bold text-white text-sm">LogGPT Enterprise Engine</h3>
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     </div>
                     <span className="text-[10px] font-mono text-gray-400">Versão Corporativa • Modelo Especializado</span>

@@ -33,9 +33,9 @@ export default function CourseShowcase() {
         {/* Cabeçalho da Seção */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/70 border border-[#ff3d03]/30 mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/70 border border-orange-300 mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#c23300]" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#c23300]">
                 Acervo de Cursos & Especialistas
               </span>
             </div>
@@ -82,8 +82,8 @@ export default function CourseShowcase() {
 
           {/* Categorias / Trilhas */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-gray-500 mr-2 shrink-0">
-              <Filter className="w-3.5 h-3.5 text-[#ff3d03]" />
+            <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-gray-700 mr-2 shrink-0">
+              <Filter className="w-3.5 h-3.5 text-[#c23300]" />
               TRILHA:
             </div>
             {CATEGORIES.map((category) => {
@@ -134,10 +134,10 @@ export default function CourseShowcase() {
                 <div className="p-7">
                   {/* Badges do Curso */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="text-[10px] font-mono font-bold text-[#ff3d03] bg-orange-50 border border-orange-200/80 px-3 py-1 rounded-full uppercase tracking-wider">
+                    <span className="text-[10px] font-mono font-bold text-[#c23300] bg-orange-50 border border-orange-200 px-3 py-1 rounded-full uppercase tracking-wider">
                       {course.category}
                     </span>
-                    <span className="text-[10px] font-mono text-gray-500 bg-gray-100 px-2.5 py-0.5 rounded-md">
+                    <span className="text-[10px] font-mono text-gray-700 font-bold bg-gray-100 px-2.5 py-0.5 rounded-md">
                       {course.level}
                     </span>
                   </div>
@@ -158,6 +158,10 @@ export default function CourseShowcase() {
                       <img
                         src={course.instructor.avatar}
                         alt={course.instructor.name}
+                        width={48}
+                        height={48}
+                        loading="lazy"
+                        decoding="async"
                         className="w-12 h-12 rounded-full object-cover border-2 border-orange-100 shadow-sm"
                       />
                       <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" />
@@ -166,10 +170,10 @@ export default function CourseShowcase() {
                       <h4 className="text-sm font-bold text-gray-900 truncate">
                         {course.instructor.name}
                       </h4>
-                      <p className="text-xs text-gray-500 truncate">
+                      <p className="text-xs text-gray-600 truncate">
                         {course.instructor.role}
                       </p>
-                      <p className="text-[10px] font-mono text-[#ff3d03] font-medium truncate">
+                      <p className="text-[10px] font-mono text-[#c23300] font-bold truncate">
                         {course.instructor.companyOrExperience}
                       </p>
                     </div>
@@ -178,20 +182,20 @@ export default function CourseShowcase() {
 
                 {/* Rodapé do Card */}
                 <div className="px-7 py-4 bg-gray-50/70 border-t border-gray-100 flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-xs font-mono text-gray-500">
+                  <div className="flex items-center gap-4 text-xs font-mono text-gray-700 font-medium">
                     <div className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
+                      <Clock className="w-3.5 h-3.5 text-[#c23300]" />
                       <span>{course.duration}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Award className="w-3.5 h-3.5 text-[#ff3d03]" />
+                      <Award className="w-3.5 h-3.5 text-[#c23300]" />
                       <span>Certificado</span>
                     </div>
                   </div>
 
                   <button
                     onClick={() => setActiveCourse(course)}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#ff3d03] hover:text-[#e03502] transition-colors group/btn"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-[#c23300] hover:text-[#9e2a00] transition-colors group/btn cursor-pointer"
                   >
                     <span>Ver Ementa</span>
                     <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
@@ -205,7 +209,7 @@ export default function CourseShowcase() {
         {/* Faixa inferior de incentivo */}
         <div className="mt-16 bg-orange-50/70 border border-orange-200/80 rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div>
-            <span className="text-[11px] font-mono font-bold text-[#ff3d03] uppercase tracking-wider block mb-1">
+            <span className="text-[11px] font-mono font-bold text-[#c23300] uppercase tracking-wider block mb-1">
               Customização Corporativa
             </span>
             <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-2">
@@ -240,7 +244,7 @@ export default function CourseShowcase() {
             {/* Cabeçalho do Modal com a Cantoneira da Marca */}
             <div className="mb-6 relative pl-3">
               <div className="absolute top-0 left-0 w-2 h-full border-l-2 border-[#ff3d03]" />
-              <span className="text-xs font-mono font-bold text-[#ff3d03] bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
+              <span className="text-xs font-mono font-bold text-[#c23300] bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3">
                 {activeCourse.category}
               </span>
               <h3 className="text-2xl sm:text-3xl font-black text-gray-950 leading-tight mb-3">
@@ -256,13 +260,17 @@ export default function CourseShowcase() {
               <img
                 src={activeCourse.instructor.avatar}
                 alt={activeCourse.instructor.name}
+                width={56}
+                height={56}
+                loading="lazy"
+                decoding="async"
                 className="w-14 h-14 rounded-full object-cover border-2 border-orange-200 shadow-sm"
               />
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-400 block">Instrutor Responsável</span>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 block">Instrutor Responsável</span>
                 <h4 className="text-base font-bold text-gray-950">{activeCourse.instructor.name}</h4>
                 <p className="text-xs text-gray-600 font-medium">{activeCourse.instructor.role}</p>
-                <p className="text-xs text-[#ff3d03] font-semibold">{activeCourse.instructor.companyOrExperience}</p>
+                <p className="text-xs text-[#c23300] font-bold">{activeCourse.instructor.companyOrExperience}</p>
               </div>
             </div>
 

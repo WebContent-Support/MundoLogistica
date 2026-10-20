@@ -9,43 +9,30 @@ export default function Header() {
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
-    let ticking = false;
+    const sections = document.querySelectorAll<HTMLElement>('[data-theme]');
+    if (!sections.length) return;
 
-    const handleScroll = () => {
-      // Amostragem na altura do centro do cabeçalho (~50px do topo)
-      const sampleY = 50;
-      const elements = document.querySelectorAll<HTMLElement>('[data-theme]');
-
-      let detectedTheme: 'light' | 'dark' = 'dark';
-      for (let i = 0; i < elements.length; i++) {
-        const rect = elements[i].getBoundingClientRect();
-        if (rect.top <= sampleY && rect.bottom >= sampleY) {
-          const theme = elements[i].getAttribute('data-theme') as 'light' | 'dark';
-          if (theme) {
-            detectedTheme = theme;
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const theme = entry.target.getAttribute('data-theme') as 'light' | 'dark';
+            if (theme) {
+              setCurrentTheme(theme);
+            }
           }
-        }
-      }
-      setCurrentTheme(detectedTheme);
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
         });
-        ticking = true;
+      },
+      {
+        rootMargin: '-60px 0px -75% 0px',
+        threshold: 0,
       }
-    };
+    );
 
-    handleScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    sections.forEach((sec) => observer.observe(sec));
+
     return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      observer.disconnect();
     };
   }, []);
 
@@ -57,12 +44,7 @@ export default function Header() {
 
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
-      const headerOffset = 85;
-      const elementPosition = targetEl.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
+      targetEl.scrollIntoView({
         behavior: 'smooth',
       });
 
@@ -85,6 +67,9 @@ export default function Header() {
               <img
                 src="/logo-white.png"
                 alt="MundoLogística"
+                width={178}
+                height={36}
+                decoding="async"
                 className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 group-hover:scale-105 ${
                   isDark
                     ? 'opacity-100 pointer-events-auto'
@@ -95,6 +80,9 @@ export default function Header() {
               <img
                 src="/logo-oficial.png"
                 alt="MundoLogística"
+                width={178}
+                height={36}
+                decoding="async"
                 className={`absolute left-0 top-1/2 -translate-y-1/2 h-8 sm:h-9 w-auto object-contain transition-opacity duration-300 group-hover:scale-105 ${
                   !isDark
                     ? 'opacity-100 pointer-events-auto'
@@ -111,7 +99,7 @@ export default function Header() {
             >
               <span
                 className={`text-[10px] font-mono uppercase tracking-widest transition-colors duration-300 ${
-                  isDark ? 'text-gray-400' : 'text-gray-600 font-bold'
+                  isDark ? 'text-gray-300' : 'text-gray-700 font-bold'
                 }`}
               >
                 Corporate Suite
