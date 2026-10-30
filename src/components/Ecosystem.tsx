@@ -360,7 +360,7 @@ export default function Ecosystem() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-800 relative z-10">
             <div className="pt-4 lg:pt-0 lg:px-4">
               <div className="text-4xl sm:text-5xl font-black text-white tracking-tight mb-2 tabular-nums">
-                <span className="text-[#ff3d03]">+{metricYears}</span> Anos
+                <span className="text-[#ff3d03]">+{metricYears}</span><br />Anos
               </div>
               <p className="text-xs sm:text-sm text-gray-400 font-medium">De liderança editorial e curadoria técnica no Brasil</p>
             </div>
