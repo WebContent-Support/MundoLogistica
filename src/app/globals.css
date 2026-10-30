@@ -1,4 +1,5 @@
 @import "tailwindcss";
+:root { --app-version: 1.0.1; }
 
 html {
   scroll-behavior: smooth;
