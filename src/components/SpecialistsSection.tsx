@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowRight, Award, Sparkles, Building2 } from 'lucide-react';
 
@@ -81,16 +81,41 @@ const SPECIALISTS = [
 
 export default function SpecialistsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = useCallback((direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 340;
-      scrollRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth',
-      });
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const cardWidth = 344; // largura do card (320px) + gap (24px)
+
+      if (direction === 'right') {
+        // Se estiver chegando no final da lista, reinicia suavemente para o início
+        if (scrollLeft + clientWidth >= scrollWidth - 30) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+      } else {
+        // Se estiver no início e voltar, rola para o fim
+        if (scrollLeft <= 30) {
+          scrollRef.current.scrollTo({ left: scrollWidth, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        }
+      }
     }
-  };
+  }, []);
+
+  // Rotação Automática Contínua a cada 3.2 segundos (pausando ao passar o mouse ou tocar)
+  useEffect(() => {
+    if (isHovered) return;
+
+    const timer = setInterval(() => {
+      scroll('right');
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, [isHovered, scroll]);
 
   return (
     <section
@@ -123,28 +148,43 @@ export default function SpecialistsSection() {
             </h2>
           </div>
 
-          {/* Botões de Navegação do Carrossel */}
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              onClick={() => scroll('left')}
-              aria-label="Rolar especialistas para a esquerda"
-              className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              aria-label="Rolar especialistas para a direita"
-              className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
+          {/* Botões de Navegação do Carrossel com Indicador de Rotação Automática */}
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-[11px] font-mono-tech text-gray-600 shadow-2xs">
+              <span
+                className={`w-2 h-2 rounded-full ${
+                  isHovered ? 'bg-amber-400' : 'bg-emerald-500 animate-pulse'
+                }`}
+              />
+              <span>{isHovered ? 'Pausado (cursor ativo)' : 'Giro automático'}</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scroll('left')}
+                aria-label="Rolar especialistas para a esquerda"
+                className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                aria-label="Rolar especialistas para a direita"
+                className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Galeria Horizontal com Rolagem Suave */}
+        {/* Galeria Horizontal com Rolagem Suave e Eventos de Pausa */}
         <div
           ref={scrollRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
           className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none scroll-smooth snap-x snap-mandatory"
         >
           {SPECIALISTS.map((spec) => (
