@@ -105,30 +105,19 @@ export default function DashboardSection() {
   return (
     <section
       id="dashboard"
-      data-theme="dark"
-      className="py-24 bg-[#070b12] text-white border-t border-white/10 relative overflow-hidden"
+      data-theme="light"
+      className="py-24 bg-white text-gray-900 border-t border-gray-200 relative overflow-hidden"
     >
-      {/* FOTOGRAFIA REAL DE FUNDO: Torre de Controle e Sala de Operações Logísticas */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
-          src="/images/control-tower.jpg"
-          alt="Torre de Controle Logística e Telemetria Operacional"
-          className="w-full h-full object-cover opacity-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070b12]/92 via-[#070b12]/75 to-[#070b12]/90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-transparent to-[#070b12]/80" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Mockup Interativo e Realista da Interface do Gestor com Profundidade Visual (Dark Glass) */}
+          {/* Mockup Interativo e Realista da Interface do Gestor em Terminal Executivo Dark */}
           <div className="lg:col-span-7 order-2 lg:order-1 relative">
-            {/* Brilho neon de profundidade */}
-            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#ff3d03]/30 to-orange-500/20 blur-xl opacity-70 pointer-events-none" />
+            {/* Brilho suave de profundidade atrás do mockup */}
+            <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#ff3d03]/20 to-orange-400/10 blur-xl opacity-60 pointer-events-none" />
 
             <div
               ref={dashboardRef}
-              className="bg-[#0c111c] rounded-3xl p-6 sm:p-8 border border-white/15 shadow-2xl space-y-6 relative group"
+              className="bg-[#090d16] rounded-3xl p-6 sm:p-8 border border-gray-800 shadow-2xl space-y-6 relative group text-white"
             >
               {/* Cantoneira Laranja da Marca MundoLogística */}
               <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03]" />
@@ -228,36 +217,39 @@ export default function DashboardSection() {
             </div>
 
             {/* Chip Flutuante Criativo para Dar Profundidade */}
-            <div className="absolute -bottom-4 -right-4 bg-black/90 text-white rounded-2xl p-3 shadow-xl border border-white/15 hidden sm:flex items-center gap-3 animate-float-slow z-20">
-              <div className="w-9 h-9 rounded-xl bg-[#df3500] flex items-center justify-center text-white font-bold">
+            <div className="absolute -bottom-4 -right-4 bg-white text-gray-900 rounded-2xl p-3 shadow-xl border border-gray-200 hidden sm:flex items-center gap-3 animate-float-slow z-20">
+              <div className="w-9 h-9 rounded-xl bg-orange-100 flex items-center justify-center text-[#df3500] font-bold">
                 <BarChart3 className="w-4 h-4" />
               </div>
               <div className="text-xs">
-                <span className="font-heading font-bold block">Relatórios Consolidados</span>
-                <span className="text-[10px] font-mono-tech text-gray-400">Exportação em PDF & Excel</span>
+                <span className="font-heading font-bold text-gray-950 block">Relatórios Consolidados</span>
+                <span className="text-[10px] font-mono-tech text-gray-500">Exportação em PDF & Excel</span>
               </div>
             </div>
           </div>
 
           {/* Coluna de Texto com os 4 Pontos Oficiais da Cliente */}
           <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
-            <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
-              Gestão & Acompanhamento
-            </span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300">
+              <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#df3500]">
+                Gestão & Acompanhamento
+              </span>
+            </div>
 
             {/* Texto Destaque da Cliente */}
-            <h2 className="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight leading-[1.15]">
-              Dashboard do <span className="font-editorial italic font-normal text-orange-400">líder</span>
+            <h2 className="text-3xl sm:text-5xl font-heading font-black text-gray-950 tracking-tight leading-[1.15]">
+              Dashboard do <span className="font-editorial italic font-normal text-[#df3500]">líder</span>
             </h2>
 
             {/* Texto Apoio da Cliente */}
-            <p className="text-gray-300 font-sans text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-600 font-sans text-base sm:text-lg leading-relaxed">
               Acompanhe a participação e o progresso dos profissionais na plataforma e tenha mais visibilidade sobre a jornada de desenvolvimento da equipe!
             </p>
 
             {/* Lista Oficial "Acompanhe:" com Cards Criativos */}
             <div className="pt-2 space-y-3">
-              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-white block">
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-gray-900 block">
                 Acompanhe:
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -269,15 +261,15 @@ export default function DashboardSection() {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-[#ff3d03]/40 transition-colors"
+                    className="p-4 rounded-2xl bg-gray-50/90 border border-gray-200 hover:border-[#df3500]/50 hover:bg-orange-50/30 transition-all shadow-xs"
                   >
-                    <div className="flex items-center gap-2 font-bold text-sm text-white mb-0.5">
-                      <div className="w-5 h-5 rounded-full bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
+                    <div className="flex items-center gap-2.5 font-bold text-sm text-gray-950 mb-1">
+                      <div className="w-5 h-5 rounded-full bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
                       <span className="text-xs font-heading font-bold">{item.text}</span>
                     </div>
-                    <span className="text-[11px] font-sans text-gray-400 pl-7 block">{item.desc}</span>
+                    <span className="text-[11px] font-sans text-gray-600 pl-7 block">{item.desc}</span>
                   </div>
                 ))}
               </div>
@@ -285,24 +277,24 @@ export default function DashboardSection() {
 
             {/* BOTÃO CTA DA 3ª DOBRA com Foco Óptico e Efeito Radar */}
             <div className="pt-4 relative">
-              {/* Ponto de luz cônico atrás do botão */}
-              <div className="absolute -inset-4 cta-spotlight pointer-events-none rounded-3xl" />
+              {/* Ponto de luz suave atrás do botão */}
+              <div className="absolute -inset-4 cta-spotlight-light pointer-events-none rounded-3xl" />
 
               <div className="relative inline-block">
                 {/* Onda de Radar */}
-                <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/40 radar-wave pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/30 radar-wave pointer-events-none" />
 
                 <Link
                   href="#proposta"
-                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_35px_rgba(255,61,3,0.5)] hover:shadow-[0_0_50px_rgba(255,61,3,0.7)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_10px_30px_rgba(255,61,3,0.35)] hover:shadow-[0_15px_40px_rgba(255,61,3,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
                 >
                   Solicitar demonstração
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
-              <div className="flex items-center gap-2 mt-3 text-xs font-mono-tech text-gray-400">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div className="flex items-center gap-2 mt-3 text-xs font-mono-tech text-gray-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Demonstração prática guiada com dados reais de exemplo</span>
               </div>
             </div>

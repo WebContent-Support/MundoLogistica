@@ -40,11 +40,11 @@ export default function SocialProof() {
       data-theme="dark"
       className="py-24 bg-[#070a10] text-white border-t border-white/10 relative overflow-hidden"
     >
-      {/* FOTOGRAFIA REAL DE FUNDO: Operações Portuárias e Guindastes ao Pôr do Sol */}
+      {/* FOTOGRAFIA REAL DE FUNDO: Torre de Controle e Sala de Operações Logísticas */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="/images/port-sunset.jpg"
-          alt="Operações Portuárias e Guindastes ao Pôr do Sol"
+          src="/images/control-tower.jpg"
+          alt="Torre de Controle Logística e Telemetria Operacional"
           className="w-full h-full object-cover opacity-65 object-center"
         />
         <div className="absolute inset-0 bg-black/65" />
