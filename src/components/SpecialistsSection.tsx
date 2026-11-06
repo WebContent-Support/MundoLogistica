@@ -148,33 +148,22 @@ export default function SpecialistsSection() {
             </h2>
           </div>
 
-          {/* Botões de Navegação do Carrossel com Indicador de Rotação Automática */}
-          <div className="flex items-center gap-3 shrink-0">
-            <div className="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-gray-200 text-[11px] font-mono-tech text-gray-600 shadow-2xs">
-              <span
-                className={`w-2 h-2 rounded-full ${
-                  isHovered ? 'bg-amber-400' : 'bg-emerald-500 animate-pulse'
-                }`}
-              />
-              <span>{isHovered ? 'Pausado (cursor ativo)' : 'Giro automático'}</span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => scroll('left')}
-                aria-label="Rolar especialistas para a esquerda"
-                className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => scroll('right')}
-                aria-label="Rolar especialistas para a direita"
-                className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
+          {/* Botões de Navegação do Carrossel */}
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => scroll('left')}
+              aria-label="Rolar especialistas para a esquerda"
+              className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              aria-label="Rolar especialistas para a direita"
+              className="w-12 h-12 rounded-2xl bg-white border border-gray-200 hover:border-[#df3500] hover:text-[#df3500] text-gray-700 flex items-center justify-center transition-all shadow-sm active:scale-95 cursor-pointer"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
         </div>
 
