@@ -45,10 +45,10 @@ export default function SocialProof() {
         <img
           src="/images/port-sunset.jpg"
           alt="Operações Portuárias e Guindastes ao Pôr do Sol"
-          className="w-full h-full object-cover opacity-30 mix-blend-screen filter blur-[0.5px]"
+          className="w-full h-full object-cover opacity-40 object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070a10] via-[#070a10]/80 to-[#070a10]" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070a10] via-[#070a10]/65 to-[#070a10]/85" />
+        <div className="absolute inset-0 bg-tech-grid-dark opacity-25" />
       </div>
 
       {/* Luz ambiente neon quente alinhada aos guindastes */}

@@ -26,18 +26,9 @@ export default function CoursesSection() {
       data-theme="light"
       className="py-24 bg-white text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
-      {/* Imagem de Fundo Sutil de Operações de Frota e Armazém */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
-          src="/images/logistics-fleet.jpg"
-          alt="Operações de Transporte e Logística"
-          className="w-full h-full object-cover opacity-8 mix-blend-multiply filter blur-[0.5px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
-      </div>
-
       {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-35 pointer-events-none" />
+      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 6ª Dobra - Texto Oficial da Cliente */}

@@ -27,7 +27,7 @@ export default function Hero() {
       data-theme="dark"
       className="relative overflow-hidden pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-16 bg-[#06080d] border-b border-white/10"
     >
-      {/* Imagem de Fundo de Alta Resolução com Gradiente e Iluminação Ambiente */}
+      {/* Imagem de Fundo de Alta Resolução com Visibilidade Real e Profundidade */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/hero-bg.jpg"
@@ -36,13 +36,13 @@ export default function Hero() {
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity scale-105"
+          className="w-full h-full object-cover object-center opacity-55 scale-105"
         />
-        {/* Máscara radial e gradientes de profundidade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06080d] via-[#06080d]/85 to-[#06080d]/90" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
-        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-gradient-to-b from-[#ff3d03]/25 via-[#ff3d03]/5 to-transparent blur-[130px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[250px] bg-orange-600/10 blur-[100px] rounded-full pointer-events-none" />
+        {/* Gradiente cinema: escuro apenas no lado esquerdo do texto, deixando a direita com rica fotografia */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06080d] via-[#06080d]/85 to-[#06080d]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06080d] via-transparent to-[#06080d]/70" />
+        <div className="absolute inset-0 bg-tech-grid-dark opacity-25" />
+        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-gradient-to-b from-[#ff3d03]/30 via-[#ff3d03]/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -113,16 +113,16 @@ export default function Hero() {
                     width={800}
                     height={600}
                     fetchPriority="high"
-                    className="w-full h-full object-cover object-top img-zoom group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center img-zoom group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
                   
                   {/* Badge Interno no Topo da Imagem */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/15">
+                    <span className="text-[10px] font-mono font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
                       Operações & Supply Chain
                     </span>
-                    <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30">
+                    <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/40">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                       Em Tempo Real
                     </span>
@@ -130,10 +130,10 @@ export default function Hero() {
 
                   {/* Legenda de Rodapé sobre a Imagem */}
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff3d03] font-bold block">
-                      MundoLogística Educação
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff3d03] font-bold block mb-0.5">
+                      MundoLogística Educação Corporativa
                     </span>
-                    <p className="text-sm font-bold leading-snug">
+                    <p className="text-sm font-bold leading-snug drop-shadow-md">
                       Formando os líderes das maiores cadeias do país
                     </p>
                   </div>
@@ -141,9 +141,9 @@ export default function Hero() {
               </div>
 
               {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
-              <div className="absolute -top-4 -right-4 sm:-right-6 bg-black/90 backdrop-blur-xl border border-white/15 rounded-2xl p-3.5 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">
-                  <TrendingUp className="w-5 h-5" />
+              <div className="absolute -top-4 -right-4 sm:-right-6 bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+                  <TrendingUp className="w-4 h-4" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-white flex items-center gap-1.5">
@@ -156,10 +156,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Elemento Flutuante 2 (Base Esquerda): Acervo Técnico */}
-              <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-black/90 backdrop-blur-xl border border-[#ff3d03]/40 rounded-2xl p-3.5 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20">
-                <div className="w-10 h-10 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold">
-                  <ShieldCheck className="w-5 h-5" />
+              {/* Elemento Flutuante 2 (Base Direita): Acervo Técnico */}
+              <div className="absolute -bottom-4 -right-4 sm:-right-6 bg-black/90 backdrop-blur-xl border border-[#ff3d03]/40 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20">
+                <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-white block">+18 Anos de Acervo</span>

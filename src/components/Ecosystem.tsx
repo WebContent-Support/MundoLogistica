@@ -115,22 +115,12 @@ export default function Ecosystem() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
-      {/* Imagem de Fundo de Armazém com Perspectiva Arquitetônica */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
-          src="/images/warehouse-perspective.jpg"
-          alt="Perspectiva de Armazém e Centro de Distribuição"
-          className="w-full h-full object-cover opacity-12 mix-blend-multiply filter blur-[0.5px]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f8fafc] via-transparent to-[#f8fafc]" />
-      </div>
-
       {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-40 pointer-events-none" />
+      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
 
-      {/* Detalhes Visuais Sutis de Fundo */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
+      {/* Detalhes Visuais de Luz Ambiente */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-100/60 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente */}
