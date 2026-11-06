@@ -110,8 +110,8 @@ export default function DashboardSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Mockup Interativo e Realista da Interface do Gestor em Terminal Executivo Dark */}
-          <div className="lg:col-span-7 order-2 lg:order-1 relative">
+          {/* Mockup Interativo e Realista da Interface do Gestor em Terminal Executivo Dark com Entrada Lateral */}
+          <div className="lg:col-span-7 order-2 lg:order-1 relative reveal-slide-left">
             {/* Brilho suave de profundidade atrás do mockup */}
             <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#ff3d03]/20 to-orange-400/10 blur-xl opacity-60 pointer-events-none" />
 
@@ -229,7 +229,7 @@ export default function DashboardSection() {
           </div>
 
           {/* Coluna de Texto com os 4 Pontos Oficiais da Cliente */}
-          <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
+          <div className="lg:col-span-5 order-1 lg:order-2 space-y-6 reveal-slide-right">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300">
               <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
               <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#df3500]">
@@ -247,21 +247,21 @@ export default function DashboardSection() {
               Acompanhe a participação e o progresso dos profissionais na plataforma e tenha mais visibilidade sobre a jornada de desenvolvimento da equipe!
             </p>
 
-            {/* Lista Oficial "Acompanhe:" com Cards Criativos */}
+            {/* Lista Oficial "Acompanhe:" com Cards Criativos e Entrada Escalonada */}
             <div className="pt-2 space-y-3">
               <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-gray-900 block">
                 Acompanhe:
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  { text: 'Quem está se desenvolvendo', desc: 'Identificação individual' },
-                  { text: 'O que está sendo consumido', desc: 'Aulas, artigos e módulos' },
-                  { text: 'Quais conteúdos concluídos', desc: 'Certificados emitidos' },
-                  { text: 'Como cada profissional evolui', desc: 'Maturidade técnica' },
+                  { text: 'Quem está se desenvolvendo', desc: 'Identificação individual', delay: 'delay-100' },
+                  { text: 'O que está sendo consumido', desc: 'Aulas, artigos e módulos', delay: 'delay-150' },
+                  { text: 'Quais conteúdos concluídos', desc: 'Certificados emitidos', delay: 'delay-200' },
+                  { text: 'Como cada profissional evolui', desc: 'Maturidade técnica', delay: 'delay-250' },
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl bg-gray-50/90 border border-gray-200 hover:border-[#df3500]/50 hover:bg-orange-50/30 transition-all shadow-xs"
+                    className={`p-4 rounded-2xl bg-gray-50/90 border border-gray-200 hover:border-[#df3500]/50 hover:bg-orange-50/30 transition-all shadow-xs reveal-init ${item.delay}`}
                   >
                     <div className="flex items-center gap-2.5 font-bold text-sm text-gray-950 mb-1">
                       <div className="w-5 h-5 rounded-full bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0">
@@ -276,7 +276,7 @@ export default function DashboardSection() {
             </div>
 
             {/* BOTÃO CTA DA 3ª DOBRA com Foco Óptico e Efeito Radar */}
-            <div className="pt-4 relative">
+            <div className="pt-4 relative reveal-init delay-300">
               {/* Ponto de luz suave atrás do botão */}
               <div className="absolute -inset-4 cta-spotlight-light pointer-events-none rounded-3xl" />
 

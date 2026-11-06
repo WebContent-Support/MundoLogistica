@@ -48,8 +48,8 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-14">
           {/* Coluna de Texto (7 colunas no desktop) */}
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badge Luminous com Pulso */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-[#ff3d03]/30 shadow-lg shadow-[#ff3d03]/10 hover:border-[#ff3d03]/60 transition-colors">
+            {/* Badge Luminous com Pulso e Entrada Coreografada */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-[#ff3d03]/30 shadow-lg shadow-[#ff3d03]/10 hover:border-[#ff3d03]/60 transition-colors animate-hero-eyebrow">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff3d03] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff3d03]" />
@@ -60,7 +60,7 @@ export default function Hero() {
             </div>
 
             {/* Headline Exata do Documento da Cliente com Contraste Tipográfico */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white animate-hero-title">
               Sua equipe está preparada para os{' '}
               <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
                 próximos desafios
@@ -69,25 +69,25 @@ export default function Hero() {
             </h1>
 
             {/* Subtítulo Executivo de Apoio */}
-            <p className="text-base sm:text-lg text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-hero-subtitle">
               O ecossistema definitivo para <span className="font-editorial italic font-normal text-white">desenvolver competências</span>, acelerar a maturidade das operações e formar lideranças em Supply Chain com os maiores diretores do setor.
             </p>
 
             {/* Badges de Confiança Corporativa com Micro-Ícones */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-heading font-semibold text-gray-300">
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-heading font-semibold text-gray-300 animate-hero-badges">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <Award className="w-3.5 h-3.5" />
                 </div>
                 <span>Cursos técnicos com diretores</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <Bot className="w-3.5 h-3.5" />
                 </div>
                 <span>LogGPT IA especialista 24/7</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
@@ -103,7 +103,7 @@ export default function Hero() {
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#ff3d03]/40 to-orange-500/20 blur-2xl opacity-60 pointer-events-none" />
 
               {/* Card Principal com Fotografia Real de Liderança em Logística */}
-              <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl group">
+              <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl group animate-hero-card">
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img
                     src="/images/supply-chain-director.jpg"
@@ -139,7 +139,7 @@ export default function Hero() {
               </div>
 
               {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
-              <div className="absolute -top-3 -right-3 sm:-right-5 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20">
+              <div className="absolute -top-3 -right-3 sm:-right-5 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20 animate-hero-chip-1">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
                   <TrendingUp className="w-4 h-4" />
                 </div>
@@ -155,7 +155,7 @@ export default function Hero() {
               </div>
 
               {/* Elemento Flutuante 2 (Topo Esquerdo): Acervo Técnico */}
-              <div className="absolute -top-3 -left-3 sm:-left-5 bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20">
+              <div className="absolute -top-3 -left-3 sm:-left-5 bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20 animate-hero-chip-2">
                 <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
@@ -169,7 +169,7 @@ export default function Hero() {
         </div>
 
         {/* Faixa de Grandes Clientes com Marquee Infinito */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-white/10 reveal-init delay-200">
           <p className="text-center font-mono-tech text-[11px] uppercase tracking-widest text-gray-400 mb-5">
             Empresas que capacitam suas equipes com a MundoLogística
           </p>

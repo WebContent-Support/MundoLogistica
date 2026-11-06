@@ -37,8 +37,8 @@ export default function CoursesSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cabeçalho da 6ª Dobra - Texto Oficial da Cliente */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        {/* Cabeçalho da 6ª Dobra - Texto Oficial da Cliente com Efeito Scroll Reveal */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal-init">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
@@ -67,13 +67,13 @@ export default function CoursesSection() {
           </div>
         </div>
 
-        {/* Grid com os 6 Cursos na Homepage */}
+        {/* Grid com os 6 Cursos na Homepage com Efeito Cascata */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
-          {homepageCourses.map((course) => (
+          {homepageCourses.map((course, idx) => (
             <div
               key={course.id}
               onClick={() => setActiveCourse(course)}
-              className="bg-white rounded-3xl border border-gray-200 hover:border-[#ff3d03] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 relative cursor-pointer"
+              className={`bg-white rounded-3xl border border-gray-200 hover:border-[#ff3d03] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 relative cursor-pointer reveal-init delay-${(idx + 1) * 75}`}
             >
               {/* Foto de Capa do Treinamento com Efeito Cinema */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-900">
@@ -168,7 +168,7 @@ export default function CoursesSection() {
         </div>
 
         {/* DOCK DE AÇÃO PANORÂMICO COM LINHAS DE PERSPECTIVA DIRECIONADAS AOS CTAs */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-8 group">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-8 group reveal-scale delay-200">
           {/* Imagem de Fundo de Rodovia Noturna com Ponto de Fuga no Centro */}
           <div className="absolute inset-0 z-0">
             <img

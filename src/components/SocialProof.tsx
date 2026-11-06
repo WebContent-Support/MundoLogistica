@@ -52,8 +52,8 @@ export default function SocialProof() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Cabeçalho da 4ª Dobra - Textos Oficiais com Efeito Scroll Reveal */}
+        <div className="text-center max-w-3xl mx-auto mb-16 reveal-init">
           <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block mb-4">
             Depoimentos & Casos Reais
           </span>
@@ -62,8 +62,8 @@ export default function SocialProof() {
           </h2>
         </div>
 
-        {/* Player de Vídeo Institucional */}
-        <div className="max-w-4xl mx-auto mb-16 relative">
+        {/* Player de Vídeo Institucional com Efeito Zoom Reveal */}
+        <div className="max-w-4xl mx-auto mb-16 relative reveal-scale delay-100">
           <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#ff3d03]/40 to-orange-600/20 blur-2xl opacity-40 pointer-events-none" />
 
           <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/15 aspect-video shadow-2xl bg-black">
@@ -115,12 +115,12 @@ export default function SocialProof() {
           </div>
         </div>
 
-        {/* Grid de Depoimentos em Dark Glass */}
+        {/* Grid de Depoimentos em Dark Glass com Efeito Cascata */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-          {TESTIMONIALS.map((t) => (
+          {TESTIMONIALS.map((t, idx) => (
             <div
               key={t.author}
-              className="glass-panel rounded-3xl p-8 border border-white/10 hover:border-[#ff3d03]/50 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              className={`glass-panel rounded-3xl p-8 border border-white/10 hover:border-[#ff3d03]/50 shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 reveal-init delay-${(idx + 1) * 150}`}
             >
               <div>
                 <div className="flex items-center gap-1 text-[#ff3d03] mb-6">
@@ -158,7 +158,7 @@ export default function SocialProof() {
         </div>
 
         {/* BOTÃO CTA DA 4ª DOBRA com Foco Óptico e Efeito Radar */}
-        <div className="text-center relative pt-4">
+        <div className="text-center relative pt-4 reveal-init delay-200">
           {/* Spotlight cônico atrás do botão */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-32 cta-spotlight pointer-events-none rounded-full" />
 

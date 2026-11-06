@@ -134,8 +134,8 @@ export default function SpecialistsSection() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cabeçalho da 5ª Dobra - Textos Exatos da Cliente */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        {/* Cabeçalho da 5ª Dobra - Textos Exatos da Cliente com Efeito Scroll Reveal */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal-init">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
@@ -178,14 +178,14 @@ export default function SpecialistsSection() {
           </div>
         </div>
 
-        {/* Galeria Horizontal com Rolagem Suave e Eventos de Pausa */}
+        {/* Galeria Horizontal com Rolagem Suave, Animação Reveal e Eventos de Pausa */}
         <div
           ref={scrollRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={() => setIsHovered(true)}
           onTouchEnd={() => setIsHovered(false)}
-          className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none scroll-smooth snap-x snap-mandatory"
+          className="flex gap-6 overflow-x-auto pb-8 pt-2 scrollbar-none scroll-smooth snap-x snap-mandatory reveal-scale delay-150"
         >
           {SPECIALISTS.map((spec) => (
             <div
@@ -235,7 +235,7 @@ export default function SpecialistsSection() {
         </div>
 
         {/* BOTÃO CTA DA 5ª DOBRA com Foco Óptico e Efeito Radar */}
-        <div className="text-center pt-8 relative">
+        <div className="text-center pt-8 relative reveal-init delay-200">
           {/* Spotlight suave atrás do botão */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-32 cta-spotlight-light pointer-events-none rounded-full" />
 

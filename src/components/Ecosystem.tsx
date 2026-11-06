@@ -126,8 +126,8 @@ export default function Ecosystem() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente com Efeito Scroll Reveal */}
+        <div className="text-center max-w-3xl mx-auto mb-16 reveal-init">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
             <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#df3500]">
@@ -142,10 +142,10 @@ export default function Ecosystem() {
           </p>
         </div>
 
-        {/* Divisão em 2 Grandes Blocos Visuais Ricos */}
+        {/* Divisão em 2 Grandes Blocos Visuais Ricos com Entrada Lateral */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-stretch">
           {/* BLOCO 01 - Conhecimento para sua equipe evoluir */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden reveal-slide-left">
             {/* Cantoneira Laranja da Marca MundoLogística */}
             <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -270,7 +270,7 @@ export default function Ecosystem() {
           </div>
 
           {/* BLOCO 02 - Aprendizado direcionado à realidade da logística */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden reveal-slide-right">
             {/* Cantoneira Laranja da Marca MundoLogística */}
             <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -420,7 +420,7 @@ export default function Ecosystem() {
         </div>
 
         {/* BANNER DIRECIONAL FOTOGRÁFICO COM CONVERGÊNCIA VISUAL PARA O CTA */}
-        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-6 group">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-6 group reveal-scale">
           {/* Imagem de Fundo com Linhas de Perspectiva que Convergem ao Centro */}
           <div className="absolute inset-0 z-0">
             <img
