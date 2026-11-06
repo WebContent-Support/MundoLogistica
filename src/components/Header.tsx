@@ -113,47 +113,15 @@ export default function Header() {
           {/* Navegação Desktop sem background interno (100% transparente sobre o blur da cápsula) */}
           <nav className="hidden lg:flex items-center gap-1">
             <a
-              href="#ecossistema"
-              onClick={(e) => handleNavClick(e, 'ecossistema')}
+              href="#plataforma"
+              onClick={(e) => handleNavClick(e, 'plataforma')}
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
-              Ecossistema
-            </a>
-            <a
-              href="#cursos"
-              onClick={(e) => handleNavClick(e, 'cursos')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-                isDark
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
-              }`}
-            >
-              Vitrine de Cursos
-              <span
-                className={`px-1.5 py-0.5 text-[9px] font-mono font-bold rounded transition-colors duration-300 ${
-                  isDark
-                    ? 'bg-[#ff3d03]/20 text-[#ff3d03] border border-[#ff3d03]/40'
-                    : 'bg-orange-100 text-[#ff3d03] border border-orange-300'
-                }`}
-              >
-                NOVO
-              </span>
-            </a>
-            <a
-              href="#loggpt"
-              onClick={(e) => handleNavClick(e, 'loggpt')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 flex items-center gap-1 cursor-pointer ${
-                isDark
-                  ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
-              }`}
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
-              LogGPT (IA)
+              A Plataforma
             </a>
             <a
               href="#dashboard"
@@ -164,29 +132,40 @@ export default function Header() {
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
-              Dashboard RH
+              Dashboard do Líder
             </a>
             <a
-              href="#planos"
-              onClick={(e) => handleNavClick(e, 'planos')}
+              href="#depoimentos"
+              onClick={(e) => handleNavClick(e, 'depoimentos')}
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
-              Planos
+              Depoimentos
             </a>
             <a
-              href="#faq"
-              onClick={(e) => handleNavClick(e, 'faq')}
+              href="#especialistas"
+              onClick={(e) => handleNavClick(e, 'especialistas')}
               className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
               }`}
             >
-              FAQ
+              Especialistas
+            </a>
+            <a
+              href="#cursos"
+              onClick={(e) => handleNavClick(e, 'cursos')}
+              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+                isDark
+                  ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                  : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
+              }`}
+            >
+              Cursos
             </a>
           </nav>
 
@@ -230,37 +209,15 @@ export default function Header() {
             }`}
           >
             <a
-              href="#ecossistema"
-              onClick={(e) => handleNavClick(e, 'ecossistema')}
+              href="#plataforma"
+              onClick={(e) => handleNavClick(e, 'plataforma')}
               className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
-              Ecossistema
-            </a>
-            <a
-              href="#cursos"
-              onClick={(e) => handleNavClick(e, 'cursos')}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
-                isDark
-                  ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
-                  : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
-              }`}
-            >
-              Vitrine de Cursos
-            </a>
-            <a
-              href="#loggpt"
-              onClick={(e) => handleNavClick(e, 'loggpt')}
-              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
-                isDark
-                  ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
-                  : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
-              }`}
-            >
-              LogGPT (IA Especialista)
+              A Plataforma
             </a>
             <a
               href="#dashboard"
@@ -271,29 +228,40 @@ export default function Header() {
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
-              Dashboard do Gestor
+              Dashboard do Líder
             </a>
             <a
-              href="#planos"
-              onClick={(e) => handleNavClick(e, 'planos')}
+              href="#depoimentos"
+              onClick={(e) => handleNavClick(e, 'depoimentos')}
               className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
-              Planos Corporativos
+              Depoimentos
             </a>
             <a
-              href="#faq"
-              onClick={(e) => handleNavClick(e, 'faq')}
+              href="#especialistas"
+              onClick={(e) => handleNavClick(e, 'especialistas')}
               className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
                 isDark
                   ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
                   : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
               }`}
             >
-              Perguntas Frequentes
+              Especialistas
+            </a>
+            <a
+              href="#cursos"
+              onClick={(e) => handleNavClick(e, 'cursos')}
+              className={`block px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${
+                isDark
+                  ? 'text-gray-200 hover:text-[#ff3d03] hover:bg-white/5'
+                  : 'text-gray-700 hover:text-[#ff3d03] hover:bg-gray-100'
+              }`}
+            >
+              Cursos da Plataforma
             </a>
             <div className="pt-2">
               <a

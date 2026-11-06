@@ -56,10 +56,10 @@ export default function LeadForm() {
                   Atendimento Corporativo
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                  Solicite uma proposta personalizada
+                  Retenha talentos e prepare sua equipe para os desafios da logística!
                 </h2>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Preencha os dados da sua empresa para receber uma demonstração executiva do acervo de cursos, do LogGPT e condições especiais de faturamento.
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                  Preencha os dados e converse com nosso time sobre as necessidades da sua operação.
                 </p>
 
                 <div className="space-y-4 pt-4 border-t border-white/10 text-xs text-gray-300">
@@ -193,7 +193,7 @@ export default function LeadForm() {
                         <span>Processando solicitação...</span>
                       ) : (
                         <>
-                          <span>RECEBER PROPOSTA CUSTOMIZADA</span>
+                          <span>QUERO RECEBER UMA PROPOSTA</span>
                           <Send className="w-4 h-4" />
                         </>
                       )}

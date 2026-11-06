@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer data-theme="dark" className="bg-[#040609] text-white pt-20 pb-12 border-t border-white/10">
+    <footer data-theme="dark" className="bg-[#040609] text-white pt-16 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
-          {/* Logo Oficial e Missão */}
-          <div className="lg:col-span-5 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10 items-start">
+          {/* Logo Oficial e Redes Sociais (Foco da Simplificação da Cliente) */}
+          <div className="lg:col-span-6 space-y-5">
             <Link href="/" className="inline-block py-1">
               <img
                 src="/logo-white.png"
@@ -20,50 +20,75 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-sm text-gray-300 max-w-sm leading-relaxed">
-              O maior ecossistema de conteúdo técnico, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
+            <p className="text-sm text-gray-300 max-w-md leading-relaxed">
+              O maior ecossistema de capacitação, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
-            <div className="pt-2 text-xs font-mono text-gray-400">
-              © {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.
+            {/* Redes Sociais Oficiais em Destaque */}
+            <div className="pt-2">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-gray-400 block mb-3">
+                Siga a MundoLogística:
+              </span>
+              <div className="flex items-center gap-3">
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/company/mundologistica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  aria-label="LinkedIn da MundoLogística"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.65 1.65 0 0 0 0-3.3 1.65 1.65 0 0 0 0 3.3m1.4 9.74v-8.37H5.06v8.37h2.8z" />
+                  </svg>
+                </a>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/mundologistica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  aria-label="Instagram da MundoLogística"
+                >
+                  <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+                {/* YouTube */}
+                <a
+                  href="https://www.youtube.com/@mundologistica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  aria-label="YouTube da MundoLogística"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+                {/* Facebook */}
+                <a
+                  href="https://www.facebook.com/revistamundologistica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  aria-label="Facebook da MundoLogística"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Links Rápidos */}
-          <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Navegação</h3>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>
-                <Link href="#ecossistema" className="hover:text-[#ff3d03] transition-colors">
-                  A Plataforma
-                </Link>
-              </li>
-              <li>
-                <Link href="#cursos" className="hover:text-[#ff3d03] transition-colors">
-                  Vitrine de Cursos
-                </Link>
-              </li>
-              <li>
-                <Link href="#loggpt" className="hover:text-[#ff3d03] transition-colors">
-                  LogGPT (IA Especialista)
-                </Link>
-              </li>
-              <li>
-                <Link href="#dashboard" className="hover:text-[#ff3d03] transition-colors">
-                  Dashboard do Gestor
-                </Link>
-              </li>
-              <li>
-                <Link href="#planos" className="hover:text-[#ff3d03] transition-colors">
-                  Planos Corporativos
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Dados de Contato Oficial */}
-          <div className="lg:col-span-4 space-y-3">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">Atendimento Corporativo</h3>
+          {/* Dados de Contato e Atendimento Corporativo */}
+          <div className="lg:col-span-6 space-y-4">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+              Atendimento Corporativo B2B
+            </h3>
             <ul className="space-y-3 text-xs sm:text-sm text-gray-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ff3d03] shrink-0 mt-0.5" />
@@ -85,15 +110,15 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Rodapé inferior */}
+        {/* Rodapé inferior com Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-          <p>Desenvolvido para MundoLogística Educação por WebContent Soluções Digitais.</p>
+          <p>© {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.</p>
           <div className="flex items-center gap-6">
             <a
               href="https://mundologistica.com.br/politica-privacidade"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-200 transition-colors"
             >
               Política de Privacidade
             </a>
@@ -101,7 +126,7 @@ export default function Footer() {
               href="https://mundologistica.com.br/contato"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-300 transition-colors"
+              className="hover:text-gray-200 transition-colors"
             >
               Central de Atendimento
             </a>

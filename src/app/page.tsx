@@ -1,14 +1,11 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Ecosystem from '@/components/Ecosystem';
-import CourseShowcase from '@/components/CourseShowcase';
-import LogGPTSection from '@/components/LogGPTSection';
 import DashboardSection from '@/components/DashboardSection';
-import RoiCalculator from '@/components/RoiCalculator';
 import SocialProof from '@/components/SocialProof';
-import PricingB2B from '@/components/PricingB2B';
+import SpecialistsSection from '@/components/SpecialistsSection';
+import CoursesSection from '@/components/CoursesSection';
 import LeadForm from '@/components/LeadForm';
-import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -16,17 +13,28 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-[#06080d] text-white selection:bg-[#ff3d03] selection:text-white">
       <Header />
       <main className="flex-1">
+        {/* 1ª DOBRA - HEADER/CABEÇALHO */}
         <Hero />
+
+        {/* 2ª DOBRA - ITENS DA PLATAFORMA */}
         <Ecosystem />
-        <CourseShowcase />
-        <LogGPTSection />
+
+        {/* 3ª DOBRA - DASHBOARD DO LÍDER */}
         <DashboardSection />
-        <RoiCalculator />
+
+        {/* 4ª DOBRA - PROVA SOCIAL */}
         <SocialProof />
-        <PricingB2B />
+
+        {/* 5ª DOBRA - ESPECIALISTAS */}
+        <SpecialistsSection />
+
+        {/* 6ª DOBRA - CURSOS */}
+        <CoursesSection />
+
+        {/* 7ª DOBRA - FORMULÁRIO */}
         <LeadForm />
-        <FAQ />
       </main>
+      {/* RODAPÉ */}
       <Footer />
     </div>
   );

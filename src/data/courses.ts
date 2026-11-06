@@ -165,7 +165,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Carlos Jardim',
       role: 'Diretor de Supply Chain',
       companyOrExperience: '+22 anos de atuação em indústria farmacêutica e bens de consumo',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=75&fm=webp',
+      avatar: '/instructors/carlos-jardim.jpg',
     },
     summary: 'Técnicas modernas de layout de centro de distribuição, picking por voz/luz, endereçamento inteligente e acuracidade de 99.8%.',
     modules: [
@@ -185,7 +185,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Alberto Rodrigues',
       role: 'Diretor de Logística',
       companyOrExperience: 'Especialista em transporte granel, químicos e carga geral',
-      avatar: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=75&fm=webp',
+      avatar: '/instructors/alberto-rodrigues.jpg',
     },
     summary: 'Planilhas de custo padrão, negociação de tarifas spot e contratuais, gestão de pedágios, diesel e contratos com transportadoras.',
     modules: [
@@ -205,7 +205,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Alexandre Faria',
       role: 'VP de Supply Chain',
       companyOrExperience: 'Líder em e-commerce de grande porte e varejo de moda',
-      avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=120&auto=format&fit=crop&q=75&fm=webp',
+      avatar: '/instructors/alexandre-faria.jpg',
     },
     summary: 'Como aplicar modelos de linguagem (LLMs), machine learning e visão computacional para prever gargalos e automatizar SAC logístico.',
     modules: [
@@ -225,7 +225,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Renata Albuquerque',
       role: 'Head de Logística Internacional',
       companyOrExperience: '+18 anos gerenciando importações portuárias e aeroviárias',
-      avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&auto=format&fit=crop&q=75&fm=webp',
+      avatar: '/instructors/renata-albuquerque.jpg',
     },
     summary: 'Como contornar crises de frete marítimo, demurrage, desembaraço aduaneiro e riscos geopolíticos em rotas internacionais.',
     modules: [
@@ -245,7 +245,7 @@ export const COURSES_DATA: Course[] = [
       name: 'Eduardo Silveira',
       role: 'Consultor Sênior de E-commerce',
       companyOrExperience: 'Ex-gerente de operações em marketplaces líderes',
-      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&auto=format&fit=crop&q=75&fm=webp',
+      avatar: '/instructors/eduardo-silveira.jpg',
     },
     summary: 'Estratégias para reduzir o custo do retorno de mercadorias, acelerar a triagem e transformar a devolução em recompra.',
     modules: [

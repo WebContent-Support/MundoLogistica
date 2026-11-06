@@ -1,29 +1,33 @@
 'use client';
 
 import { useState } from 'react';
-import { Quote, Star, Building2, Play } from 'lucide-react';
+import Link from 'next/link';
+import { Quote, Star, Building2, Play, ArrowRight } from 'lucide-react';
 
 const TESTIMONIALS = [
   {
-    author: 'Alberto Rodrigues',
-    role: 'Diretor de Logística',
-    company: 'Yara Brasil',
-    quote: 'A MundoLogística é a referência técnica mais sólida que temos no país. Capacitar nossos analistas e supervisores com este acervo elevou consideravelmente o nível das discussões estratégicas e a maturidade da nossa operação.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=75&fm=webp',
-  },
-  {
     author: 'Alexandre Faria',
-    role: 'VP de Supply Chain',
+    role: 'COO',
     company: 'Dafiti',
-    quote: 'A facilidade de ter cursos práticos ministrados por quem realmente está no campo de batalha, combinada com o LogGPT para tirar dúvidas diárias, trouxe uma agilidade inédita para o nosso time de operações e transporte.',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=75&fm=webp',
+    quote:
+      'A MundoLogística tem sido uma parceira valiosa, oferecendo conteúdos de alta qualidade e ferramentas inovadoras, como o LogGPT, que nos ajudam a aprimorar nossas operações...',
+    avatar: '/instructors/alexandre-faria.jpg',
   },
   {
     author: 'Carlos Jardim',
-    role: 'Diretor de Supply Chain',
+    role: 'Executivo de Supply Chain',
     company: 'Pfizer',
-    quote: 'Em um setor altamente regulado e crítico como o farmacêutico, a profundidade técnica dos materiais da MundoLogística é indispensável para mantermos nossa equipe atualizada com as melhores práticas mundiais.',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&auto=format&fit=crop&q=75&fm=webp',
+    quote:
+      'É uma leitura obrigatória para qualquer profissional de logística que deseje se manter atualizado e informado.',
+    avatar: '/instructors/carlos-jardim.jpg',
+  },
+  {
+    author: 'Alberto Rodrigues',
+    role: 'Logística e Supply Chain',
+    company: 'Yara Brasil',
+    quote:
+      'A plataforma oferece conteúdo de qualidade, sendo indispensável para profissionais que atuam e acompanham as tendências do setor logístico.',
+    avatar: '/instructors/alberto-rodrigues.jpg',
   },
 ];
 
@@ -31,25 +35,26 @@ export default function SocialProof() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section data-theme="dark" className="py-28 bg-[#090d14] text-white border-t border-white/10 relative">
+    <section
+      id="depoimentos"
+      data-theme="dark"
+      className="py-24 bg-[#090d14] text-white border-t border-white/10 relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Cabeçalho */}
+        {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
-            Autoridade Comprovada
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block mb-4">
+            Depoimentos & Casos Reais
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white mt-4 mb-4 tracking-tight">
-            Validado por quem lidera as maiores operações
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+            Veja o que profissionais que conhecem a plataforma, têm a dizer sobre essa experiência:
           </h2>
-          <p className="text-gray-300 text-lg">
-            Mais de 400 corporações confiam na curadoria técnica da MundoLogística para formar seus quadros de especialistas.
-          </p>
         </div>
 
-        {/* Player de Vídeo Estilo Cinema com Façade de Alta Performance (Zero Third-Party Cookies & 500KB+ JS Saving) */}
-        <div className="max-w-4xl mx-auto mb-20 relative">
-          <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#ff3d03]/50 to-orange-600/30 blur-2xl opacity-40 pointer-events-none" />
-          
+        {/* Player de Vídeo Institucional */}
+        <div className="max-w-4xl mx-auto mb-16 relative">
+          <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-[#ff3d03]/40 to-orange-600/20 blur-2xl opacity-40 pointer-events-none" />
+
           <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/15 aspect-video shadow-2xl bg-black">
             {isPlaying ? (
               <iframe
@@ -78,16 +83,16 @@ export default function SocialProof() {
                 />
 
                 {/* Camada gradiente escura para contraste cinema */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:via-black/20 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent group-hover:via-black/20 transition-all duration-300" />
 
                 {/* Botão Play Neon Pulsante */}
                 <div className="relative z-10 flex flex-col items-center gap-4">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#ff3d03] to-[#ff5c2b] flex items-center justify-center text-white shadow-[0_0_50px_rgba(255,61,3,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_70px_rgba(255,61,3,0.9)] transition-all duration-300 border border-orange-300/40">
-                    <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-current translate-x-0.5" />
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#ff3d03] to-[#ff5c2b] flex items-center justify-center text-white shadow-[0_0_40px_rgba(255,61,3,0.7)] group-hover:scale-110 group-hover:shadow-[0_0_60px_rgba(255,61,3,0.9)] transition-all duration-300 border border-orange-300/40">
+                    <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current translate-x-0.5" />
                   </div>
                   <div className="text-center">
                     <span className="text-sm sm:text-base font-bold text-white tracking-wide block drop-shadow-md">
-                      Assistir Apresentação Corporativa
+                      Assistir Apresentação da Plataforma
                     </span>
                     <span className="text-xs font-mono text-gray-300 bg-black/60 px-3 py-1 rounded-full border border-white/10 mt-1.5 inline-block">
                       Vídeo Exclusivo • 3 min
@@ -100,7 +105,7 @@ export default function SocialProof() {
         </div>
 
         {/* Grid de Depoimentos em Dark Glass */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.author}
@@ -122,14 +127,14 @@ export default function SocialProof() {
                 <img
                   src={t.avatar}
                   alt={t.author}
-                  width={48}
-                  height={48}
+                  width={52}
+                  height={52}
                   loading="lazy"
                   decoding="async"
-                  className="w-12 h-12 rounded-full object-cover border-2 border-[#ff3d03]/60 shadow-md shadow-[#ff3d03]/20"
+                  className="w-13 h-13 rounded-full object-cover border-2 border-[#ff3d03]/60 shadow-md shadow-[#ff3d03]/20"
                 />
                 <div>
-                  <h3 className="font-bold text-white text-sm">{t.author}</h3>
+                  <h3 className="font-bold text-white text-base">{t.author}</h3>
                   <p className="text-xs text-gray-300">{t.role}</p>
                   <p className="text-xs font-mono font-bold text-[#ff3d03] flex items-center gap-1 mt-0.5">
                     <Building2 className="w-3 h-3" />
@@ -139,6 +144,17 @@ export default function SocialProof() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* BOTÃO CTA DA 4ª DOBRA: Texto Exato do Cliente */}
+        <div className="text-center">
+          <Link
+            href="#proposta"
+            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-xl shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider"
+          >
+            Solicite uma proposta
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
