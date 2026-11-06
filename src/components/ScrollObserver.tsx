@@ -4,13 +4,7 @@ import { useEffect } from 'react';
 
 export default function ScrollObserver() {
   useEffect(() => {
-    // Se o usuário preferir menos movimento, revela tudo imediatamente
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      document
-        .querySelectorAll('.reveal-init, .reveal-slide-left, .reveal-slide-right, .reveal-scale')
-        .forEach((el) => el.classList.add('is-revealed'));
-      return;
-    }
+    if (typeof window === 'undefined') return;
 
     if (!('IntersectionObserver' in window)) {
       document
@@ -30,8 +24,8 @@ export default function ScrollObserver() {
         });
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 

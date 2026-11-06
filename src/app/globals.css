@@ -305,108 +305,121 @@ section[id] {
 @keyframes heroFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-12px);
+    transform: translateY(-20px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: none;
   }
 }
 
 @keyframes heroFadeInUp {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(40px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: none;
   }
 }
 
 @keyframes heroCardEntrance {
   from {
     opacity: 0;
-    transform: translateX(40px) scale(0.96);
+    transform: translateX(50px) scale(0.92);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
+    filter: none;
   }
 }
 
 @keyframes heroChipEntrance {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.7) translateY(20px);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
+    filter: none;
   }
 }
 
 .animate-hero-eyebrow {
-  animation: heroFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
 .animate-hero-title {
-  animation: heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  animation: heroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .animate-hero-subtitle {
-  animation: heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both;
+  animation: heroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
 }
 
 .animate-hero-badges {
-  animation: heroFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
+  animation: heroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
 }
 
 .animate-hero-card {
-  animation: heroCardEntrance 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+  animation: heroCardEntrance 1.05s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
 .animate-hero-chip-1 {
-  animation: heroChipEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+  animation: heroChipEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
 }
 
 .animate-hero-chip-2 {
-  animation: heroChipEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both;
+  animation: heroChipEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
 }
 
 /* Classes de Scroll Reveal para os elementos conforme a página rola */
 .reveal-init {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateY(44px);
+  filter: blur(5px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-slide-left {
   opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateX(-50px);
+  filter: blur(5px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-slide-right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: translateX(50px);
+  filter: blur(5px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.94) translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transform: scale(0.92) translateY(30px);
+  filter: blur(5px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
 }
 
 /* Estado Ativado quando o elemento atinge a área visível */
 .is-revealed {
   opacity: 1 !important;
   transform: translate(0, 0) scale(1) !important;
+  filter: none !important;
 }
 
 /* Delays escalonados para efeito cascata em grids e listas */
@@ -420,29 +433,6 @@ section[id] {
 .delay-400 { transition-delay: 400ms; }
 .delay-450 { transition-delay: 450ms; }
 .delay-500 { transition-delay: 500ms; }
-
-/* Acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-init,
-  .reveal-slide-left,
-  .reveal-slide-right,
-  .reveal-scale {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-  .animate-hero-eyebrow,
-  .animate-hero-title,
-  .animate-hero-subtitle,
-  .animate-hero-badges,
-  .animate-hero-card,
-  .animate-hero-chip-1,
-  .animate-hero-chip-2 {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
 
 
 
