@@ -4,6 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "MundoLogística | Plataforma Educacional & B2B",
   description: "Cursos executivos, capacitação corporativa e vitrine de especialistas em logística e supply chain.",
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
@@ -14,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="h-full antialiased">
       <head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
