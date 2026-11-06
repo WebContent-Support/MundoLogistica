@@ -98,9 +98,15 @@ export default function SpecialistsSection() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 border-t border-gray-200 relative overflow-hidden"
     >
-      {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
+      {/* FOTOGRAFIA REAL DE FUNDO: Sala de Diretoria e Liderança Executiva */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/executive-boardroom.jpg"
+          alt="Fotografia de Sala de Diretoria e Liderança"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8fafc]/95 via-[#f8fafc]/85 to-[#f8fafc]/95" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 5ª Dobra - Textos Exatos da Cliente */}

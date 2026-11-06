@@ -108,19 +108,16 @@ export default function DashboardSection() {
       data-theme="dark"
       className="py-24 bg-[#070b12] text-white border-t border-white/10 relative overflow-hidden"
     >
-      {/* Imagem de Fundo de Centro de Controle / Torre de Comando */}
+      {/* FOTOGRAFIA REAL DE FUNDO: Torre de Controle e Sala de Operações Logísticas */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/control-tower.jpg"
           alt="Torre de Controle Logística e Telemetria Operacional"
-          className="w-full h-full object-cover opacity-20 mix-blend-screen filter blur-[0.5px]"
+          className="w-full h-full object-cover opacity-50"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#070b12] via-[#070b12]/85 to-[#070b12]" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070b12]/92 via-[#070b12]/75 to-[#070b12]/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070b12] via-transparent to-[#070b12]/80" />
       </div>
-
-      {/* Luz ambiente suave de fundo */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-[#ff3d03]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

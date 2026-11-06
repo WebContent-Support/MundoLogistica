@@ -26,9 +26,15 @@ export default function CoursesSection() {
       data-theme="light"
       className="py-24 bg-white text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
-      {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
-      <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
+      {/* FOTOGRAFIA REAL DE FUNDO: Frota Logística e Transporte de Cargas */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/logistics-fleet.jpg"
+          alt="Fotografia de Frotas de Transporte e Distribuição"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white/95" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 6ª Dobra - Texto Oficial da Cliente */}
@@ -163,16 +169,15 @@ export default function CoursesSection() {
 
         {/* DOCK DE AÇÃO PANORÂMICO COM LINHAS DE PERSPECTIVA DIRECIONADAS AOS CTAs */}
         <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-8 group">
-          {/* Imagem de Fundo de Perspectiva de Armazém com Ponto de Fuga no Centro */}
+          {/* Imagem de Fundo de Rodovia Noturna com Ponto de Fuga no Centro */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/warehouse-perspective.jpg"
-              alt="Centro de Distribuição e Armazém em Perspectiva"
+              src="/images/directional-highway.jpg"
+              alt="Transporte Rodoviário com Linhas de Luz em Alta Velocidade"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />
-            {/* Gradiente cinema escuro para máximo contraste */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/95" />
-            <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
+            {/* Máscara cinema suave para deixar a foto e os faróis super visíveis */}
+            <div className="absolute inset-0 bg-black/55" />
           </div>
 
           {/* Conteúdo Centralizado no Ponto de Fuga */}

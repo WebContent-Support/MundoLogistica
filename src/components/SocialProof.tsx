@@ -40,19 +40,16 @@ export default function SocialProof() {
       data-theme="dark"
       className="py-24 bg-[#070a10] text-white border-t border-white/10 relative overflow-hidden"
     >
-      {/* Imagem de Fundo Cenográfica de Operações com Portos & Supply Chain em Pôr do Sol */}
+      {/* FOTOGRAFIA REAL DE FUNDO: Operações Portuárias e Guindastes ao Pôr do Sol */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/port-sunset.jpg"
           alt="Operações Portuárias e Guindastes ao Pôr do Sol"
-          className="w-full h-full object-cover opacity-40 object-center"
+          className="w-full h-full object-cover opacity-65 object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070a10] via-[#070a10]/65 to-[#070a10]/85" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-25" />
+        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070a10] via-transparent to-[#070a10]" />
       </div>
-
-      {/* Luz ambiente neon quente alinhada aos guindastes */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#ff3d03]/20 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}

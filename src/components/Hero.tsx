@@ -27,22 +27,20 @@ export default function Hero() {
       data-theme="dark"
       className="relative overflow-hidden pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-16 bg-[#06080d] border-b border-white/10"
     >
-      {/* Imagem de Fundo de Alta Resolução com Visibilidade Real e Profundidade */}
+      {/* FOTOGRAFIA REAL DE FUNDO: Centro de Distribuição Logístico de Grande Porte */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/hero-bg.jpg"
-          alt="Operações de Logística e Supply Chain"
+          alt="Fotografia de Centro de Distribuição e Galpão Logístico"
           width={1920}
           height={1080}
           fetchPriority="high"
           decoding="async"
-          className="w-full h-full object-cover object-center opacity-55 scale-105"
+          className="w-full h-full object-cover object-center opacity-75"
         />
-        {/* Gradiente cinema: escuro apenas no lado esquerdo do texto, deixando a direita com rica fotografia */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06080d] via-[#06080d]/85 to-[#06080d]/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06080d] via-transparent to-[#06080d]/70" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-25" />
-        <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-gradient-to-b from-[#ff3d03]/30 via-[#ff3d03]/10 to-transparent blur-[120px] rounded-full pointer-events-none" />
+        {/* Máscara suave para contraste do texto sem apagar a fotografia */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06080d] via-transparent to-black/60" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -106,19 +104,19 @@ export default function Hero() {
 
               {/* Card Principal com Fotografia Real de Liderança em Logística */}
               <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl group">
-                <div className="aspect-[4/3] overflow-hidden relative">
+                <div className="aspect-[16/10] overflow-hidden relative">
                   <img
-                    src="/images/executive-leader.jpg"
-                    alt="Liderança em Gestão de Supply Chain"
+                    src="/images/supply-chain-director.jpg"
+                    alt="Liderança em Gestão de Supply Chain e Operações"
                     width={800}
-                    height={600}
+                    height={500}
                     fetchPriority="high"
-                    className="w-full h-full object-cover object-center img-zoom group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover object-top img-zoom group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
                   
                   {/* Badge Interno no Topo da Imagem */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
                       Operações & Supply Chain
                     </span>
@@ -127,21 +125,21 @@ export default function Hero() {
                       Em Tempo Real
                     </span>
                   </div>
+                </div>
 
-                  {/* Legenda de Rodapé sobre a Imagem */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff3d03] font-bold block mb-0.5">
-                      MundoLogística Educação Corporativa
-                    </span>
-                    <p className="text-sm font-bold leading-snug drop-shadow-md">
-                      Formando os líderes das maiores cadeias do país
-                    </p>
-                  </div>
+                {/* Bloco Inferior do Card: Texto Limpo e Sem Nenhuma Sobreposição */}
+                <div className="p-4 sm:p-5 bg-[#0a0e17]/95 border-t border-white/10 text-white">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff3d03] font-bold block mb-1">
+                    MundoLogística Educação Corporativa
+                  </span>
+                  <p className="text-sm font-bold text-white leading-snug">
+                    Formando os líderes das maiores cadeias do país
+                  </p>
                 </div>
               </div>
 
               {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
-              <div className="absolute -top-4 -right-4 sm:-right-6 bg-black/90 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20">
+              <div className="absolute -top-3 -right-3 sm:-right-5 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
                   <TrendingUp className="w-4 h-4" />
                 </div>
@@ -156,8 +154,8 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Elemento Flutuante 2 (Base Direita): Acervo Técnico */}
-              <div className="absolute -bottom-4 -right-4 sm:-right-6 bg-black/90 backdrop-blur-xl border border-[#ff3d03]/40 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20">
+              {/* Elemento Flutuante 2 (Topo Esquerdo): Acervo Técnico */}
+              <div className="absolute -top-3 -left-3 sm:-left-5 bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20">
                 <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>

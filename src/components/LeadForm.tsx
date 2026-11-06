@@ -27,19 +27,15 @@ export default function LeadForm() {
 
   return (
     <section id="proposta" data-theme="dark" className="py-28 bg-[#06080d] text-white relative border-t border-white/10 overflow-hidden">
-      {/* Imagem de Fundo Cenográfica de Centro de Distribuição em Alta Resolução */}
+      {/* FOTOGRAFIA REAL DE FUNDO: Centro de Distribuição e Fulfillment Noturno */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/warehouse-tech.jpg"
-          alt="Operação Logística de Alta Performance"
-          className="w-full h-full object-cover opacity-25 mix-blend-screen filter blur-[0.5px]"
+          alt="Operação Logística e Centro de Distribuição"
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06080d] via-[#06080d]/85 to-[#06080d]" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-40" />
+        <div className="absolute inset-0 bg-black/75" />
       </div>
-
-      {/* Ponto focal de luz neon laranja */}
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-[#ff3d03]/20 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto glass-panel-glow rounded-3xl p-8 sm:p-14 border border-[#ff3d03]/30 shadow-2xl relative overflow-hidden">

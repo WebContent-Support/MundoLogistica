@@ -115,12 +115,15 @@ export default function Ecosystem() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
-      {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
-
-      {/* Detalhes Visuais de Luz Ambiente */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-orange-100/60 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
+      {/* FOTOGRAFIA REAL DE FUNDO: Operações de Armazenagem e Supply Chain */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/warehouse-tech.jpg"
+          alt="Fotografia de Centro Logístico e Operações"
+          className="w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#f8fafc]/75 to-white/90" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente */}
@@ -224,22 +227,21 @@ export default function Ecosystem() {
                         Incluso as versões digital e impressa, além do acervo histórico com artigos, entrevistas, reportagens e análises do mercado logístico.
                       </p>
 
-                      {/* Card Visual com Foto da Revista Impressa e Acervo */}
-                      <div className="flex items-center gap-3.5 p-3 rounded-xl bg-white border border-gray-200 shadow-xs">
+                      {/* Showcase Fotográfico Real da Revista */}
+                      <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-md aspect-[16/9] group/mag">
                         <img
                           src="/images/magazine-open.jpg"
                           alt="Revista MundoLogística Impressa e Digital"
-                          width={72}
-                          height={54}
+                          width={600}
+                          height={340}
                           loading="lazy"
-                          className="w-16 h-12 rounded-lg object-cover border border-gray-200 shadow-xs shrink-0"
+                          className="w-full h-full object-cover img-zoom group-hover/mag:scale-105 transition-transform duration-700"
                         />
-                        <div className="text-xs">
-                          <span className="font-bold text-gray-900 block leading-tight">
-                            Edições Bimestrais Entregues na Empresa
-                          </span>
-                          <span className="text-gray-500 text-[11px] block mt-0.5">
-                            +1000 artigos técnicos liberados para toda a equipe
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-medium">
+                          <span className="font-bold drop-shadow">Edições Bimestrais Entregues na Empresa</span>
+                          <span className="bg-white/20 backdrop-blur-md px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold border border-white/20">
+                            +1000 Artigos
                           </span>
                         </div>
                       </div>
@@ -424,11 +426,10 @@ export default function Ecosystem() {
             <img
               src="/images/directional-highway.jpg"
               alt="Transporte Logístico em Alta Velocidade"
-              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-85"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />
-            {/* Gradiente escuro para legibilidade */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/90" />
-            <div className="absolute inset-0 bg-tech-grid-dark opacity-30" />
+            {/* Máscara sutil para contraste cinema mantendo a foto e as luzes super nítidas */}
+            <div className="absolute inset-0 bg-black/55" />
           </div>
 
           {/* Conteúdo Centralizado no Ponto de Fuga */}
