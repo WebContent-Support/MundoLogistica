@@ -63,53 +63,77 @@ export default function CoursesSection() {
             <div
               key={course.id}
               onClick={() => setActiveCourse(course)}
-              className="bg-white rounded-3xl border border-gray-200 hover:border-[#ff3d03] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1 relative cursor-pointer"
+              className="bg-white rounded-3xl border border-gray-200 hover:border-[#ff3d03] shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 relative cursor-pointer"
             >
-              {/* A Cantoneira Laranja da Marca MundoLogística */}
-              <div className="absolute top-3 left-3 w-3 h-3 border-t-2 border-l-2 border-[#ff3d03] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-3 left-3 w-3 h-3 border-b-2 border-l-2 border-[#ff3d03] opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Foto de Capa do Treinamento com Efeito Cinema */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-900">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  width={600}
+                  height={375}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover img-zoom group-hover:scale-108 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
 
-              {/* Topo do Card */}
-              <div className="p-7">
-                {/* Badges do Curso */}
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="text-[10px] font-mono font-bold text-[#df3500] bg-orange-50 border border-orange-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                {/* Badges Flutuantes sobre a Imagem */}
+                <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+                  <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
                     {course.category}
                   </span>
-                  <span className="text-[10px] font-mono text-gray-700 font-bold bg-gray-100 px-2.5 py-0.5 rounded-md">
+                  <span className="text-[10px] font-mono text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
                     {course.level}
                   </span>
                 </div>
 
-                {/* Título do Curso */}
-                <h3 className="text-xl font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-3">
-                  {course.title}
-                </h3>
+                {/* Duração & Certificado Flutuantes na Base da Foto */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono">
+                  <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
+                    <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
+                    {course.duration}
+                  </span>
+                  <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 text-amber-300 font-bold">
+                    <Award className="w-3.5 h-3.5" />
+                    Certificado
+                  </span>
+                </div>
+              </div>
 
-                {/* Resumo */}
-                <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed mb-6 font-normal">
-                  {course.summary}
-                </p>
+              {/* Corpo do Card */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  {/* Título do Curso */}
+                  <h3 className="text-lg font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-2.5">
+                    {course.title}
+                  </h3>
 
-                {/* Dados do Instrutor com Fotos Reais */}
-                <div className="flex items-center gap-3 pt-5 border-t border-gray-100">
-                  <div className="relative">
+                  {/* Resumo */}
+                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed mb-5 font-normal">
+                    {course.summary}
+                  </p>
+                </div>
+
+                {/* Dados do Instrutor com Foto Oficial */}
+                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                  <div className="relative shrink-0">
                     <img
                       src={course.instructor.avatar}
                       alt={course.instructor.name}
-                      width={48}
-                      height={48}
+                      width={44}
+                      height={44}
                       loading="lazy"
                       decoding="async"
-                      className="w-12 h-12 rounded-full object-cover border-2 border-orange-100 shadow-sm"
+                      className="w-11 h-11 rounded-full object-cover border-2 border-orange-100 shadow-sm"
                     />
-                    <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white" />
+                    <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                   </div>
                   <div className="overflow-hidden">
-                    <h4 className="text-sm font-bold text-gray-900 truncate">
+                    <h4 className="text-xs sm:text-sm font-bold text-gray-900 truncate">
                       {course.instructor.name}
                     </h4>
-                    <p className="text-xs text-gray-600 truncate">
+                    <p className="text-[11px] text-gray-600 truncate">
                       {course.instructor.role}
                     </p>
                     <p className="text-[10px] font-mono text-[#df3500] font-bold truncate">
@@ -119,21 +143,13 @@ export default function CoursesSection() {
                 </div>
               </div>
 
-              {/* Rodapé do Card */}
-              <div className="px-7 py-4 bg-gray-50/70 border-t border-gray-100 flex items-center justify-between">
-                <div className="flex items-center gap-4 text-xs font-mono text-gray-700 font-medium">
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#df3500]" />
-                    <span>{course.duration}</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-[#df3500]" />
-                    <span>Certificado</span>
-                  </div>
-                </div>
-
-                <span className="inline-flex items-center gap-1 text-xs font-bold text-[#df3500] group-hover:text-[#ff3d03] transition-colors">
-                  <span>Ver detalhes</span>
+              {/* Rodapé do Card com Cantoneira */}
+              <div className="px-6 py-3.5 bg-gray-50/80 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#df3500] group-hover:text-[#ff3d03] transition-colors">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-gray-500 group-hover:text-[#df3500]">
+                  Ver ementa completa
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <span>Acessar</span>
                   <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
@@ -166,31 +182,49 @@ export default function CoursesSection() {
 
       {/* Modal de Detalhes da Ementa (Abre ao Clicar em Qualquer um dos 6 Cursos da Home) */}
       {activeCourse && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative border border-gray-200 text-gray-900">
-            {/* Botão Fechar */}
-            <button
-              type="button"
-              onClick={() => setActiveCourse(null)}
-              className="absolute right-5 top-5 p-2 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
-              aria-label="Fechar modal de detalhes do curso"
-            >
-              <X className="w-5 h-5" />
-            </button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl relative border border-gray-200 text-gray-900">
+            {/* Header com Foto de Capa do Curso */}
+            <div className="relative aspect-[21/9] w-full overflow-hidden bg-gray-900">
+              <img
+                src={activeCourse.image}
+                alt={activeCourse.title}
+                width={800}
+                height={350}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+              
+              {/* Botão Fechar no Topo da Foto */}
+              <button
+                type="button"
+                onClick={() => setActiveCourse(null)}
+                className="absolute right-4 top-4 p-2 rounded-full bg-black/60 text-white hover:bg-black/90 transition-colors cursor-pointer border border-white/20"
+                aria-label="Fechar modal de detalhes do curso"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-            {/* Cabeçalho do Modal com a Cantoneira da Marca */}
-            <div className="mb-6 relative pl-3">
-              <div className="absolute top-0 left-0 w-2 h-full border-l-2 border-[#ff3d03]" />
-              <span className="text-xs font-mono font-bold text-[#df3500] bg-orange-50 px-3 py-1 rounded-full uppercase tracking-wider inline-block mb-3 border border-orange-200">
-                {activeCourse.category}
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-black text-gray-950 leading-tight mb-3">
-                {activeCourse.title}
-              </h3>
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                {activeCourse.summary}
-              </p>
+              <div className="absolute bottom-4 left-6 right-6 flex items-center justify-between text-white">
+                <span className="text-xs font-mono font-bold bg-[#df3500] px-3 py-1 rounded-full uppercase tracking-wider">
+                  {activeCourse.category}
+                </span>
+                <span className="text-xs font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20">
+                  {activeCourse.level}
+                </span>
+              </div>
             </div>
+
+            <div className="p-6 sm:p-8">
+              {/* Cabeçalho do Conteúdo */}
+              <div className="mb-6">
+                <h3 className="text-2xl sm:text-3xl font-black text-gray-950 leading-tight mb-3">
+                  {activeCourse.title}
+                </h3>
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                  {activeCourse.summary}
+                </p>
+              </div>
 
             {/* Instrutor com foto oficial */}
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 border border-gray-100 mb-6">
@@ -241,7 +275,7 @@ export default function CoursesSection() {
               <span className="text-[#df3500]">Certificado Incluso</span>
             </div>
 
-            {/* CTA do Modal */}
+              {/* CTA do Modal */}
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="#proposta"
@@ -257,6 +291,7 @@ export default function CoursesSection() {
               >
                 Fechar
               </button>
+            </div>
             </div>
           </div>
         </div>

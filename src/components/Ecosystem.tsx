@@ -15,6 +15,7 @@ import {
   Layers,
   Award,
   Zap,
+  Check,
 } from 'lucide-react';
 
 const AI_PROMPTS = [
@@ -31,6 +32,7 @@ export default function Ecosystem() {
   const [hasAnimatedBars, setHasAnimatedBars] = useState(false);
   const [wmsValue, setWmsValue] = useState(0);
   const [costsValue, setCostsValue] = useState(0);
+  const [sopValue, setSopValue] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,6 +65,7 @@ export default function Ecosystem() {
 
       setWmsValue(Math.round(easeProgress * 88));
       setCostsValue(Math.round(easeProgress * 64));
+      setSopValue(Math.round(easeProgress * 92));
 
       if (progress < 1) {
         requestAnimationFrame(updateCounters);
@@ -110,10 +113,17 @@ export default function Ecosystem() {
     <section
       id="plataforma"
       data-theme="light"
-      className="py-24 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200"
+      className="py-24 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
+      {/* Padrão geométrico suave de fundo */}
+      <div className="absolute inset-0 bg-tech-grid-light opacity-30 pointer-events-none" />
+
+      {/* Detalhes Visuais Sutis de Fundo */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200/50 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Cabeçalho da 2ª Dobra - Textos Exatos da Cliente */}
+        {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
@@ -129,7 +139,7 @@ export default function Ecosystem() {
           </p>
         </div>
 
-        {/* Divisão em 2 Grandes Blocos (Lado a Lado na Web, Empilhado no Mobile) */}
+        {/* Divisão em 2 Grandes Blocos Visuais Ricos */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-stretch">
           {/* BLOCO 01 - Conhecimento para sua equipe evoluir */}
           <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden">
@@ -138,9 +148,9 @@ export default function Ecosystem() {
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
 
             <div>
-              {/* Tag do Bloco */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#df3500] shadow-sm">
+              {/* Header do Bloco 01 */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#df3500] shadow-sm shrink-0">
                   <GraduationCap className="w-6 h-6" />
                 </div>
                 <div>
@@ -153,36 +163,36 @@ export default function Ecosystem() {
                 </div>
               </div>
 
-              {/* Imagem Editorial Rica: Equipe de Logística em Treinamento Real */}
-              <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/80 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
+              {/* Composição Fotográfica Rica com Badge Flutuante */}
+              <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/90 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
                 <img
                   src="/images/team-learning.jpg"
-                  alt="Equipe de Logística em Capacitação"
+                  alt="Equipe de Logística em Treinamento"
                   width={800}
                   height={450}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover img-zoom group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-medium">
-                  <span className="flex items-center gap-1.5 font-bold">
+                  <span className="flex items-center gap-1.5 font-bold drop-shadow">
                     <Award className="w-4 h-4 text-[#ff3d03]" />
-                    Aulas ministradas por executivos C-Level
+                    Capacitação Contínua & Prática
                   </span>
-                  <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono font-bold">
-                    +30 Cursos
+                  <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono font-bold border border-white/20">
+                    +30 Cursos Homologados
                   </span>
                 </div>
               </div>
 
-              {/* Lista dos 3 Recursos do Bloco 01 com Textos Oficiais */}
-              <div className="space-y-6">
-                {/* Item 1 */}
+              {/* Lista dos 3 Recursos Oficiais com Design Editorial */}
+              <div className="space-y-5">
+                {/* Item 1: Cursos */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <GraduationCap className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <GraduationCap className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-base font-bold text-gray-950 mb-1">
@@ -195,46 +205,53 @@ export default function Ecosystem() {
                   </div>
                 </div>
 
-                {/* Item 2 com Miniatura Visual da Revista */}
+                {/* Item 2: Revista com Foto da Edição Impressa e Digital */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <BookOpen className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <BookOpen className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-base font-bold text-gray-950 mb-1 flex items-center justify-between">
-                        <span>Revista MundoLogística</span>
-                        <span className="text-[10px] font-mono text-[#df3500] bg-orange-100 px-2 py-0.5 rounded-full font-bold">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <h4 className="text-base font-bold text-gray-950">
+                          Revista MundoLogística
+                        </h4>
+                        <span className="text-[10px] font-mono text-[#df3500] bg-orange-100 px-2.5 py-0.5 rounded-full font-bold border border-orange-200 shrink-0">
                           Digital & Impressa
                         </span>
-                      </h4>
+                      </div>
                       <p className="text-sm text-gray-600 leading-relaxed mb-3">
                         Incluso as versões digital e impressa, além do acervo histórico com artigos, entrevistas, reportagens e análises do mercado logístico.
                       </p>
-                      {/* Foto Real da Revista / Publicações */}
-                      <div className="flex items-center gap-3 p-2 rounded-xl bg-white border border-gray-200">
+
+                      {/* Card Visual com Foto da Revista Impressa e Acervo */}
+                      <div className="flex items-center gap-3.5 p-3 rounded-xl bg-white border border-gray-200 shadow-xs">
                         <img
-                          src="/images/magazine.jpg"
-                          alt="Revista MundoLogística"
-                          width={60}
-                          height={60}
+                          src="/images/magazine-open.jpg"
+                          alt="Revista MundoLogística Impressa e Digital"
+                          width={72}
+                          height={54}
                           loading="lazy"
-                          className="w-12 h-12 rounded-lg object-cover"
+                          className="w-16 h-12 rounded-lg object-cover border border-gray-200 shadow-xs shrink-0"
                         />
                         <div className="text-xs">
-                          <span className="font-bold text-gray-900 block">Edições Bimestrais Entregues</span>
-                          <span className="text-gray-500 text-[11px]">Enviadas diretamente no endereço da sua empresa</span>
+                          <span className="font-bold text-gray-900 block leading-tight">
+                            Edições Bimestrais Entregues na Empresa
+                          </span>
+                          <span className="text-gray-500 text-[11px] block mt-0.5">
+                            +1000 artigos técnicos liberados para toda a equipe
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Item 3 */}
+                {/* Item 3: Conteúdos especializados */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <Newspaper className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <Newspaper className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-base font-bold text-gray-950 mb-1">
@@ -257,9 +274,9 @@ export default function Ecosystem() {
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
 
             <div>
-              {/* Tag do Bloco */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#df3500] shadow-sm">
+              {/* Header do Bloco 02 */}
+              <div className="flex items-center gap-3.5 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-[#ff3d03]/20 flex items-center justify-center text-[#df3500] shadow-sm shrink-0">
                   <Bot className="w-6 h-6" />
                 </div>
                 <div>
@@ -272,8 +289,8 @@ export default function Ecosystem() {
                 </div>
               </div>
 
-              {/* Imagem de Alta Resolução: Centro de Distribuição & Tecnologia */}
-              <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/80 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
+              {/* Composição Fotográfica Rica com Badge Flutuante */}
+              <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/90 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
                 <img
                   src="/images/warehouse-tech.jpg"
                   alt="Tecnologia e Operações de Logística"
@@ -281,47 +298,49 @@ export default function Ecosystem() {
                   height={450}
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover img-zoom group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white text-xs font-medium">
-                  <span className="flex items-center gap-1.5 font-bold">
+                  <span className="flex items-center gap-1.5 font-bold drop-shadow">
                     <Sparkles className="w-4 h-4 text-[#ff3d03]" />
-                    Práticas aplicadas direto na operação
+                    Inteligência Artificial & Gestão
                   </span>
-                  <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono font-bold">
-                    IA 24/7 Ativa
+                  <span className="bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-mono font-bold border border-white/20">
+                    LogGPT Integrado 24/7
                   </span>
                 </div>
               </div>
 
-              {/* Lista dos 3 Recursos do Bloco 02 com Textos Oficiais */}
-              <div className="space-y-6">
-                {/* Item 1: LogGPT */}
+              {/* Lista dos 3 Recursos Oficiais com Design Interativo */}
+              <div className="space-y-5">
+                {/* Item 1: LogGPT com Console Interativo */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <Bot className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <Bot className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-base font-bold text-gray-950 mb-1 flex items-center justify-between">
-                        <span>LogGPT | IA especializada em logística</span>
-                        <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <h4 className="text-base font-bold text-gray-950">
+                          LogGPT | IA especializada em logística
+                        </h4>
+                        <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full font-bold shrink-0">
                           Online 24/7
                         </span>
-                      </h4>
+                      </div>
                       <p className="text-sm text-gray-600 leading-relaxed mb-3">
                         Tirar dúvidas, explorar temas técnicos e utilizar uma IA especializada para apoiar análises, planejamentos e decisões do dia a dia.
                       </p>
 
                       {/* Mini Console Interativo do LogGPT */}
-                      <div className="p-3.5 rounded-xl bg-[#0c1017] border border-gray-800 text-xs font-mono flex items-center gap-3">
+                      <div className="p-3.5 rounded-xl bg-[#0c1017] border border-gray-800 text-xs font-mono flex items-center gap-3 shadow-inner">
                         <span className="relative flex h-2 w-2 shrink-0">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                         </span>
-                        <div className="truncate text-gray-300">
-                          <span>&ldquo;{displayText}&rdquo;</span>
+                        <div className="truncate text-gray-200 flex-1">
+                          <span className="text-orange-400">&gt;</span> &ldquo;{displayText}&rdquo;
                           <span className="inline-block w-1.5 h-3 bg-[#ff3d03] ml-1 animate-pulse align-middle" />
                         </div>
                       </div>
@@ -332,8 +351,8 @@ export default function Ecosystem() {
                 {/* Item 2: Mapa do Conhecimento */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <Compass className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <Compass className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
                       <h4 className="text-base font-bold text-gray-950 mb-1">
@@ -344,15 +363,26 @@ export default function Ecosystem() {
                       </p>
 
                       {/* Miniatura Gráfica do Diagnóstico */}
-                      <div ref={diagnosticRef} className="space-y-2 font-mono text-[11px] pt-1">
-                        <div className="flex justify-between font-bold text-gray-700">
-                          <span>Maturidade em WMS & Estoques</span>
+                      <div ref={diagnosticRef} className="space-y-2.5 font-mono text-[11px] p-3 rounded-xl bg-white border border-gray-200 shadow-xs">
+                        <div className="flex justify-between font-bold text-gray-800">
+                          <span>WMS & Acuracidade de Estoque</span>
                           <span className="text-[#df3500]">{wmsValue}%</span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                           <div
                             className="bg-[#df3500] h-full rounded-full transition-all duration-1000 ease-out"
                             style={{ width: `${hasAnimatedBars ? 88 : 0}%` }}
+                          />
+                        </div>
+
+                        <div className="flex justify-between font-bold text-gray-800 pt-1">
+                          <span>Custos de Fretes & Tributário</span>
+                          <span className="text-[#df3500]">{costsValue}%</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                          <div
+                            className="bg-orange-500 h-full rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${hasAnimatedBars ? 64 : 0}%` }}
                           />
                         </div>
                       </div>
@@ -363,8 +393,8 @@ export default function Ecosystem() {
                 {/* Item 3: Trilhas de Aprendizagem */}
                 <div className="p-5 rounded-2xl bg-gray-50/80 border border-gray-100 hover:border-orange-200 transition-colors">
                   <div className="flex items-start gap-3.5">
-                    <div className="w-8 h-8 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold">
-                      <GitBranch className="w-4 h-4" />
+                    <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#df3500] flex items-center justify-center shrink-0 mt-0.5 font-bold shadow-xs">
+                      <GitBranch className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="text-base font-bold text-gray-950 mb-1">
@@ -373,11 +403,11 @@ export default function Ecosystem() {
                       <p className="text-sm text-gray-600 leading-relaxed mb-3">
                         Direcionamento de aprendizado de acordo com a função e as necessidades de cada profissional, com jornadas alinhadas aos desafios da logística.
                       </p>
-                      <div className="flex flex-wrap gap-1.5 text-[11px] font-mono font-bold">
-                        <span className="px-2.5 py-1 rounded-md bg-gray-100 text-gray-700">#Analistas</span>
-                        <span className="px-2.5 py-1 rounded-md bg-gray-100 text-gray-700">#Supervisores</span>
-                        <span className="px-2.5 py-1 rounded-md bg-orange-100 text-[#df3500] border border-orange-200">#Gerentes</span>
-                        <span className="px-2.5 py-1 rounded-md bg-gray-100 text-gray-700">#Diretores</span>
+                      <div className="flex flex-wrap gap-2 text-[11px] font-mono font-bold">
+                        <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">#Analistas</span>
+                        <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">#Supervisores</span>
+                        <span className="px-3 py-1.5 rounded-lg bg-orange-100 text-[#df3500] border border-orange-200">#Gerentes</span>
+                        <span className="px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700">#Diretores</span>
                       </div>
                     </div>
                   </div>
@@ -388,10 +418,10 @@ export default function Ecosystem() {
         </div>
 
         {/* BOTÃO CTA DA 2ª DOBRA: Texto Exato do Cliente */}
-        <div className="text-center pt-4">
+        <div className="text-center pt-2">
           <Link
             href="#proposta"
-            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-lg shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider"
+            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-lg shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider shimmer-btn"
           >
             Solicite uma proposta
             <ArrowRight className="w-4 h-4" />

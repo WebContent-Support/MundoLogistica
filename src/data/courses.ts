@@ -4,6 +4,7 @@ export interface Course {
   category: 'Transporte & Frotas' | 'Armazenagem & WMS' | 'Supply Chain Estratégico' | 'Tecnologia & IA' | 'Tributário & Custos' | 'Liderança & ESG';
   duration: string;
   level: 'Iniciante' | 'Intermediário' | 'Avançado' | 'Executivo';
+  image: string;
   instructor: {
     name: string;
     role: string;
@@ -21,6 +22,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Supply Chain Estratégico',
     duration: '12h de aulas',
     level: 'Executivo',
+    image: '/images/course-centricity.jpg',
     instructor: {
       name: 'Tania Heck Trotta',
       role: 'Executiva Sênior de Supply Chain',
@@ -41,6 +43,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Tributário & Custos',
     duration: '10h de aulas',
     level: 'Avançado',
+    image: '/images/course-tax.jpg',
     instructor: {
       name: 'Rafael Brito',
       role: 'CEO & Especialista Tributário',
@@ -61,6 +64,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Supply Chain Estratégico',
     duration: '16h de aulas',
     level: 'Executivo',
+    image: '/images/course-finance.jpg',
     instructor: {
       name: 'Ricardo Mello',
       role: 'COO & Executivo de Operações',
@@ -81,6 +85,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Liderança & ESG',
     duration: '8h de aulas',
     level: 'Intermediário',
+    image: '/images/logistics-fleet.jpg',
     instructor: {
       name: 'Danilo Doriguelo de Melo',
       role: 'Diretor Executivo de Supply Chain',
@@ -101,6 +106,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Tecnologia & IA',
     duration: '10h de aulas',
     level: 'Avançado',
+    image: '/images/warehouse-tech.jpg',
     instructor: {
       name: 'Marilia Ramalho',
       role: 'Americas Supply Chain Director',
@@ -121,6 +127,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Liderança & ESG',
     duration: '12h de aulas',
     level: 'Executivo',
+    image: '/images/team-learning.jpg',
     instructor: {
       name: 'Francisco Tarosso',
       role: 'Diretor Sênior de Operações',
@@ -141,6 +148,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Tecnologia & IA',
     duration: '14h de aulas',
     level: 'Intermediário',
+    image: '/images/community-discussion.jpg',
     instructor: {
       name: 'Daiana Nunes',
       role: 'Professora e Executiva de Supply Chain',
@@ -161,6 +169,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Armazenagem & WMS',
     duration: '15h de aulas',
     level: 'Avançado',
+    image: '/images/course-wms.jpg',
     instructor: {
       name: 'Carlos Jardim',
       role: 'Diretor de Supply Chain',
@@ -181,6 +190,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Transporte & Frotas',
     duration: '12h de aulas',
     level: 'Intermediário',
+    image: '/images/course-multimodal.jpg',
     instructor: {
       name: 'Alberto Rodrigues',
       role: 'Diretor de Logística',
@@ -201,6 +211,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Tecnologia & IA',
     duration: '18h de aulas',
     level: 'Executivo',
+    image: '/images/dashboard-analytics.jpg',
     instructor: {
       name: 'Alexandre Faria',
       role: 'VP de Supply Chain',
@@ -221,6 +232,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Supply Chain Estratégico',
     duration: '14h de aulas',
     level: 'Avançado',
+    image: '/images/course-comex.jpg',
     instructor: {
       name: 'Renata Albuquerque',
       role: 'Head de Logística Internacional',
@@ -241,6 +253,7 @@ export const COURSES_DATA: Course[] = [
     category: 'Armazenagem & WMS',
     duration: '10h de aulas',
     level: 'Iniciante',
+    image: '/images/course-lastmile.jpg',
     instructor: {
       name: 'Eduardo Silveira',
       role: 'Consultor Sênior de E-commerce',

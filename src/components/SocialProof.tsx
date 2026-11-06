@@ -38,9 +38,23 @@ export default function SocialProof() {
     <section
       id="depoimentos"
       data-theme="dark"
-      className="py-24 bg-[#090d14] text-white border-t border-white/10 relative"
+      className="py-24 bg-[#070a10] text-white border-t border-white/10 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Imagem de Fundo Cenográfica de Operações com Portos & Supply Chain */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/images/logistics-port.jpg"
+          alt="Operações Portuárias e Supply Chain"
+          className="w-full h-full object-cover opacity-10 mix-blend-luminosity filter blur-[1px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070a10] via-transparent to-[#070a10]" />
+        <div className="absolute inset-0 bg-tech-grid-dark opacity-40" />
+      </div>
+
+      {/* Luz ambiente neon */}
+      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#ff3d03]/15 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block mb-4">

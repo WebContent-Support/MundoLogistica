@@ -98,6 +98,10 @@ export default function SpecialistsSection() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 border-t border-gray-200 relative overflow-hidden"
     >
+      {/* Padrão geométrico suave de fundo */}
+      <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 5ª Dobra - Textos Exatos da Cliente */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
