@@ -113,6 +113,16 @@ export default function DashboardSection() {
       data-theme="light"
       className="py-24 bg-white text-gray-900 border-t border-gray-200 relative overflow-hidden"
     >
+      {/* Imagem de Fundo de Centro de Controle / Torre de Comando */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/control-tower.jpg"
+          alt="Torre de Controle Logística e Telemetria Operacional"
+          className="w-full h-full object-cover opacity-12 mix-blend-multiply filter blur-[0.5px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
+      </div>
+
       {/* Padrão geométrico suave de fundo */}
       <div className="absolute inset-0 bg-tech-grid-light opacity-40 pointer-events-none" />
 
@@ -283,15 +293,28 @@ export default function DashboardSection() {
               </div>
             </div>
 
-            {/* BOTÃO CTA DA 3ª DOBRA: Texto Exato do Cliente */}
-            <div className="pt-4">
-              <Link
-                href="#proposta"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-md shadow-[#df3500]/25 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider shimmer-btn"
-              >
-                Solicitar demonstração
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* BOTÃO CTA DA 3ª DOBRA com Foco Óptico e Efeito Radar */}
+            <div className="pt-4 relative">
+              {/* Ponto de luz cônico atrás do botão */}
+              <div className="absolute -inset-4 cta-spotlight-light pointer-events-none rounded-3xl" />
+
+              <div className="relative inline-block">
+                {/* Onda de Radar */}
+                <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/40 radar-wave pointer-events-none" />
+
+                <Link
+                  href="#proposta"
+                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_10px_30px_rgba(255,61,3,0.35)] hover:shadow-[0_15px_40px_rgba(255,61,3,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                >
+                  Solicitar demonstração
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-2 mt-3 text-xs font-mono text-gray-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Demonstração prática guiada com dados reais de exemplo</span>
+              </div>
             </div>
           </div>
         </div>

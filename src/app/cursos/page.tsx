@@ -48,8 +48,19 @@ export default function VitrineCursosPage() {
       <Header />
 
       <main className="flex-1">
-        {/* Banner Superior da Vitrine */}
+        {/* Banner Superior da Vitrine com Fotografia de Fundo */}
         <section data-theme="dark" className="relative pt-12 pb-16 bg-[#06080d] border-b border-white/10 overflow-hidden">
+          {/* Imagem de Fundo de Perspectiva de Armazém */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <img
+              src="/images/warehouse-perspective.jpg"
+              alt="Centro de Distribuição e Operações"
+              className="w-full h-full object-cover opacity-25 mix-blend-luminosity filter blur-[0.5px]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06080d] via-[#06080d]/90 to-[#06080d]/80" />
+            <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
+          </div>
+
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-b from-[#ff3d03]/20 via-[#ff3d03]/5 to-transparent blur-[120px] pointer-events-none rounded-full" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -259,27 +270,45 @@ export default function VitrineCursosPage() {
               </div>
             )}
 
-            {/* Bloco Inferior de Chamada para Proposta */}
-            <div className="mt-16 bg-white border border-gray-200 rounded-3xl p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
-              <div>
-                <span className="text-xs font-mono font-bold text-[#df3500] uppercase tracking-wider block mb-2">
-                  Atendimento Corporativo
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-black text-gray-950 mb-2">
-                  Quer liberar todo este acervo para a sua equipe?
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base max-w-xl">
-                  Oferecemos planos dimensionados com faturamento via boleto a prazo, relatórios do RH e suporte consultivo.
-                </p>
+            {/* Bloco Inferior de Chamada para Proposta com Fotografia Direcional */}
+            <div className="mt-16 relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 group">
+              {/* Imagem de Fundo de Rodovia Logística Noturna com Linhas de Luz Convergentes */}
+              <div className="absolute inset-0 z-0">
+                <img
+                  src="/images/directional-highway.jpg"
+                  alt="Transporte Logístico Rodoviário Noturno"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-85"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/90" />
+                <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
               </div>
-              <Link
-                href="/#proposta"
-                className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 uppercase tracking-wider cursor-pointer"
-              >
-                Solicitar Proposta para Equipe
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+
+              <div className="relative z-10 p-8 sm:p-14 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="max-w-xl">
+                  <span className="text-xs font-mono font-bold text-orange-400 uppercase tracking-widest block mb-2">
+                    Atendimento Corporativo
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black text-white mb-2 leading-tight">
+                    Quer liberar todo este acervo para a sua equipe?
+                  </h3>
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                    Oferecemos planos dimensionados com faturamento via boleto a prazo, relatórios do RH e suporte consultivo.
+                  </p>
+                </div>
+
+                <div className="relative shrink-0">
+                  {/* Onda de Radar */}
+                  <div className="absolute inset-0 rounded-2xl bg-[#ff3d03] radar-wave pointer-events-none" />
+
+                  <Link
+                    href="/#proposta"
+                    className="relative inline-flex items-center gap-2.5 px-9 py-4.5 rounded-2xl font-black text-sm text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] transition-all shadow-[0_0_35px_rgba(255,61,3,0.6)] hover:shadow-[0_0_55px_rgba(255,61,3,0.85)] uppercase tracking-wider cursor-pointer shimmer-btn border border-orange-300/40"
+                  >
+                    <span>Solicitar Proposta para Equipe</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -27,16 +27,19 @@ export default function LeadForm() {
 
   return (
     <section id="proposta" data-theme="dark" className="py-28 bg-[#06080d] text-white relative border-t border-white/10 overflow-hidden">
-      {/* Imagem de Fundo Cenográfica de Centro de Distribuição */}
+      {/* Imagem de Fundo Cenográfica de Centro de Distribuição em Alta Resolução */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/warehouse-tech.jpg"
           alt="Operação Logística de Alta Performance"
-          className="w-full h-full object-cover opacity-10 mix-blend-luminosity filter blur-[2px]"
+          className="w-full h-full object-cover opacity-25 mix-blend-screen filter blur-[0.5px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#06080d] via-[#06080d]/90 to-[#06080d]" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#06080d] via-[#06080d]/85 to-[#06080d]" />
+        <div className="absolute inset-0 bg-tech-grid-dark opacity-40" />
       </div>
+
+      {/* Ponto focal de luz neon laranja */}
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[350px] bg-[#ff3d03]/20 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto glass-panel-glow rounded-3xl p-8 sm:p-14 border border-[#ff3d03]/30 shadow-2xl relative overflow-hidden">
@@ -194,21 +197,33 @@ export default function LeadForm() {
                     </div>
                   </div>
 
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] hover:scale-[1.02] transition-all shadow-xl shadow-[#df3500]/30 hover:shadow-[#df3500]/50 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 border border-orange-400/40"
-                    >
-                      {loading ? (
-                        <span>Processando solicitação...</span>
-                      ) : (
-                        <>
-                          <span>QUERO RECEBER UMA PROPOSTA</span>
-                          <Send className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
+                  <div className="pt-3 relative">
+                    {/* Spotlight cônico atrás do botão de envio */}
+                    <div className="absolute inset-0 cta-spotlight pointer-events-none rounded-2xl" />
+
+                    <div className="relative">
+                      {/* Onda de Radar */}
+                      <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/40 radar-wave pointer-events-none" />
+
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="relative w-full py-4.5 rounded-2xl font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70 border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                      >
+                        {loading ? (
+                          <span>PROCESSANDO SOLICITAÇÃO...</span>
+                        ) : (
+                          <>
+                            <span>QUERO RECEBER UMA PROPOSTA</span>
+                            <Send className="w-5 h-5 translate-x-0.5" />
+                          </>
+                        )}
+                      </button>
+                    </div>
+
+                    <span className="text-[11px] font-mono text-gray-400 text-center block mt-3">
+                      Ao enviar, você receberá o descritivo técnico e a proposta comercial
+                    </span>
                   </div>
                 </form>
               </div>

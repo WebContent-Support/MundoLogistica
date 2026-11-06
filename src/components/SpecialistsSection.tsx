@@ -98,6 +98,16 @@ export default function SpecialistsSection() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 border-t border-gray-200 relative overflow-hidden"
     >
+      {/* Imagem de Fundo de Reunião Executiva e Liderança */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/executive-boardroom.jpg"
+          alt="Comitê de Líderes e Especialistas de Supply Chain"
+          className="w-full h-full object-cover opacity-12 mix-blend-multiply filter blur-[0.5px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8fafc] via-transparent to-[#f8fafc]" />
+      </div>
+
       {/* Padrão geométrico suave de fundo */}
       <div className="absolute inset-0 bg-tech-grid-light opacity-50 pointer-events-none" />
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
@@ -188,15 +198,27 @@ export default function SpecialistsSection() {
           ))}
         </div>
 
-        {/* BOTÃO CTA DA 5ª DOBRA: Texto Exato do Cliente */}
-        <div className="text-center pt-8">
-          <Link
-            href="#proposta"
-            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-lg shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider"
-          >
-            Quero receber uma proposta
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* BOTÃO CTA DA 5ª DOBRA com Foco Óptico e Efeito Radar */}
+        <div className="text-center pt-8 relative">
+          {/* Spotlight suave atrás do botão */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-32 cta-spotlight-light pointer-events-none rounded-full" />
+
+          <div className="relative inline-block">
+            {/* Onda de Radar */}
+            <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/35 radar-wave pointer-events-none" />
+
+            <Link
+              href="#proposta"
+              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_10px_30px_rgba(255,61,3,0.35)] hover:shadow-[0_15px_40px_rgba(255,61,3,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+            >
+              Quero receber uma proposta
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <span className="text-[11px] font-mono text-gray-500 mt-3.5 block">
+            Aulas gravadas e masterclasses ao vivo com quem lidera o mercado
+          </span>
         </div>
       </div>
     </section>

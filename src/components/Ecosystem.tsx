@@ -115,12 +115,22 @@ export default function Ecosystem() {
       data-theme="light"
       className="py-24 bg-[#f8fafc] text-gray-900 relative border-t border-gray-200 overflow-hidden"
     >
+      {/* Imagem de Fundo de Armazém com Perspectiva Arquitetônica */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="/images/warehouse-perspective.jpg"
+          alt="Perspectiva de Armazém e Centro de Distribuição"
+          className="w-full h-full object-cover opacity-12 mix-blend-multiply filter blur-[0.5px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8fafc] via-transparent to-[#f8fafc]" />
+      </div>
+
       {/* Padrão geométrico suave de fundo */}
-      <div className="absolute inset-0 bg-tech-grid-light opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 bg-tech-grid-light opacity-40 pointer-events-none" />
 
       {/* Detalhes Visuais Sutis de Fundo */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gray-200/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 2ª Dobra - Textos Oficiais da Cliente */}
@@ -417,15 +427,53 @@ export default function Ecosystem() {
           </div>
         </div>
 
-        {/* BOTÃO CTA DA 2ª DOBRA: Texto Exato do Cliente */}
-        <div className="text-center pt-2">
-          <Link
-            href="#proposta"
-            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-lg shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider shimmer-btn"
-          >
-            Solicite uma proposta
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* BANNER DIRECIONAL FOTOGRÁFICO COM CONVERGÊNCIA VISUAL PARA O CTA */}
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mt-6 group">
+          {/* Imagem de Fundo com Linhas de Perspectiva que Convergem ao Centro */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src="/images/directional-highway.jpg"
+              alt="Transporte Logístico em Alta Velocidade"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-85"
+            />
+            {/* Gradiente escuro para legibilidade */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/90" />
+            <div className="absolute inset-0 bg-tech-grid-dark opacity-30" />
+          </div>
+
+          {/* Conteúdo Centralizado no Ponto de Fuga */}
+          <div className="relative z-10 py-12 px-6 sm:px-12 text-center max-w-3xl mx-auto flex flex-col items-center">
+            {/* Ponto de Luz / Spotlight Cônico Direcionado ao CTA */}
+            <div className="absolute inset-0 cta-spotlight pointer-events-none" />
+
+            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-orange-400 bg-black/60 px-3.5 py-1 rounded-full border border-orange-500/30 mb-3 inline-block">
+              Capacitação Corporativa de Alta Performance
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-black text-white mb-2 tracking-tight">
+              Pronto para elevar a maturidade técnica da sua equipe?
+            </h3>
+            <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-normal">
+              Garanta acesso contínuo aos cursos, acervo de revistas, diagnósticos e à inteligência do LogGPT.
+            </p>
+
+            {/* BOTÃO CTA DA 2ª DOBRA no Foco Visual com Efeito de Pulso */}
+            <div className="relative inline-block">
+              {/* Onda de Radar Pulsante */}
+              <div className="absolute inset-0 rounded-2xl bg-[#ff3d03] radar-wave pointer-events-none" />
+
+              <Link
+                href="#proposta"
+                className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.6)] hover:shadow-[0_0_60px_rgba(255,61,3,0.85)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+              >
+                Solicite uma proposta
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            <span className="text-[11px] font-mono text-gray-400 mt-4 block">
+              Atendimento ágil para empresas • Resposta em até 2 horas úteis
+            </span>
+          </div>
         </div>
       </div>
     </section>

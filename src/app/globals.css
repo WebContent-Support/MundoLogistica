@@ -196,5 +196,74 @@ section[id] {
   box-shadow: 0 0 35px -5px rgba(255, 61, 3, 0.35);
 }
 
+/* Efeitos Ousados de Direcionamento Visual e Foco em CTA */
+@keyframes radarWave {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes lightSweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+
+.radar-wave {
+  animation: radarWave 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+.cta-spotlight {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 61, 3, 0.32) 0%, rgba(255, 61, 3, 0.08) 45%, transparent 70%);
+}
+
+.cta-spotlight-light {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 61, 3, 0.22) 0%, rgba(255, 61, 3, 0.05) 50%, transparent 75%);
+}
+
+.cta-magnetic-glow {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta-magnetic-glow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #ff3d03, #ff8c42, #ff3d03);
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(10px);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.cta-magnetic-glow:hover::before {
+  opacity: 1;
+  filter: blur(16px);
+}
+
+.photo-vignette {
+  mask-image: radial-gradient(ellipse 90% 75% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 50%, black 40%, transparent 100%);
+}
+
+.directional-cone-down {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 61, 3, 0.12) 60%, rgba(255, 61, 3, 0.28) 100%);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+}
+
+
 
 

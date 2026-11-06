@@ -40,19 +40,19 @@ export default function SocialProof() {
       data-theme="dark"
       className="py-24 bg-[#070a10] text-white border-t border-white/10 relative overflow-hidden"
     >
-      {/* Imagem de Fundo Cenográfica de Operações com Portos & Supply Chain */}
+      {/* Imagem de Fundo Cenográfica de Operações com Portos & Supply Chain em Pôr do Sol */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="/images/logistics-port.jpg"
-          alt="Operações Portuárias e Supply Chain"
-          className="w-full h-full object-cover opacity-10 mix-blend-luminosity filter blur-[1px]"
+          src="/images/port-sunset.jpg"
+          alt="Operações Portuárias e Guindastes ao Pôr do Sol"
+          className="w-full h-full object-cover opacity-30 mix-blend-screen filter blur-[0.5px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070a10] via-transparent to-[#070a10]" />
-        <div className="absolute inset-0 bg-tech-grid-dark opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070a10] via-[#070a10]/80 to-[#070a10]" />
+        <div className="absolute inset-0 bg-tech-grid-dark opacity-35" />
       </div>
 
-      {/* Luz ambiente neon */}
-      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[#ff3d03]/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Luz ambiente neon quente alinhada aos guindastes */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#ff3d03]/20 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}
@@ -160,15 +160,27 @@ export default function SocialProof() {
           ))}
         </div>
 
-        {/* BOTÃO CTA DA 4ª DOBRA: Texto Exato do Cliente */}
-        <div className="text-center">
-          <Link
-            href="#proposta"
-            className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-xl shadow-[#df3500]/30 hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-400/30 uppercase tracking-wider"
-          >
-            Solicite uma proposta
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        {/* BOTÃO CTA DA 4ª DOBRA com Foco Óptico e Efeito Radar */}
+        <div className="text-center relative pt-4">
+          {/* Spotlight cônico atrás do botão */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-32 cta-spotlight pointer-events-none rounded-full" />
+
+          <div className="relative inline-block">
+            {/* Onda de Radar */}
+            <div className="absolute inset-0 rounded-2xl bg-[#ff3d03]/40 radar-wave pointer-events-none" />
+
+            <Link
+              href="#proposta"
+              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+            >
+              Solicite uma proposta
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
+
+          <span className="text-[11px] font-mono text-gray-400 mt-3.5 block">
+            Junte-se às lideranças que já transformaram seus times
+          </span>
         </div>
       </div>
     </section>
