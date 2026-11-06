@@ -62,17 +62,17 @@ export default function LeadForm() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
               {/* Informações ao Lado */}
               <div className="lg:col-span-5 space-y-6">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+                <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
                   Atendimento Corporativo
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                  Retenha talentos e prepare sua equipe para os desafios da logística!
+                <h2 className="text-3xl sm:text-4xl font-heading font-black text-white tracking-tight leading-tight">
+                  Retenha talentos e prepare sua equipe para os <span className="font-editorial italic font-normal text-orange-400">desafios da logística</span>!
                 </h2>
-                <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                <p className="text-gray-300 font-sans text-sm sm:text-base leading-relaxed">
                   Preencha os dados e converse com nosso time sobre as necessidades da sua operação.
                 </p>
 
-                <div className="space-y-4 pt-4 border-t border-white/10 text-xs text-gray-300">
+                <div className="space-y-4 pt-4 border-t border-white/10 text-xs font-heading text-gray-300">
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-[#ff3d03] shrink-0" />
                     <span>Retorno comercial em até 2 horas úteis</span>
@@ -93,7 +93,7 @@ export default function LeadForm() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="lead-name" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="lead-name" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         Nome Completo *
                       </label>
                       <input
@@ -104,11 +104,11 @@ export default function LeadForm() {
                         placeholder="Ex: Carlos Eduardo"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label htmlFor="lead-email" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="lead-email" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         E-mail Corporativo *
                       </label>
                       <input
@@ -119,14 +119,14 @@ export default function LeadForm() {
                         placeholder="carlos@suaempresa.com.br"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="lead-phone" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="lead-phone" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         WhatsApp com DDD *
                       </label>
                       <input
@@ -137,11 +137,11 @@ export default function LeadForm() {
                         placeholder="(11) 98765-4321"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label htmlFor="lead-company" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="lead-company" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         Nome da Empresa *
                       </label>
                       <input
@@ -152,14 +152,14 @@ export default function LeadForm() {
                         placeholder="Ex: Logística Brasil S/A"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="lead-role" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="lead-role" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         Cargo / Função *
                       </label>
                       <input
@@ -170,11 +170,11 @@ export default function LeadForm() {
                         placeholder="Ex: Diretor de Supply Chain / RH"
                         value={formData.role}
                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white placeholder-gray-500 focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all"
                       />
                     </div>
                     <div>
-                      <label htmlFor="teamSizeSelect" className="block text-[11px] font-mono font-bold uppercase text-gray-300 mb-1.5 cursor-pointer">
+                      <label htmlFor="teamSizeSelect" className="block text-[11px] font-mono-tech font-bold uppercase tracking-wider text-gray-300 mb-1.5 cursor-pointer">
                         Tamanho da Equipe
                       </label>
                       <select
@@ -183,7 +183,7 @@ export default function LeadForm() {
                         aria-label="Tamanho da Equipe"
                         value={formData.teamSize}
                         onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm text-white focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-xl bg-black/60 border border-white/10 text-sm font-sans text-white focus:outline-none focus:border-[#ff3d03] focus:ring-1 focus:ring-[#ff3d03] transition-all cursor-pointer"
                       >
                         <option value="1 a 5 colaboradores">1 a 5 colaboradores</option>
                         <option value="6 a 15 colaboradores">6 a 15 colaboradores</option>
@@ -204,7 +204,7 @@ export default function LeadForm() {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="relative w-full py-4.5 rounded-2xl font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70 border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                        className="relative w-full py-4.5 rounded-2xl font-heading font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70 border border-orange-300/40 uppercase tracking-wider shimmer-btn"
                       >
                         {loading ? (
                           <span>PROCESSANDO SOLICITAÇÃO...</span>
@@ -217,7 +217,7 @@ export default function LeadForm() {
                       </button>
                     </div>
 
-                    <span className="text-[11px] font-mono text-gray-400 text-center block mt-3">
+                    <span className="text-[11px] font-mono-tech text-gray-400 text-center block mt-3">
                       Ao enviar, você receberá o descritivo técnico e a proposta comercial
                     </span>
                   </div>

@@ -54,11 +54,11 @@ export default function SocialProof() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Cabeçalho da 4ª Dobra - Textos Oficiais */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block mb-4">
+          <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block mb-4">
             Depoimentos & Casos Reais
           </span>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-            Veja o que profissionais que conhecem a plataforma, têm a dizer sobre essa experiência:
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-black text-white tracking-tight leading-tight">
+            Veja o que profissionais que conhecem a plataforma, têm a dizer sobre <span className="font-editorial italic font-normal text-orange-400">essa experiência</span>:
           </h2>
         </div>
 
@@ -102,10 +102,10 @@ export default function SocialProof() {
                     <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current translate-x-0.5" />
                   </div>
                   <div className="text-center">
-                    <span className="text-sm sm:text-base font-bold text-white tracking-wide block drop-shadow-md">
+                    <span className="text-sm sm:text-base font-heading font-bold text-white tracking-wide block drop-shadow-md">
                       Assistir Apresentação da Plataforma
                     </span>
-                    <span className="text-xs font-mono text-gray-300 bg-black/60 px-3 py-1 rounded-full border border-white/10 mt-1.5 inline-block">
+                    <span className="text-xs font-mono-tech text-gray-300 bg-black/60 px-3 py-1 rounded-full border border-white/10 mt-1.5 inline-block">
                       Vídeo Exclusivo • 3 min
                     </span>
                   </div>
@@ -129,7 +129,7 @@ export default function SocialProof() {
                   ))}
                 </div>
                 <Quote className="w-8 h-8 text-[#ff3d03]/40 mb-3" />
-                <p className="text-gray-200 text-sm sm:text-base leading-relaxed italic mb-8">
+                <p className="text-slate-100 font-editorial text-base sm:text-lg leading-relaxed italic mb-8">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
@@ -145,9 +145,9 @@ export default function SocialProof() {
                   className="w-13 h-13 rounded-full object-cover border-2 border-[#ff3d03]/60 shadow-md shadow-[#ff3d03]/20"
                 />
                 <div>
-                  <h3 className="font-bold text-white text-base">{t.author}</h3>
-                  <p className="text-xs text-gray-300">{t.role}</p>
-                  <p className="text-xs font-mono font-bold text-[#ff3d03] flex items-center gap-1 mt-0.5">
+                  <h3 className="font-heading font-bold text-white text-base">{t.author}</h3>
+                  <p className="text-xs font-sans text-gray-300">{t.role}</p>
+                  <p className="text-xs font-mono-tech font-bold text-[#ff3d03] flex items-center gap-1 mt-0.5">
                     <Building2 className="w-3 h-3" />
                     {t.company}
                   </p>
@@ -168,14 +168,14 @@ export default function SocialProof() {
 
             <Link
               href="#proposta"
-              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.5)] hover:shadow-[0_0_60px_rgba(255,61,3,0.8)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
             >
               Solicite uma proposta
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <span className="text-[11px] font-mono text-gray-400 mt-3.5 block">
+          <span className="text-[11px] font-mono-tech text-gray-400 mt-3.5 block">
             Junte-se às lideranças que já transformaram seus times
           </span>
         </div>

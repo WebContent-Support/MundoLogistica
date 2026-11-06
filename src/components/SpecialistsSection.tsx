@@ -114,12 +114,12 @@ export default function SpecialistsSection() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#df3500]">
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#df3500]">
                 Corpo Docente de Elite
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-950 tracking-tight leading-tight">
-              Temos um time com os maiores especialistas e profissionais atuantes do segmento de logística e supply chain!
+            <h2 className="text-3xl sm:text-5xl font-heading font-black text-gray-950 tracking-tight leading-tight">
+              Temos um time com os <span className="font-editorial italic font-normal text-[#df3500]">maiores especialistas</span> e profissionais atuantes do segmento de logística e supply chain!
             </h2>
           </div>
 
@@ -173,20 +173,20 @@ export default function SpecialistsSection() {
 
                 {/* Nome e Cargo */}
                 <div className="text-center">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-1">
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-1">
                     {spec.name}
                   </h3>
-                  <p className="text-xs sm:text-sm font-semibold text-gray-700 mb-2">
+                  <p className="text-xs sm:text-sm font-sans font-semibold text-gray-700 mb-2">
                     {spec.role}
                   </p>
-                  <p className="text-[11px] font-mono text-[#df3500] font-bold bg-orange-50 px-2.5 py-1 rounded-lg inline-block border border-orange-100">
+                  <p className="text-[11px] font-mono-tech text-[#df3500] font-bold bg-orange-50 px-2.5 py-1 rounded-lg inline-block border border-orange-100">
                     {spec.companyOrExperience}
                   </p>
                 </div>
               </div>
 
               {/* Rodapé do Card */}
-              <div className="pt-4 mt-5 border-t border-gray-100 flex items-center justify-center gap-1.5 text-[11px] font-mono text-gray-500 font-semibold">
+              <div className="pt-4 mt-5 border-t border-gray-100 flex items-center justify-center gap-1.5 text-[11px] font-mono-tech text-gray-500 font-semibold">
                 <Award className="w-3.5 h-3.5 text-[#df3500]" />
                 <span>Instrutor Homologado</span>
               </div>
@@ -205,14 +205,14 @@ export default function SpecialistsSection() {
 
             <Link
               href="#proposta"
-              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_10px_30px_rgba(255,61,3,0.35)] hover:shadow-[0_15px_40px_rgba(255,61,3,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+              className="relative inline-flex items-center justify-center gap-3 px-10 py-4 sm:px-12 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_10px_30px_rgba(255,61,3,0.35)] hover:shadow-[0_15px_40px_rgba(255,61,3,0.5)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
             >
               Quero receber uma proposta
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <span className="text-[11px] font-mono text-gray-500 mt-3.5 block">
+          <span className="text-[11px] font-mono-tech text-gray-500 mt-3.5 block">
             Aulas gravadas e masterclasses ao vivo com quem lidera o mercado
           </span>
         </div>

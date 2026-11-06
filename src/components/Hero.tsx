@@ -54,27 +54,27 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff3d03] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff3d03]" />
               </span>
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
+              <span className="text-[11px] font-mono-tech font-bold uppercase tracking-widest text-white">
                 Capacitação Corporativa B2B • Edição 2026
               </span>
             </div>
 
-            {/* Headline Exata do Documento da Cliente */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] text-white">
+            {/* Headline Exata do Documento da Cliente com Contraste Tipográfico */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white">
               Sua equipe está preparada para os{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
+              <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
                 próximos desafios
               </span>{' '}
               da logística?
             </h1>
 
             {/* Subtítulo Executivo de Apoio */}
-            <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              O ecossistema definitivo para desenvolver competências, acelerar a maturidade das operações e formar lideranças em Supply Chain com os maiores diretores do setor.
+            <p className="text-base sm:text-lg text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              O ecossistema definitivo para <span className="font-editorial italic font-normal text-white">desenvolver competências</span>, acelerar a maturidade das operações e formar lideranças em Supply Chain com os maiores diretores do setor.
             </p>
 
             {/* Badges de Confiança Corporativa com Micro-Ícones */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold text-gray-300">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-heading font-semibold text-gray-300">
               <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <Award className="w-3.5 h-3.5" />
@@ -117,10 +117,10 @@ export default function Hero() {
                   
                   {/* Badge Interno no Topo da Imagem */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
+                    <span className="text-[10px] font-mono-tech font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
                       Operações & Supply Chain
                     </span>
-                    <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/40">
+                    <span className="flex items-center gap-1.5 text-[10px] font-mono-tech text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/40">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                       Em Tempo Real
                     </span>
@@ -129,10 +129,10 @@ export default function Hero() {
 
                 {/* Bloco Inferior do Card: Texto Limpo e Sem Nenhuma Sobreposição */}
                 <div className="p-4 sm:p-5 bg-[#0a0e17]/95 border-t border-white/10 text-white">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-[#ff3d03] font-bold block mb-1">
+                  <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block mb-1">
                     MundoLogística Educação Corporativa
                   </span>
-                  <p className="text-sm font-bold text-white leading-snug">
+                  <p className="text-sm font-heading font-bold text-white leading-snug">
                     Formando os líderes das maiores cadeias do país
                   </p>
                 </div>
@@ -145,12 +145,12 @@ export default function Hero() {
                 </div>
                 <div>
                   <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span>OTIF 98.4%</span>
-                    <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">
+                    <span className="font-mono-tech font-bold text-sm">OTIF 98.4%</span>
+                    <span className="text-[9px] font-mono-tech text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">
                       +14%
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-gray-400">Eficiência Operacional</span>
+                  <span className="text-[10px] font-mono-tech text-gray-400">Eficiência Operacional</span>
                 </div>
               </div>
 
@@ -160,8 +160,8 @@ export default function Hero() {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-bold text-white block">+18 Anos de Acervo</span>
-                  <span className="text-[10px] font-mono text-gray-400">Curadoria Homologada</span>
+                  <span className="text-xs font-heading font-bold text-white block">+18 Anos de Acervo</span>
+                  <span className="text-[10px] font-editorial italic text-orange-400">Curadoria Homologada</span>
                 </div>
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function Hero() {
 
         {/* Faixa de Grandes Clientes com Marquee Infinito */}
         <div className="pt-8 border-t border-white/10">
-          <p className="text-center font-mono text-[11px] uppercase tracking-widest text-gray-400 mb-5">
+          <p className="text-center font-mono-tech text-[11px] uppercase tracking-widest text-gray-400 mb-5">
             Empresas que capacitam suas equipes com a MundoLogística
           </p>
 

@@ -20,13 +20,13 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-sm text-gray-300 max-w-md leading-relaxed">
+            <p className="text-sm font-sans text-gray-300 max-w-md leading-relaxed">
               O maior ecossistema de capacitação, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
             {/* Redes Sociais Oficiais em Destaque */}
             <div className="pt-2">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-gray-400 block mb-3">
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-wider text-gray-400 block mb-3">
                 Siga a MundoLogística:
               </span>
               <div className="flex items-center gap-3">
@@ -86,10 +86,10 @@ export default function Footer() {
 
           {/* Dados de Contato e Atendimento Corporativo */}
           <div className="lg:col-span-6 space-y-4">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
+            <h3 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-white">
               Atendimento Corporativo B2B
             </h3>
-            <ul className="space-y-3 text-xs sm:text-sm text-gray-300">
+            <ul className="space-y-3 text-xs sm:text-sm font-sans text-gray-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ff3d03] shrink-0 mt-0.5" />
                 <span>Av. São Paulo, 620 - Sala 11 - Zona 01, Maringá - PR</span>

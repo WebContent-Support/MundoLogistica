@@ -98,13 +98,13 @@ export default function Header() {
               }`}
             >
               <span
-                className={`text-[10px] font-mono uppercase tracking-widest transition-colors duration-300 ${
+                className={`text-[10px] font-mono-tech uppercase tracking-widest transition-colors duration-300 ${
                   isDark ? 'text-gray-300' : 'text-gray-700 font-bold'
                 }`}
               >
                 Corporate Suite
               </span>
-              <span className="text-[9px] font-mono text-[#ff3d03] font-bold">
+              <span className="text-[9px] font-mono-tech text-[#ff3d03] font-bold">
                 B2B Plataforma
               </span>
             </div>
@@ -115,7 +115,7 @@ export default function Header() {
             <a
               href="#plataforma"
               onClick={(e) => handleNavClick(e, 'plataforma')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`px-3.5 py-1.5 text-xs font-heading font-semibold tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -126,7 +126,7 @@ export default function Header() {
             <a
               href="#dashboard"
               onClick={(e) => handleNavClick(e, 'dashboard')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`px-3.5 py-1.5 text-xs font-heading font-semibold tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -137,7 +137,7 @@ export default function Header() {
             <a
               href="#depoimentos"
               onClick={(e) => handleNavClick(e, 'depoimentos')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`px-3.5 py-1.5 text-xs font-heading font-semibold tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -148,7 +148,7 @@ export default function Header() {
             <a
               href="#especialistas"
               onClick={(e) => handleNavClick(e, 'especialistas')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`px-3.5 py-1.5 text-xs font-heading font-semibold tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -159,7 +159,7 @@ export default function Header() {
             <a
               href="#cursos"
               onClick={(e) => handleNavClick(e, 'cursos')}
-              className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all duration-200 cursor-pointer ${
+              className={`px-3.5 py-1.5 text-xs font-heading font-semibold tracking-wider uppercase rounded-lg transition-all duration-200 cursor-pointer ${
                 isDark
                   ? 'text-gray-300 hover:text-white hover:bg-white/10'
                   : 'text-gray-700 hover:text-gray-950 hover:bg-black/5'
@@ -174,7 +174,7 @@ export default function Header() {
             <a
               href="#proposta"
               onClick={(e) => handleNavClick(e, 'proposta')}
-              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-md shadow-[#df3500]/30 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-400/30 cursor-pointer active:scale-95"
+              className="relative group overflow-hidden px-5 py-2.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#df3500] hover:bg-[#ff3d03] shadow-md shadow-[#df3500]/30 transition-all duration-300 hover:scale-[1.02] flex items-center gap-2 border border-orange-400/30 cursor-pointer active:scale-95"
             >
               <span className="relative z-10 flex items-center gap-1.5">
                 Solicitar Proposta B2B

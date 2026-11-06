@@ -142,11 +142,11 @@ export default function DashboardSection() {
                     <span className="w-3 h-3 rounded-full bg-amber-400/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-400/80" />
                   </div>
-                  <span className="text-xs font-mono font-bold text-gray-300 ml-1">
+                  <span className="text-xs font-mono-tech font-bold text-gray-300 ml-1">
                     painel.mundologistica.app • Visão do Líder
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">
+                <div className="flex items-center gap-2 text-[10px] font-mono-tech text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/30">
                   <Activity className="w-3 h-3" />
                   <span>Sincronizado</span>
                 </div>
@@ -155,37 +155,37 @@ export default function DashboardSection() {
               {/* Cards de Métricas Rápidas com Ícones */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 shadow-xs">
-                  <span className="text-[11px] font-mono text-gray-400 block mb-1">
+                  <span className="text-[11px] font-mono-tech text-gray-400 block mb-1">
                     Horas de Estudo da Equipe
                   </span>
-                  <div className="text-3xl font-black text-white tabular-nums">
+                  <div className="text-3xl font-mono-tech font-bold text-white tabular-nums tracking-tight">
                     {hours}h
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold mt-1 block">
+                  <span className="text-[10px] font-mono-tech text-emerald-400 font-bold mt-1 block">
                     +38% vs. mês anterior
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 shadow-xs">
-                  <span className="text-[11px] font-mono text-gray-400 block mb-1">
+                  <span className="text-[11px] font-mono-tech text-gray-400 block mb-1">
                     Cursos Concluídos
                   </span>
-                  <div className="text-3xl font-black text-[#ff3d03] tabular-nums">
+                  <div className="text-3xl font-mono-tech font-bold text-[#ff3d03] tabular-nums tracking-tight">
                     {coursesCount}
                   </div>
-                  <span className="text-[10px] font-mono text-gray-300 font-bold mt-1 block">
+                  <span className="text-[10px] font-mono-tech text-gray-300 font-bold mt-1 block">
                     98.2% taxa de aprovação
                   </span>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white/[0.04] border border-white/10 shadow-xs">
-                  <span className="text-[11px] font-mono text-gray-400 block mb-1">
+                  <span className="text-[11px] font-mono-tech text-gray-400 block mb-1">
                     Engajamento Semanal
                   </span>
-                  <div className="text-3xl font-black text-white tabular-nums">
+                  <div className="text-3xl font-mono-tech font-bold text-white tabular-nums tracking-tight">
                     {engagement}%
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold mt-1 block">
+                  <span className="text-[10px] font-mono-tech text-emerald-400 font-bold mt-1 block">
                     Ativos nos últimos 7 dias
                   </span>
                 </div>
@@ -193,7 +193,7 @@ export default function DashboardSection() {
 
               {/* Lista Nominal de Colaboradores em Desenvolvimento */}
               <div>
-                <p className="text-[11px] font-mono font-bold uppercase tracking-widest text-gray-400 mb-3">
+                <p className="text-[11px] font-mono-tech font-bold uppercase tracking-widest text-gray-400 mb-3">
                   Progresso Nominal por Colaborador
                 </p>
                 <div className="space-y-3">
@@ -204,10 +204,10 @@ export default function DashboardSection() {
                     >
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-white">{member.name}</span>
-                          <span className="text-gray-400 font-mono text-[11px]">• {member.role}</span>
+                          <span className="font-heading font-semibold text-white">{member.name}</span>
+                          <span className="text-gray-400 font-mono-tech text-[11px]">• {member.role}</span>
                         </div>
-                        <span className="text-gray-400 text-[11px] block mt-0.5">{member.course}</span>
+                        <span className="text-gray-400 font-sans text-[11px] block mt-0.5">{member.course}</span>
                       </div>
 
                       <div className="flex items-center gap-3 sm:w-48 shrink-0">
@@ -217,7 +217,7 @@ export default function DashboardSection() {
                             style={{ width: `${hasAnimated ? member.targetProgress : 0}%` }}
                           />
                         </div>
-                        <span className="font-mono font-bold text-white w-10 text-right tabular-nums">
+                        <span className="font-mono-tech font-bold text-white w-10 text-right tabular-nums">
                           {memberValues[idx]}%
                         </span>
                       </div>
@@ -233,31 +233,31 @@ export default function DashboardSection() {
                 <BarChart3 className="w-4 h-4" />
               </div>
               <div className="text-xs">
-                <span className="font-bold block">Relatórios Consolidados</span>
-                <span className="text-[10px] font-mono text-gray-400">Exportação em PDF & Excel</span>
+                <span className="font-heading font-bold block">Relatórios Consolidados</span>
+                <span className="text-[10px] font-mono-tech text-gray-400">Exportação em PDF & Excel</span>
               </div>
             </div>
           </div>
 
           {/* Coluna de Texto com os 4 Pontos Oficiais da Cliente */}
           <div className="lg:col-span-5 order-1 lg:order-2 space-y-6">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
+            <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-[#ff3d03]/10 border border-[#ff3d03]/30 px-3.5 py-1.5 rounded-full inline-block">
               Gestão & Acompanhamento
             </span>
 
             {/* Texto Destaque da Cliente */}
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.15]">
-              Dashboard do líder
+            <h2 className="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight leading-[1.15]">
+              Dashboard do <span className="font-editorial italic font-normal text-orange-400">líder</span>
             </h2>
 
             {/* Texto Apoio da Cliente */}
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-300 font-sans text-base sm:text-lg leading-relaxed">
               Acompanhe a participação e o progresso dos profissionais na plataforma e tenha mais visibilidade sobre a jornada de desenvolvimento da equipe!
             </p>
 
             {/* Lista Oficial "Acompanhe:" com Cards Criativos */}
             <div className="pt-2 space-y-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-white block">
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-white block">
                 Acompanhe:
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -275,9 +275,9 @@ export default function DashboardSection() {
                       <div className="w-5 h-5 rounded-full bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
-                      <span className="text-xs">{item.text}</span>
+                      <span className="text-xs font-heading font-bold">{item.text}</span>
                     </div>
-                    <span className="text-[11px] text-gray-400 pl-7 block">{item.desc}</span>
+                    <span className="text-[11px] font-sans text-gray-400 pl-7 block">{item.desc}</span>
                   </div>
                 ))}
               </div>
@@ -294,14 +294,14 @@ export default function DashboardSection() {
 
                 <Link
                   href="#proposta"
-                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_35px_rgba(255,61,3,0.5)] hover:shadow-[0_0_50px_rgba(255,61,3,0.7)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_35px_rgba(255,61,3,0.5)] hover:shadow-[0_0_50px_rgba(255,61,3,0.7)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
                 >
                   Solicitar demonstração
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
 
-              <div className="flex items-center gap-2 mt-3 text-xs font-mono text-gray-400">
+              <div className="flex items-center gap-2 mt-3 text-xs font-mono-tech text-gray-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Demonstração prática guiada com dados reais de exemplo</span>
               </div>

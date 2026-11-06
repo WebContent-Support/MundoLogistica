@@ -78,14 +78,14 @@ export default function VitrineCursosPage() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ff3d03]/10 border border-[#ff3d03]/30 mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-[#ff3d03]" />
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#ff3d03]">
+                <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03]">
                   Catálogo Completo de Capacitação B2B
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-                Vitrine de Cursos MundoLogística
+              <h1 className="text-3xl sm:text-5xl font-heading font-black text-white tracking-tight leading-tight mb-4">
+                Vitrine de <span className="font-editorial italic font-normal text-orange-400">Cursos</span> MundoLogística
               </h1>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+              <p className="text-gray-300 font-sans text-base sm:text-lg leading-relaxed">
                 Explore todo o acervo disponível na assinatura corporativa. Treinamentos técnicos de alto nível ministrados exclusivamente por executivos atuantes nas maiores cadeias de suprimentos do Brasil.
               </p>
             </div>
@@ -120,17 +120,17 @@ export default function VitrineCursosPage() {
                   )}
                 </div>
 
-                <div className="bg-gray-50 px-4 py-2.5 rounded-2xl border border-gray-200 text-xs font-mono font-bold text-gray-600 flex items-center gap-2 shrink-0 self-start md:self-auto">
+                <div className="bg-gray-50 px-4 py-2.5 rounded-2xl border border-gray-200 text-xs font-mono-tech font-bold text-gray-600 flex items-center gap-2 shrink-0 self-start md:self-auto">
                   <span className="w-2 h-2 rounded-full bg-[#ff3d03] animate-pulse" />
                   <span>
-                    Exibindo <strong className="text-gray-900 text-sm">{filteredCourses.length}</strong> de {COURSES_DATA.length} cursos
+                    Exibindo <strong className="text-gray-900 text-sm font-mono-tech">{filteredCourses.length}</strong> de {COURSES_DATA.length} cursos
                   </span>
                 </div>
               </div>
 
               {/* Categorias / Trilhas */}
               <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none pt-2 border-t border-gray-100">
-                <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-gray-700 mr-2 shrink-0">
+                <div className="flex items-center gap-1.5 text-xs font-mono-tech font-bold text-gray-700 mr-2 shrink-0">
                   <Filter className="w-3.5 h-3.5 text-[#df3500]" />
                   TRILHA:
                 </div>
@@ -141,7 +141,7 @@ export default function VitrineCursosPage() {
                       key={category}
                       type="button"
                       onClick={() => setSelectedCategory(category)}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer ${
+                      className={`px-4 py-2 rounded-xl text-xs font-heading font-bold whitespace-nowrap transition-all duration-200 shrink-0 cursor-pointer ${
                         isSelected
                           ? 'bg-[#df3500] text-white shadow-md shadow-[#df3500]/25 scale-105'
                           : 'bg-white text-gray-800 hover:text-black hover:bg-gray-100 border border-gray-300'
@@ -192,16 +192,16 @@ export default function VitrineCursosPage() {
 
                       {/* Badges Flutuantes sobre a Imagem */}
                       <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                        <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
+                        <span className="text-[10px] font-mono-tech font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
                           {course.category}
                         </span>
-                        <span className="text-[10px] font-mono text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                        <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
                           {course.level}
                         </span>
                       </div>
 
                       {/* Duração & Certificado Flutuantes na Base da Foto */}
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono">
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono-tech">
                         <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
                           <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
                           {course.duration}
@@ -217,12 +217,12 @@ export default function VitrineCursosPage() {
                     <div className="p-6 flex-1 flex flex-col justify-between">
                       <div>
                         {/* Título do Curso */}
-                        <h3 className="text-lg font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-2.5">
+                        <h3 className="text-lg font-heading font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-2.5">
                           {course.title}
                         </h3>
 
                         {/* Resumo */}
-                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed mb-5 font-normal">
+                        <p className="text-xs sm:text-sm font-sans text-gray-600 line-clamp-2 leading-relaxed mb-5 font-normal">
                           {course.summary}
                         </p>
                       </div>
@@ -242,13 +242,13 @@ export default function VitrineCursosPage() {
                           <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                         </div>
                         <div className="overflow-hidden">
-                          <h4 className="text-xs sm:text-sm font-bold text-gray-900 truncate">
+                          <h4 className="text-xs sm:text-sm font-heading font-bold text-gray-900 truncate">
                             {course.instructor.name}
                           </h4>
-                          <p className="text-[11px] text-gray-600 truncate">
+                          <p className="text-[11px] font-sans text-gray-600 truncate">
                             {course.instructor.role}
                           </p>
-                          <p className="text-[10px] font-mono text-[#df3500] font-bold truncate">
+                          <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
                             {course.instructor.companyOrExperience}
                           </p>
                         </div>
@@ -257,10 +257,10 @@ export default function VitrineCursosPage() {
 
                     {/* Rodapé do Card */}
                     <div className="px-6 py-3.5 bg-gray-50/80 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#df3500] group-hover:text-[#ff3d03] transition-colors">
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-gray-500 group-hover:text-[#df3500]">
+                      <span className="font-mono-tech text-[11px] uppercase tracking-wider text-gray-500 group-hover:text-[#df3500]">
                         Ver ementa completa
                       </span>
-                      <span className="inline-flex items-center gap-1">
+                      <span className="inline-flex items-center gap-1 font-heading font-bold">
                         <span>Acessar</span>
                         <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </span>
@@ -372,18 +372,18 @@ export default function VitrineCursosPage() {
                 className="w-14 h-14 rounded-full object-cover border-2 border-orange-200 shadow-sm"
               />
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 block">
+                <span className="text-[10px] font-mono-tech uppercase tracking-widest text-gray-500 block">
                   Especialista Responsável
                 </span>
-                <h4 className="text-base font-bold text-gray-950">{activeCourse.instructor.name}</h4>
-                <p className="text-xs text-gray-600 font-medium">{activeCourse.instructor.role}</p>
-                <p className="text-xs text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                <h4 className="text-base font-heading font-bold text-gray-950">{activeCourse.instructor.name}</h4>
+                <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
+                <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
               </div>
             </div>
 
             {/* Módulos */}
             <div className="mb-8">
-              <h4 className="text-xs font-mono font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
                 Módulos e Conteúdos Abordados:
               </h4>
@@ -391,9 +391,9 @@ export default function VitrineCursosPage() {
                 {activeCourse.modules.map((mod, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-sm text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
+                    className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
                   >
-                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       {index + 1}
                     </span>
                     <span>{mod}</span>
@@ -403,7 +403,7 @@ export default function VitrineCursosPage() {
             </div>
 
             {/* Detalhes Rápidos */}
-            <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono font-bold text-gray-800">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono-tech font-bold text-gray-800">
               <span>Carga Horária: {activeCourse.duration}</span>
               <span>Nível: {activeCourse.level}</span>
               <span className="text-[#df3500]">Certificado Incluso</span>
@@ -414,14 +414,14 @@ export default function VitrineCursosPage() {
               <Link
                 href="/#proposta"
                 onClick={() => setActiveCourse(null)}
-                className="flex-1 py-4 px-6 rounded-xl font-bold text-center text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer uppercase tracking-wider"
+                className="flex-1 py-4 px-6 rounded-xl font-heading font-bold text-center text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer uppercase tracking-wider"
               >
                 Liberar este curso para minha equipe
               </Link>
               <button
                 type="button"
                 onClick={() => setActiveCourse(null)}
-                className="py-4 px-6 rounded-xl font-bold text-sm text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                className="py-4 px-6 rounded-xl font-heading font-bold text-sm text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
               >
                 Fechar
               </button>

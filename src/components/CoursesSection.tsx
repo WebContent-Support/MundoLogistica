@@ -42,14 +42,14 @@ export default function CoursesSection() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 border border-orange-300 mb-4">
               <Sparkles className="w-3.5 h-3.5 text-[#df3500]" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#df3500]">
+              <span className="text-xs font-mono-tech font-bold uppercase tracking-widest text-[#df3500]">
                 Acervo de Cursos & Especialistas
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-gray-950 tracking-tight leading-tight">
-              Conheça os cursos disponíveis na nossa plataforma!
+            <h2 className="text-3xl sm:text-5xl font-heading font-black text-gray-950 tracking-tight leading-tight">
+              Conheça os <span className="font-editorial italic font-normal text-[#df3500]">cursos disponíveis</span> na nossa plataforma!
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg mt-3 leading-relaxed">
+            <p className="text-gray-600 font-sans text-base sm:text-lg mt-3 leading-relaxed">
               Treinamentos técnicos ministrados exclusivamente por executivos atuantes nas maiores cadeias de suprimentos.
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function CoursesSection() {
               href="/cursos"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 text-xs font-mono font-bold text-gray-700 hover:text-[#df3500] transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 text-xs font-mono-tech font-bold text-gray-700 hover:text-[#df3500] transition-all shadow-sm"
             >
               <span>Ver Catálogo Completo ({COURSES_DATA.length} cursos)</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -90,16 +90,16 @@ export default function CoursesSection() {
 
                 {/* Badges Flutuantes sobre a Imagem */}
                 <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-                  <span className="text-[10px] font-mono font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
+                  <span className="text-[10px] font-mono-tech font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
                     {course.category}
                   </span>
-                  <span className="text-[10px] font-mono text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                  <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
                     {course.level}
                   </span>
                 </div>
 
                 {/* Duração & Certificado Flutuantes na Base da Foto */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono">
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono-tech">
                   <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
                     <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
                     {course.duration}
@@ -115,12 +115,12 @@ export default function CoursesSection() {
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   {/* Título do Curso */}
-                  <h3 className="text-lg font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-2.5">
+                  <h3 className="text-lg font-heading font-bold text-gray-950 group-hover:text-[#df3500] transition-colors leading-snug mb-2.5">
                     {course.title}
                   </h3>
 
                   {/* Resumo */}
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 leading-relaxed mb-5 font-normal">
+                  <p className="text-xs sm:text-sm font-sans text-gray-600 line-clamp-2 leading-relaxed mb-5 font-normal">
                     {course.summary}
                   </p>
                 </div>
@@ -140,13 +140,13 @@ export default function CoursesSection() {
                     <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-white" />
                   </div>
                   <div className="overflow-hidden">
-                    <h4 className="text-xs sm:text-sm font-bold text-gray-900 truncate">
+                    <h4 className="text-xs sm:text-sm font-heading font-bold text-gray-900 truncate">
                       {course.instructor.name}
                     </h4>
-                    <p className="text-[11px] text-gray-600 truncate">
+                    <p className="text-[11px] font-sans text-gray-600 truncate">
                       {course.instructor.role}
                     </p>
-                    <p className="text-[10px] font-mono text-[#df3500] font-bold truncate">
+                    <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
                       {course.instructor.companyOrExperience}
                     </p>
                   </div>
@@ -155,10 +155,10 @@ export default function CoursesSection() {
 
               {/* Rodapé do Card com Cantoneira */}
               <div className="px-6 py-3.5 bg-gray-50/80 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-[#df3500] group-hover:text-[#ff3d03] transition-colors">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-gray-500 group-hover:text-[#df3500]">
+                <span className="font-mono-tech text-[11px] uppercase tracking-wider text-gray-500 group-hover:text-[#df3500]">
                   Ver ementa completa
                 </span>
-                <span className="inline-flex items-center gap-1">
+                <span className="inline-flex items-center gap-1 font-heading font-bold">
                   <span>Acessar</span>
                   <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -185,13 +185,13 @@ export default function CoursesSection() {
             {/* Ponto de Luz / Spotlight Direcionado ao Centro */}
             <div className="absolute inset-0 cta-spotlight pointer-events-none" />
 
-            <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#ff3d03] bg-black/70 px-4 py-1 rounded-full border border-[#ff3d03]/40 mb-3 inline-block">
+            <span className="text-[11px] font-mono-tech font-bold uppercase tracking-widest text-[#ff3d03] bg-black/70 px-4 py-1 rounded-full border border-[#ff3d03]/40 mb-3 inline-block">
               +30 Treinamentos Homologados • Atualização Contínua
             </span>
-            <h3 className="text-2xl sm:text-4xl font-black text-white mb-3 tracking-tight">
+            <h3 className="text-2xl sm:text-4xl font-heading font-black text-white mb-3 tracking-tight">
               Explore o maior acervo prático de capacitação logística do país
             </h3>
-            <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+            <p className="text-orange-200/90 font-editorial italic text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
               De S&OP e WMS a IA aplicada e negociação de fretes: aulas ministradas por executivos com vivência real de mercado.
             </p>
 
@@ -206,7 +206,7 @@ export default function CoursesSection() {
                   href="/cursos"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.6)] hover:shadow-[0_0_60px_rgba(255,61,3,0.85)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
+                  className="relative w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-black text-white bg-gradient-to-r from-[#ff3d03] to-[#df3500] hover:from-[#ff5722] hover:to-[#eb3b00] shadow-[0_0_40px_rgba(255,61,3,0.6)] hover:shadow-[0_0_60px_rgba(255,61,3,0.85)] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-orange-300/40 uppercase tracking-wider shimmer-btn"
                 >
                   <span>Conhecer todos os cursos</span>
                   <ExternalLink className="w-4 h-4" />
@@ -216,7 +216,7 @@ export default function CoursesSection() {
               {/* Botão de Proposta Corporativa */}
               <Link
                 href="#proposta"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 sm:px-9 sm:py-4.5 rounded-2xl text-sm sm:text-base font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all border border-white/20 uppercase tracking-wider cursor-pointer hover:border-white/40"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 sm:px-9 sm:py-4.5 rounded-2xl text-sm sm:text-base font-heading font-bold text-white bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all border border-white/20 uppercase tracking-wider cursor-pointer hover:border-white/40"
               >
                 <span>Solicitar Proposta Corporativa</span>
                 <ArrowRight className="w-4 h-4 text-[#ff3d03]" />
@@ -268,10 +268,10 @@ export default function CoursesSection() {
             <div className="p-6 sm:p-8">
               {/* Cabeçalho do Conteúdo */}
               <div className="mb-6">
-                <h3 className="text-2xl sm:text-3xl font-black text-gray-950 leading-tight mb-3">
+                <h3 className="text-2xl sm:text-3xl font-heading font-black text-gray-950 leading-tight mb-3">
                   {activeCourse.title}
                 </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                <p className="text-gray-600 font-sans text-sm sm:text-base leading-relaxed">
                   {activeCourse.summary}
                 </p>
               </div>
@@ -288,18 +288,18 @@ export default function CoursesSection() {
                 className="w-14 h-14 rounded-full object-cover border-2 border-orange-200 shadow-sm"
               />
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-widest text-gray-500 block">
+                <span className="text-[10px] font-mono-tech uppercase tracking-widest text-gray-500 block">
                   Especialista Responsável
                 </span>
-                <h4 className="text-base font-bold text-gray-950">{activeCourse.instructor.name}</h4>
-                <p className="text-xs text-gray-600 font-medium">{activeCourse.instructor.role}</p>
-                <p className="text-xs text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                <h4 className="text-base font-heading font-bold text-gray-950">{activeCourse.instructor.name}</h4>
+                <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
+                <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
               </div>
             </div>
 
             {/* Módulos do Curso / Ementa */}
             <div className="mb-8">
-              <h4 className="text-xs font-mono font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+              <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
                 Módulos e Conteúdos Abordados:
               </h4>
@@ -307,9 +307,9 @@ export default function CoursesSection() {
                 {activeCourse.modules.map((mod, index) => (
                   <li
                     key={index}
-                    className="flex items-start gap-3 text-sm text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
+                    className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
                   >
-                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       {index + 1}
                     </span>
                     <span>{mod}</span>
@@ -319,7 +319,7 @@ export default function CoursesSection() {
             </div>
 
             {/* Detalhes Rápidos */}
-            <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono font-bold text-gray-800">
+            <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono-tech font-bold text-gray-800">
               <span>Carga Horária: {activeCourse.duration}</span>
               <span>Nível: {activeCourse.level}</span>
               <span className="text-[#df3500]">Certificado Incluso</span>
@@ -330,14 +330,14 @@ export default function CoursesSection() {
               <Link
                 href="#proposta"
                 onClick={() => setActiveCourse(null)}
-                className="flex-1 py-4 px-6 rounded-xl font-bold text-center text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer uppercase tracking-wider"
+                className="flex-1 py-4 px-6 rounded-xl font-heading font-bold text-center text-sm text-white bg-[#df3500] hover:bg-[#ff3d03] transition-all shadow-md shadow-[#df3500]/25 cursor-pointer uppercase tracking-wider"
               >
                 Liberar este curso para minha equipe
               </Link>
               <button
                 type="button"
                 onClick={() => setActiveCourse(null)}
-                className="py-4 px-6 rounded-xl font-bold text-sm text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
+                className="py-4 px-6 rounded-xl font-heading font-bold text-sm text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
               >
                 Fechar
               </button>
