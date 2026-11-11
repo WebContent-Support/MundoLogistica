@@ -1,0 +1,83 @@
+/* =========================================================================
+   HOME PAGE 2 (/home2) — ESTILOS SOLICITADOS PELO CLIENTE (ESCOPO ISOLADO)
+   Todas as regras usam .home2-theme para manter a Home 1 (/) 100% intacta.
+   ========================================================================= */
+
+.home2-theme .font-editorial {
+  font-family: 'Syne', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: -1px;
+  font-size: 1.1em;
+}
+
+.home2-theme .font-mono-tech {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.home2-theme .bg-black\/95 {
+  background-color: #2b221440;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .home2-theme .bg-black\/95 {
+    background-color: #2b221440;
+  }
+}
+
+.home2-theme .to-black\/35 {
+  --tw-gradient-to: rgba(198, 96, 96, 0.35);
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .home2-theme .to-black\/35 {
+    --tw-gradient-to: color-mix(in oklab, #c66060 35%, transparent);
+  }
+}
+
+.home2-theme #plataforma {
+  border-top: 5px solid #df3500;
+}
+
+.home2-theme .bg-\[\#0a0e17\]\/95 {
+  background-color: #6b583e52;
+}
+
+.home2-theme .bg-\[\#090d16\] {
+  background: linear-gradient(335deg, #2b2214, #593906);
+}
+
+.home2-theme .rounded-full {
+  border-radius: 0px;
+}
+
+.home2-theme .rounded-2xl {
+  border-radius: 4px;
+}
+
+.home2-theme .rounded-3xl {
+  border-radius: 10px;
+}
+
+.home2-theme .bg-\[\#f8fafc\] {
+  background-color: #e7c39d;
+}
+
+.home2-theme #especialistas.bg-\[\#f8fafc\],
+.home2-theme #especialistas .bg-\[\#f8fafc\] {
+  background-color: #d27a00;
+}
+
+.home2-theme #proposta {
+  background-color: #7d3c0e;
+}
+
+.home2-theme .glass-panel-glow {
+  background: #cd7d2417;
+  backdrop-filter: blur(5px);
+  border: 0;
+}
+
+.home2-theme .bg-\[\#040609\] {
+  background-color: #b42b00;
+}

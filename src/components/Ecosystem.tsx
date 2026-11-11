@@ -26,7 +26,16 @@ const AI_PROMPTS = [
   'Consultando jurisprudência e normas da ANTT no acervo...',
 ];
 
-export default function Ecosystem() {
+interface EcosystemProps {
+  variant?: 'default' | 'home2';
+}
+
+export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
+  const isHome2 = variant === 'home2';
+  const cardBaseClasses = isHome2
+    ? 'bg-white p-8 sm:p-10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden'
+    : 'bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden';
+
   // Animação das barras do Mapa do Conhecimento
   const diagnosticRef = useRef<HTMLDivElement>(null);
   const [hasAnimatedBars, setHasAnimatedBars] = useState(false);
@@ -145,7 +154,7 @@ export default function Ecosystem() {
         {/* Divisão em 2 Grandes Blocos Visuais Ricos com Entrada Lateral */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-stretch">
           {/* BLOCO 01 - Conhecimento para sua equipe evoluir */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden reveal-slide-left">
+          <div className={`${cardBaseClasses} reveal-slide-left`}>
             {/* Cantoneira Laranja da Marca MundoLogística */}
             <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -270,7 +279,7 @@ export default function Ecosystem() {
           </div>
 
           {/* BLOCO 02 - Aprendizado direcionado à realidade da logística */}
-          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden reveal-slide-right">
+          <div className={`${cardBaseClasses} reveal-slide-right`}>
             {/* Cantoneira Laranja da Marca MundoLogística */}
             <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />
             <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-[#ff3d03] opacity-60 group-hover:opacity-100 transition-opacity" />

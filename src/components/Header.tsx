@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, ArrowRight, Sparkles } from 'lucide-react';
 
-export default function Header() {
+interface HeaderProps {
+  homeHref?: string;
+}
+
+export default function Header({ homeHref = '/' }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<'light' | 'dark'>('dark');
 
@@ -61,7 +65,7 @@ export default function Header() {
         <div className="rounded-2xl px-5 py-3 flex items-center justify-between backdrop-blur-xl sm:backdrop-blur-2xl bg-neutral-900/[0.08] dark:bg-black/20 border border-neutral-400/20 shadow-xl shadow-black/5 transition-all duration-300 ease-in-out">
           
           {/* Logo Oficial MundoLogística com troca de cor perfeitamente alinhada (0px de mudança de tamanho) */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href={homeHref} className="flex items-center gap-3 group">
             <div className="relative py-1 h-8 sm:h-9 w-[158px] sm:w-[178px] flex items-center">
               {/* Versão Branca para seções escuras */}
               <img
