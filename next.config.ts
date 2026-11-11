@@ -5,7 +5,7 @@ import path from "path";
 const isStaticExport = process.env.NEXT_OUTPUT_EXPORT === "true";
 
 const nextConfig: NextConfig = {
-  ...(isStaticExport ? { output: "export" } : {}),
+  ...(isStaticExport ? { output: "export", trailingSlash: true } : {}),
   images: {
     unoptimized: true,
   },
