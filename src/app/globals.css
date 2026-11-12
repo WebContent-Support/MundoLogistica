@@ -1,5 +1,39 @@
 @import "tailwindcss";
-:root { --app-version: 1.0.1; }
+:root {
+  --app-version: 1.0.1;
+
+  /* =========================================================================
+     PALETA OFICIAL MUNDOLOGÍSTICA — DESIGN TOKENS & VARIÁVEIS DE COR
+     ========================================================================= */
+
+  /* Cores de Destaque e Identidade Visual (Brand) */
+  --color-brand-primary: #ff3d03;          /* Laranja Neon Oficial de Destaque */
+  --color-brand-primary-hover: #ff5722;    /* Hover do botão primário */
+  --color-brand-secondary: #df3500;        /* Laranja Profundo Corporativo */
+  --color-brand-secondary-hover: #eb3b00;  /* Hover secundário */
+  --color-brand-dark: #c23300;             /* Laranja Escuro para Bordas e Contraste */
+  --color-brand-light: #ff8c42;            /* Laranja Suave para Gradientes */
+  --color-brand-glow: rgba(255, 61, 3, 0.4);
+  --color-brand-glow-subtle: rgba(255, 61, 3, 0.15);
+
+  /* Superfícies & Fundos do Tema Escuro */
+  --color-bg-page: #06080d;                /* Fundo Principal da Página (Body / Hero) */
+  --color-bg-surface-1: #070a10;           /* Seções Escuras (Ex: Depoimentos) */
+  --color-bg-surface-2: #090d16;           /* Seções de Card Escuro (Ex: Dashboard / LogGPT) */
+  --color-bg-surface-3: #0a0e17;           /* Painéis e Modais */
+  --color-bg-surface-dark: #040609;        /* Rodapé e Fundo Mais Profundo */
+
+  /* Superfícies Claras de Alto Contraste */
+  --color-bg-light: #f8fafc;               /* Fundo de Seções Claras (Ex: Plataforma / Especialistas) */
+  --color-text-dark: #0f172a;              /* Texto escuro para seções claras */
+
+  /* Tipografia & Neutros */
+  --color-text-main: #ffffff;
+  --color-text-muted: #e2e8f0;
+  --color-text-subtle: #94a3b8;
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-border-hover: rgba(255, 61, 3, 0.4);
+}
 
 html {
   scroll-behavior: smooth;
@@ -17,8 +51,8 @@ section[id] {
   }
 
   body {
-    background-color: #06080d;
-    color: #e2e8f0;
+    background-color: var(--color-bg-page);
+    color: var(--color-text-muted);
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
@@ -34,7 +68,7 @@ section[id] {
 }
 
 .bg-radial-glow {
-  background: radial-gradient(circle 500px at 50% 20%, rgba(255, 61, 3, 0.15), transparent 70%);
+  background: radial-gradient(circle 500px at 50% 20%, var(--color-brand-glow-subtle), transparent 70%);
 }
 
 .glass-panel {
@@ -45,7 +79,7 @@ section[id] {
 }
 
 .glass-panel:hover {
-  border-color: rgba(255, 61, 3, 0.4);
+  border-color: var(--color-brand-glow);
 }
 
 .glass-panel-glow {
@@ -57,11 +91,11 @@ section[id] {
 }
 
 .text-glow {
-  text-shadow: 0 0 30px rgba(255, 61, 3, 0.6);
+  text-shadow: 0 0 30px var(--color-brand-glow);
 }
 
 .border-glow {
-  box-shadow: 0 0 25px -5px rgba(255, 61, 3, 0.35);
+  box-shadow: 0 0 25px -5px var(--color-brand-glow);
 }
 
 /* Animação suave de pulso e brilho */
@@ -80,7 +114,7 @@ section[id] {
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
-/* Animação Marquee Infinito de Parceiros e Variáveis de Tipografia */
+/* Animação Marquee Infinito de Parceiros e Variáveis de Tema Tailwind */
 @theme {
   --animate-marquee: partnerMarquee 28s linear infinite;
 
@@ -89,6 +123,18 @@ section[id] {
   --font-heading: 'Space Grotesk', sans-serif;
   --font-editorial: 'Newsreader', 'Playfair Display', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Cores Globais Mapeadas para Classes Utilitárias (ex: bg-brand-primary, text-brand-secondary) */
+  --color-brand-primary: var(--color-brand-primary);
+  --color-brand-secondary: var(--color-brand-secondary);
+  --color-brand-dark: var(--color-brand-dark);
+  --color-brand-light: var(--color-brand-light);
+  --color-bg-page: var(--color-bg-page);
+  --color-bg-surface-1: var(--color-bg-surface-1);
+  --color-bg-surface-2: var(--color-bg-surface-2);
+  --color-bg-surface-3: var(--color-bg-surface-3);
+  --color-bg-surface-dark: var(--color-bg-surface-dark);
+  --color-bg-light: var(--color-bg-light);
 
   @keyframes partnerMarquee {
     0% {
@@ -226,7 +272,7 @@ section[id] {
 }
 
 .glow-orange {
-  box-shadow: 0 0 35px -5px rgba(255, 61, 3, 0.35);
+  box-shadow: 0 0 35px -5px var(--color-brand-glow);
 }
 
 /* Efeitos Ousados de Direcionamento Visual e Foco em CTA */
@@ -258,7 +304,7 @@ section[id] {
 }
 
 .cta-spotlight {
-  background: radial-gradient(circle at 50% 50%, rgba(255, 61, 3, 0.32) 0%, rgba(255, 61, 3, 0.08) 45%, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, rgba(255, 61, 3, 0.32) 0%, var(--color-brand-glow-subtle) 45%, transparent 70%);
 }
 
 .cta-spotlight-light {
@@ -275,7 +321,7 @@ section[id] {
   position: absolute;
   inset: -3px;
   border-radius: inherit;
-  background: linear-gradient(135deg, #ff3d03, #ff8c42, #ff3d03);
+  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-light), var(--color-brand-primary));
   z-index: -1;
   opacity: 0.7;
   filter: blur(10px);
