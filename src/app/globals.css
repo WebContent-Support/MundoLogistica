@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
   --app-version: 1.0.1;
 
@@ -7,25 +8,38 @@
      ========================================================================= */
 
   /* Cores de Destaque e Identidade Visual (Brand) */
-  --color-brand-primary: #ff3d03;          /* Laranja Neon Oficial de Destaque */
-  --color-brand-primary-hover: #ff5722;    /* Hover do botão primário */
-  --color-brand-secondary: #df3500;        /* Laranja Profundo Corporativo */
-  --color-brand-secondary-hover: #eb3b00;  /* Hover secundário */
-  --color-brand-dark: #c23300;             /* Laranja Escuro para Bordas e Contraste */
-  --color-brand-light: #ff8c42;            /* Laranja Suave para Gradientes */
+  --color-brand-primary: #ff3d03;
+  /* Laranja Neon Oficial de Destaque */
+  --color-brand-primary-hover: #ff5722;
+  /* Hover do botão primário */
+  --color-brand-secondary: #df3500;
+  /* Laranja Profundo Corporativo */
+  --color-brand-secondary-hover: #eb3b00;
+  /* Hover secundário */
+  --color-brand-dark: #c23300;
+  /* Laranja Escuro para Bordas e Contraste */
+  --color-brand-light: #ff8c42;
+  /* Laranja Suave para Gradientes */
   --color-brand-glow: rgba(255, 61, 3, 0.4);
   --color-brand-glow-subtle: rgba(255, 61, 3, 0.15);
 
   /* Superfícies & Fundos do Tema Escuro */
-  --color-bg-page: #06080d;                /* Fundo Principal da Página (Body / Hero) */
-  --color-bg-surface-1: #070a10;           /* Seções Escuras (Ex: Depoimentos) */
-  --color-bg-surface-2: #090d16;           /* Seções de Card Escuro (Ex: Dashboard / LogGPT) */
-  --color-bg-surface-3: #0a0e17;           /* Painéis e Modais */
-  --color-bg-surface-dark: #040609;        /* Rodapé e Fundo Mais Profundo */
+  --color-bg-page: #06080d;
+  /* Fundo Principal da Página (Body / Hero) */
+  --color-bg-surface-1: #070a10;
+  /* Seções Escuras (Ex: Depoimentos) */
+  --color-bg-surface-2: #090d16;
+  /* Seções de Card Escuro (Ex: Dashboard / LogGPT) */
+  --color-bg-surface-3: #0a0e17;
+  /* Painéis e Modais */
+  --color-bg-surface-dark: #040609;
+  /* Rodapé e Fundo Mais Profundo */
 
   /* Superfícies Claras de Alto Contraste */
-  --color-bg-light: #f8fafc;               /* Fundo de Seções Claras (Ex: Plataforma / Especialistas) */
-  --color-text-dark: #0f172a;              /* Texto escuro para seções claras */
+  --color-bg-light: #f8fafc;
+  /* Fundo de Seções Claras (Ex: Plataforma / Especialistas) */
+  --color-text-dark: #0f172a;
+  /* Texto escuro para seções claras */
 
   /* Tipografia & Neutros */
   --color-text-main: #ffffff;
@@ -36,7 +50,6 @@
 
   /* =========================================================================
      FAMÍLIAS DE FONTES (DESIGN TOKENS DE TIPOGRAFIA)
-     Altere aqui para trocar as fontes em todo o site ou por tema
      ========================================================================= */
   --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-family-display: 'Syne', sans-serif;
@@ -46,19 +59,29 @@
 
   /* =========================================================================
      ESCALA DE TAMANHOS DE FONTE (FONT SIZES)
-     Altere aqui para ajustar a escala proporcional de texto
      ========================================================================= */
-  --font-size-xs: 0.75rem;     /* 12px */
-  --font-size-sm: 0.875rem;    /* 14px */
-  --font-size-base: 1rem;      /* 16px */
-  --font-size-lg: 1.125rem;    /* 18px */
-  --font-size-xl: 1.25rem;     /* 20px */
-  --font-size-2xl: 1.5rem;     /* 24px */
-  --font-size-3xl: 1.875rem;   /* 30px */
-  --font-size-4xl: 2.25rem;    /* 36px */
-  --font-size-5xl: 3rem;       /* 48px */
-  --font-size-6xl: 3.75rem;    /* 60px */
-  --font-size-7xl: 4.5rem;     /* 72px */
+  --font-size-xs: 0.75rem;
+  /* 12px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-base: 1rem;
+  /* 16px */
+  --font-size-lg: 1.125rem;
+  /* 18px */
+  --font-size-xl: 1.25rem;
+  /* 20px */
+  --font-size-2xl: 1.5rem;
+  /* 24px */
+  --font-size-3xl: 1.875rem;
+  /* 30px */
+  --font-size-4xl: 2.25rem;
+  /* 36px */
+  --font-size-5xl: 3rem;
+  /* 48px */
+  --font-size-6xl: 3.75rem;
+  /* 60px */
+  --font-size-7xl: 4.5rem;
+  /* 72px */
 }
 
 html {
@@ -88,7 +111,7 @@ section[id] {
 /* Utilitários visuais de ponta inspirados em Linear, Vercel e Stripe */
 .bg-grid-pattern {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
@@ -126,10 +149,13 @@ section[id] {
 
 /* Animação suave de pulso e brilho */
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(1.05);
@@ -180,6 +206,7 @@ section[id] {
     0% {
       transform: translateX(0%);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -226,18 +253,24 @@ section[id] {
 
 /* Micro-animações criativas e efeitos de design contemporâneo */
 @keyframes floatSlow {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-8px);
   }
 }
 
 @keyframes floatReverse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(8px);
   }
@@ -247,6 +280,7 @@ section[id] {
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -257,6 +291,7 @@ section[id] {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -321,9 +356,11 @@ section[id] {
     transform: scale(0.95);
     opacity: 0.8;
   }
+
   50% {
     opacity: 0.4;
   }
+
   100% {
     transform: scale(1.35);
     opacity: 0;
@@ -334,6 +371,7 @@ section[id] {
   0% {
     transform: translateX(-100%) rotate(25deg);
   }
+
   100% {
     transform: translateX(200%) rotate(25deg);
   }
@@ -394,6 +432,7 @@ section[id] {
     transform: translateY(-20px);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -407,6 +446,7 @@ section[id] {
     transform: translateY(40px);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -420,6 +460,7 @@ section[id] {
     transform: translateX(50px) scale(0.92);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0) scale(1);
@@ -433,6 +474,7 @@ section[id] {
     transform: scale(0.7) translateY(20px);
     filter: blur(4px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -469,27 +511,36 @@ section[id] {
 }
 
 @keyframes floatSubtle1 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(-0.5deg);
   }
 }
 
 @keyframes floatSubtle2 {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(8px) rotate(0.5deg);
   }
 }
 
 @keyframes floatGestor {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-6px);
   }
@@ -513,6 +564,7 @@ section[id] {
     transform: translate(-30px, -20px) scale(0.92);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translate(0, 0) scale(1);
@@ -526,6 +578,7 @@ section[id] {
     transform: translate(30px, 20px) scale(0.92);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translate(0, 0) scale(1);
@@ -539,6 +592,7 @@ section[id] {
     transform: translateY(35px) scale(0.94);
     filter: blur(6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -599,17 +653,42 @@ section[id] {
 }
 
 /* Delays escalonados para efeito cascata em grids e listas */
-.delay-75 { transition-delay: 75ms; }
-.delay-100 { transition-delay: 100ms; }
-.delay-150 { transition-delay: 150ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-250 { transition-delay: 250ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-350 { transition-delay: 350ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-450 { transition-delay: 450ms; }
-.delay-500 { transition-delay: 500ms; }
+.delay-75 {
+  transition-delay: 75ms;
+}
 
+.delay-100 {
+  transition-delay: 100ms;
+}
 
+.delay-150 {
+  transition-delay: 150ms;
+}
 
+.delay-200 {
+  transition-delay: 200ms;
+}
 
+.delay-250 {
+  transition-delay: 250ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-350 {
+  transition-delay: 350ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-450 {
+  transition-delay: 450ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
