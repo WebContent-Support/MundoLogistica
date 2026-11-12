@@ -37,6 +37,22 @@
   font-size: 1.1em;
 }
 
+/* Destaque no título do Hero da Home 2 ("próximos desafios") com a mesma fonte e estilo dos outros títulos (ex: "desenvolver equipes") */
+.home2-theme h1 .hero-highlight-pill,
+.home2-theme .hero-highlight-pill {
+  font-family: var(--home2-font-editorial, 'Syne', sans-serif) !important;
+  font-style: italic !important;
+  font-weight: bold !important;
+  letter-spacing: -1px !important;
+  font-size: 1.1em !important;
+  color: var(--home2-accent-primary, #df3500) !important;
+  -webkit-text-fill-color: var(--home2-accent-primary, #df3500) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: none !important;
+}
+
 .home2-theme .font-mono-tech {
   font-family: var(--home2-font-mono, 'Space Grotesk', sans-serif);
 }
