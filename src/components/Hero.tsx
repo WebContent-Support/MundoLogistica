@@ -63,10 +63,10 @@ export default function Hero() {
               {/* Headline Exata do Documento da Cliente com Contraste Tipográfico */}
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white animate-hero-title">
                 Sua equipe está preparada para os{' '}
-                <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
+                <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow hero-highlight-pill">
                   próximos desafios
                 </span>{' '}
-                da logística?
+                <span className="hero-highlight-pill-2">da logística?</span>
               </h1>
 
               {/* Subtítulo Executivo de Apoio */}

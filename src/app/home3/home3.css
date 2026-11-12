@@ -1,0 +1,42 @@
+/* =========================================================================
+   HOME PAGE 3 (/home3) — TEMA BASEADO NA HOME 2 COM TEXTOS EM DESTAQUE EM PÍLULA
+   Todas as regras usam .home3-theme para manter Home 1 (/) e Home 2 (/home2) 100% intactas.
+   ========================================================================= */
+
+@import '../home2/home2.css';
+
+/* =========================================================================
+   TEXTOS EM DESTAQUE COM FONTE BRANCA E DEGRADÊ LARANJA (ESTILO PÍLULA)
+   Conforme solicitado pelo cliente e ilustrado na imagem de referência.
+   ========================================================================= */
+
+.home3-theme h1 .hero-highlight-pill,
+.home3-theme h1 .hero-highlight-pill-2,
+.home3-theme h2 .font-editorial,
+.home3-theme .text-highlight-pill {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #ff4500 0%, #ff3d03 45%, #df3500 100%) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border-radius: 9999px !important;
+  padding: 0.1em 0.55em !important;
+  margin: 0 0.12em !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 16px rgba(223, 53, 0, 0.45) !important;
+  text-shadow: none !important;
+  vertical-align: baseline !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  line-height: 1.25 !important;
+}
+
+/* Ajuste específico para quebra responsiva em mobile */
+@media (max-width: 640px) {
+  .home3-theme h1 .hero-highlight-pill,
+  .home3-theme h1 .hero-highlight-pill-2,
+  .home3-theme h2 .font-editorial,
+  .home3-theme .text-highlight-pill {
+    padding: 0.08em 0.4em !important;
+  }
+}
