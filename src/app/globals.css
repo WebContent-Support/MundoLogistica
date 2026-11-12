@@ -382,6 +382,96 @@ section[id] {
   animation: heroChipEntrance 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.95s both;
 }
 
+@keyframes floatSubtle1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatSubtle2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatGestor {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-subtle-1 {
+  animation: floatSubtle1 6.5s ease-in-out infinite;
+}
+
+.animate-float-subtle-2 {
+  animation: floatSubtle2 7.5s ease-in-out infinite 0.6s;
+}
+
+.animate-float-gestor {
+  animation: floatGestor 6s ease-in-out infinite 0.3s;
+}
+
+@keyframes heroSystem1Entrance {
+  from {
+    opacity: 0;
+    transform: translate(-30px, -20px) scale(0.92);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: none;
+  }
+}
+
+@keyframes heroSystem2Entrance {
+  from {
+    opacity: 0;
+    transform: translate(30px, 20px) scale(0.92);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: none;
+  }
+}
+
+@keyframes heroGestorEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.94);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+}
+
+.animate-hero-system-1 {
+  animation: heroSystem1Entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.animate-hero-system-2 {
+  animation: heroSystem2Entrance 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.animate-hero-gestor {
+  animation: heroGestorEntrance 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
 /* Classes de Scroll Reveal para os elementos conforme a página rola */
 .reveal-init {
   opacity: 0;

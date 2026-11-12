@@ -96,72 +96,102 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Coluna Visual Rica: Composição Fotográfica com Cards Flutuantes (5 colunas) */}
+          {/* Coluna Visual Rica: Composição de Liderança com Sistemas em Profundidade 3D (5 colunas) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Brilho neon de fundo */}
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-[#ff3d03]/40 to-orange-500/20 blur-2xl opacity-60 pointer-events-none" />
+            <div className="relative mx-auto max-w-md lg:max-w-none pt-4 pb-2">
+              {/* Brilho neon central de fundo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-gradient-to-tr from-[#ff3d03]/35 via-orange-500/20 to-amber-500/10 blur-3xl opacity-70 pointer-events-none" />
 
-              {/* Card Principal com Fotografia Real de Liderança em Logística */}
-              <div className="relative rounded-3xl overflow-hidden glass-panel border border-white/20 shadow-2xl group animate-hero-card">
-                <div className="aspect-[16/10] overflow-hidden relative">
+              {/* Sistema 1: Deslocado no topo para esquerda (atrás do gestor) */}
+              <div className="absolute -top-4 sm:-top-8 -left-4 sm:-left-8 lg:-left-12 w-[62%] sm:w-[68%] lg:w-[72%] max-w-[340px] z-10 pointer-events-none animate-hero-system-1">
+                <div className="animate-float-subtle-1">
                   <img
-                    src="/images/supply-chain-director.jpg"
-                    alt="Liderança em Gestão de Supply Chain e Operações"
-                    width={800}
-                    height={500}
-                    fetchPriority="high"
-                    className="w-full h-full object-cover object-top img-zoom group-hover:scale-105 transition-transform duration-700"
+                    src="/images/sistema-1.webp"
+                    alt="Sistema de Gestão Logística 1"
+                    width={750}
+                    height={400}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.7)]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
-                  
-                  {/* Badge Interno no Topo da Imagem */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                    <span className="text-[10px] font-mono-tech font-bold text-white bg-black/70 backdrop-blur-md px-3 py-1 rounded-full uppercase tracking-wider border border-white/20">
-                      Operações & Supply Chain
-                    </span>
-                    <span className="flex items-center gap-1.5 text-[10px] font-mono-tech text-emerald-400 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/40">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                      Em Tempo Real
-                    </span>
-                  </div>
                 </div>
+              </div>
 
-                {/* Bloco Inferior do Card: Texto Limpo e Sem Nenhuma Sobreposição */}
-                <div className="p-4 sm:p-5 bg-[#0a0e17]/95 border-t border-white/10 text-white">
-                  <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block mb-1">
-                    MundoLogística Educação Corporativa
-                  </span>
-                  <p className="text-sm font-heading font-bold text-white leading-snug">
-                    Formando os líderes das maiores cadeias do país
-                  </p>
+              {/* Sistema 2: Deslocado em baixo para direita (atrás do gestor) */}
+              <div className="absolute bottom-10 sm:bottom-8 -right-4 sm:-right-8 lg:-right-10 w-[58%] sm:w-[64%] lg:w-[68%] max-w-[320px] z-10 pointer-events-none animate-hero-system-2">
+                <div className="animate-float-subtle-2">
+                  <img
+                    src="/images/sistema-2.webp"
+                    alt="Sistema de Gestão Logística 2"
+                    width={672}
+                    height={400}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.75)]"
+                  />
+                </div>
+              </div>
+
+              {/* Imagem do Gestor (em primeiro plano, centralizado) */}
+              <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] animate-hero-gestor">
+                <div className="animate-float-gestor">
+                  <img
+                    src="/images/gestor.webp"
+                    alt="Líder e Gestor de Supply Chain"
+                    width={800}
+                    height={1000}
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.9)]"
+                  />
+                </div>
+              </div>
+
+              {/* Bloco Inferior em Baixo do Gestor: Formando os líderes das maiores cadeias do país */}
+              <div className="relative z-30 mx-auto max-w-sm sm:max-w-md -mt-6 sm:-mt-8 px-2 animate-hero-card">
+                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0a0e17]/95 backdrop-blur-xl border border-white/15 shadow-2xl flex items-center gap-3.5 text-white">
+                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#df3500] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#ff3d03]/30">
+                    <Award className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0 text-left">
+                    <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block truncate">
+                      MundoLogística Educação Corporativa
+                    </span>
+                    <p className="text-xs sm:text-sm font-heading font-bold text-white leading-tight">
+                      Formando os líderes das maiores cadeias do país
+                    </p>
+                  </div>
                 </div>
               </div>
 
               {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
-              <div className="absolute -top-3 -right-3 sm:-right-5 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3 z-20 animate-hero-chip-1">
-                <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
-                  <TrendingUp className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span className="font-mono-tech font-bold text-sm">OTIF 98.4%</span>
-                    <span className="text-[9px] font-mono-tech text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">
-                      +14%
-                    </span>
+              <div className="absolute -top-3 -right-2 sm:-right-4 lg:-right-6 z-30 animate-hero-chip-1">
+                <div className="bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
+                    <TrendingUp className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-mono-tech text-gray-400">Eficiência Operacional</span>
+                  <div>
+                    <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                      <span className="font-mono-tech font-bold text-sm">OTIF 98.4%</span>
+                      <span className="text-[9px] font-mono-tech text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">
+                        +14%
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono-tech text-gray-400">Eficiência Operacional</span>
+                  </div>
                 </div>
               </div>
 
-              {/* Elemento Flutuante 2 (Topo Esquerdo): Acervo Técnico */}
-              <div className="absolute -top-3 -left-3 sm:-left-5 bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3 z-20 animate-hero-chip-2">
-                <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
-                  <ShieldCheck className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-xs font-heading font-bold text-white block">+18 Anos de Acervo</span>
-                  <span className="text-[10px] font-editorial italic text-orange-400">Curadoria Homologada</span>
+              {/* Elemento Flutuante 2 (Esquerda / Meio-Topo): Acervo Técnico */}
+              <div className="absolute top-16 sm:top-20 -left-2 sm:-left-6 lg:-left-10 z-30 animate-hero-chip-2">
+                <div className="bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-heading font-bold text-white block">+18 Anos de Acervo</span>
+                    <span className="text-[10px] font-editorial italic text-orange-400">Curadoria Homologada</span>
+                  </div>
                 </div>
               </div>
             </div>
