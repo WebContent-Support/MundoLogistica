@@ -148,7 +148,7 @@ export default function Hero() {
               </div>
 
               {/* Elemento Flutuante 1 (Lado Direito na altura do ombro/pescoço do gestor): Telemetria OTIF */}
-              <div className="absolute top-20 sm:top-24 lg:top-28 -right-4 sm:-right-8 md:-right-12 lg:-right-14 xl:-right-16 z-30 animate-hero-chip-1">
+              <div className="absolute top-20 sm:top-24 lg:top-28 -right-[36px] sm:-right-[52px] md:-right-[68px] lg:-right-[76px] xl:-right-[84px] z-30 animate-hero-chip-1">
                 <div className="bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
                     <TrendingUp className="w-4 h-4" />
