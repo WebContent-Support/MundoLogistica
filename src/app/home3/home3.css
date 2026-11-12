@@ -33,10 +33,10 @@
   letter-spacing: inherit !important;
   line-height: inherit !important;
 
-  /* Cor da fonte branca e fundo em degradê laranja */
+  /* Cor da fonte branca e fundo em degradê laranja bem evidente e marcante */
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
-  background: linear-gradient(135deg, #ff4500 0%, #ff3d03 50%, #df3500 100%) !important;
+  background: linear-gradient(90deg, #ff7324 0%, #ff3d03 45%, #a51c00 100%) !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
 
