@@ -7,80 +7,49 @@
 
 /* =========================================================================
    TEXTOS EM DESTAQUE COM FONTE BRANCA E DEGRADÊ LARANJA
-   Mantém exatamente a mesma tipografia da Home 2 (Syne, itálico, negrito).
-   Usa display inline com box-decoration-break e line-height seguro para
-   NUNCA sobrepor as linhas adjacentes quando quebrar o texto.
+   1. Mesma fonte, tamanho, estilo e peso do trecho onde está inserido (inherit).
+   2. Quebra de linha natural sem nowrap para quebrar onde deve quebrar.
+   3. Line-height seguro nos títulos para evitar qualquer sobreposição.
    ========================================================================= */
 
-/* Espaçamento vertical seguro nos títulos da Home 3 para acomodar o fundo sem sobreposição */
+/* Espaçamento vertical entre linhas para evitar que o fundo toque linhas adjacentes */
 .home3-theme h1 {
-  line-height: 1.28 !important;
+  line-height: 1.35 !important;
 }
 
 .home3-theme h2 {
-  line-height: 1.36 !important;
+  line-height: 1.38 !important;
 }
 
-/* Destaque nos subtítulos e títulos H2 (ex: "desenvolver equipes", "líder", etc.) */
+/* Destaque nos títulos da Home 3 (Hero, Ecossistema, Dashboard, Depoimentos, etc.) */
+.home3-theme h1 .hero-highlight-pill,
 .home3-theme h2 .font-editorial,
 .home3-theme .text-highlight-pill {
-  /* Tipografia IDÊNTICA à Home 2 */
-  font-family: 'Syne', sans-serif !important;
-  font-style: italic !important;
-  font-weight: bold !important;
-  letter-spacing: -1px !important;
-  font-size: 1.1em !important;
+  /* Mesma fonte, tamanho, estilo e peso do restante do título */
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-style: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: inherit !important;
+  line-height: inherit !important;
 
-  /* Cores: fonte branca sobre degradê laranja */
+  /* Cor da fonte branca e fundo em degradê laranja */
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
   background: linear-gradient(135deg, #ff4500 0%, #ff3d03 50%, #df3500 100%) !important;
   -webkit-background-clip: border-box !important;
   background-clip: border-box !important;
 
-  /* Formato pílula inline seguro */
+  /* Inline puro com box-decoration-break (permite quebra de linha natural) */
   display: inline !important;
   box-decoration-break: clone !important;
   -webkit-box-decoration-break: clone !important;
   border-radius: 9999px !important;
-  padding: 0.06em 0.42em !important;
-  margin: 0 0.1em !important;
+  padding: 0.06em 0.38em !important;
+  margin: 0 0.08em !important;
+
+  /* Sem nowrap para quebrar linha onde deve quebrar naturalmente */
+  white-space: normal !important;
   box-shadow: none !important;
   text-shadow: none !important;
-  white-space: nowrap !important;
-}
-
-/* Destaque no título do Hero ("próximos desafios") */
-.home3-theme h1 .hero-highlight-pill {
-  /* Mantém a tipografia pesada do Hero */
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 900 !important;
-
-  /* Cores: fonte branca sobre degradê laranja */
-  color: #ffffff !important;
-  -webkit-text-fill-color: #ffffff !important;
-  background: linear-gradient(135deg, #ff4500 0%, #ff3d03 50%, #df3500 100%) !important;
-  -webkit-background-clip: border-box !important;
-  background-clip: border-box !important;
-
-  /* Formato pílula inline seguro */
-  display: inline !important;
-  box-decoration-break: clone !important;
-  -webkit-box-decoration-break: clone !important;
-  border-radius: 9999px !important;
-  padding: 0.04em 0.35em !important;
-  margin: 0 0.1em !important;
-  box-shadow: none !important;
-  text-shadow: none !important;
-  white-space: nowrap !important;
-}
-
-/* Responsividade em telas estreitas */
-@media (max-width: 480px) {
-  .home3-theme h1 .hero-highlight-pill,
-  .home3-theme h2 .font-editorial,
-  .home3-theme .text-highlight-pill {
-    padding: 0.04em 0.3em !important;
-    white-space: normal !important;
-  }
 }
