@@ -66,7 +66,7 @@ export default function Hero() {
                 <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow hero-highlight-pill">
                   próximos desafios
                 </span>{' '}
-                <span className="hero-highlight-pill-2">da logística?</span>
+                da logística?
               </h1>
 
               {/* Subtítulo Executivo de Apoio */}
