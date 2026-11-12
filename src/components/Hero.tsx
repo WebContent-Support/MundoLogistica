@@ -120,7 +120,7 @@ export default function Hero() {
               </div>
 
               {/* Sistema 2: Deslocado em baixo para direita (mais projetado para fora, revelando o sistema) */}
-              <div className="absolute bottom-14 sm:bottom-12 -right-8 sm:-right-14 lg:-right-20 xl:-right-24 w-[64%] sm:w-[70%] lg:w-[74%] max-w-[340px] sm:max-w-[390px] z-10 pointer-events-none animate-hero-system-2">
+              <div className="absolute bottom-12 sm:bottom-10 lg:bottom-8 -right-10 sm:-right-16 md:-right-20 lg:-right-28 xl:-right-36 w-[68%] sm:w-[74%] lg:w-[80%] max-w-[360px] sm:max-w-[420px] z-10 pointer-events-none animate-hero-system-2">
                 <div className="animate-float-subtle-2">
                   <img
                     src="/images/sistema-2.webp"
@@ -147,8 +147,8 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
-              <div className="absolute -top-3 -right-2 sm:-right-4 lg:-right-6 z-30 animate-hero-chip-1">
+              {/* Elemento Flutuante 1 (Lado Direito na altura do ombro/pescoço do gestor): Telemetria OTIF */}
+              <div className="absolute top-20 sm:top-24 lg:top-28 -right-4 sm:-right-8 md:-right-12 lg:-right-14 xl:-right-16 z-30 animate-hero-chip-1">
                 <div className="bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl animate-float-slow hidden sm:flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold shrink-0">
                     <TrendingUp className="w-4 h-4" />
