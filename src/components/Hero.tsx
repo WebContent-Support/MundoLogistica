@@ -45,49 +45,51 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Composição em Grid Assimétrico: Copy Impactante + Composição Visual Rica */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch mb-14">
           {/* Coluna de Texto (7 colunas no desktop) */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            {/* Badge Luminous com Pulso e Entrada Coreografada */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-[#ff3d03]/30 shadow-lg shadow-[#ff3d03]/10 hover:border-[#ff3d03]/60 transition-colors animate-hero-eyebrow">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff3d03] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff3d03]" />
-              </span>
-              <span className="text-[11px] font-mono-tech font-bold uppercase tracking-widest text-white">
-                Capacitação Corporativa B2B • Edição 2026
-              </span>
+          <div className="lg:col-span-7 flex flex-col justify-between text-center lg:text-left space-y-6 lg:space-y-0">
+            <div className="space-y-6">
+              {/* Badge Luminous com Pulso e Entrada Coreografada */}
+              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full glass-panel border border-[#ff3d03]/30 shadow-lg shadow-[#ff3d03]/10 hover:border-[#ff3d03]/60 transition-colors animate-hero-eyebrow">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ff3d03] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff3d03]" />
+                </span>
+                <span className="text-[11px] font-mono-tech font-bold uppercase tracking-widest text-white">
+                  Capacitação Corporativa B2B • Edição 2026
+                </span>
+              </div>
+
+              {/* Headline Exata do Documento da Cliente com Contraste Tipográfico */}
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white animate-hero-title">
+                Sua equipe está preparada para os{' '}
+                <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
+                  próximos desafios
+                </span>{' '}
+                da logística?
+              </h1>
+
+              {/* Subtítulo Executivo de Apoio */}
+              <p className="text-base sm:text-lg text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-hero-subtitle">
+                O ecossistema definitivo para <span className="font-editorial italic font-normal text-white">desenvolver competências</span>, acelerar a maturidade das operações e formar lideranças em Supply Chain com os maiores diretores do setor.
+              </p>
             </div>
 
-            {/* Headline Exata do Documento da Cliente com Contraste Tipográfico */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.12] text-white animate-hero-title">
-              Sua equipe está preparada para os{' '}
-              <span className="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-[#ff3d03] via-[#ff6a3d] to-[#ff9e7a] text-glow">
-                próximos desafios
-              </span>{' '}
-              da logística?
-            </h1>
-
-            {/* Subtítulo Executivo de Apoio */}
-            <p className="text-base sm:text-lg text-gray-300 font-sans leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-hero-subtitle">
-              O ecossistema definitivo para <span className="font-editorial italic font-normal text-white">desenvolver competências</span>, acelerar a maturidade das operações e formar lideranças em Supply Chain com os maiores diretores do setor.
-            </p>
-
-            {/* Badges de Confiança Corporativa com Micro-Ícones */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs font-heading font-semibold text-gray-300 animate-hero-badges">
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
+            {/* Badges de Confiança Corporativa com Micro-Ícones (alinhados horizontalmente com o bloco do gestor) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 lg:pt-8 text-xs font-heading font-semibold text-gray-300 animate-hero-badges">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors min-h-[52px]">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <Award className="w-3.5 h-3.5" />
                 </div>
                 <span>Cursos técnicos com diretores</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors min-h-[52px]">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <Bot className="w-3.5 h-3.5" />
                 </div>
                 <span>LogGPT IA especialista 24/7</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors">
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/10 flex items-center gap-2.5 hover:border-[#ff3d03]/30 transition-colors min-h-[52px]">
                 <div className="w-6 h-6 rounded-lg bg-[#ff3d03]/20 text-[#ff3d03] flex items-center justify-center shrink-0">
                   <TrendingUp className="w-3.5 h-3.5" />
                 </div>
@@ -97,8 +99,8 @@ export default function Hero() {
           </div>
 
           {/* Coluna Visual Rica: Composição de Liderança com Sistemas em Profundidade 3D (5 colunas) */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none pt-4 pb-2">
+          <div className="lg:col-span-5 relative flex flex-col justify-between">
+            <div className="relative mx-auto max-w-md lg:max-w-none pt-4 flex-1 flex flex-col justify-end items-center">
               {/* Brilho neon central de fundo */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-gradient-to-tr from-[#ff3d03]/35 via-orange-500/20 to-amber-500/10 blur-3xl opacity-70 pointer-events-none" />
 
@@ -133,7 +135,7 @@ export default function Hero() {
               </div>
 
               {/* Imagem do Gestor (em primeiro plano, centralizado, sem movimento contínuo - apenas entrada) */}
-              <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] animate-hero-gestor flex flex-col items-center">
+              <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[360px] xl:max-w-[380px] animate-hero-gestor">
                 <img
                   src="/images/gestor.webp"
                   alt="Líder e Gestor de Supply Chain"
@@ -143,23 +145,6 @@ export default function Hero() {
                   decoding="async"
                   className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.9)] block"
                 />
-
-                {/* Bloco Inferior Encostado na Base do Gestor (topo do bloco junto à parte de baixo do gestor) */}
-                <div className="w-full max-w-sm sm:max-w-md px-1 mt-0 relative z-30">
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-[#0a0e17]/95 backdrop-blur-xl border border-white/15 shadow-2xl flex items-center gap-3.5 text-white">
-                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#df3500] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#ff3d03]/30">
-                      <Award className="w-4 h-4" />
-                    </div>
-                    <div className="min-w-0 text-left">
-                      <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block truncate">
-                        MundoLogística Educação Corporativa
-                      </span>
-                      <p className="text-xs sm:text-sm font-heading font-bold text-white leading-tight">
-                        Formando os líderes das maiores cadeias do país
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Elemento Flutuante 1 (Topo Direito): Telemetria OTIF */}
@@ -190,6 +175,23 @@ export default function Hero() {
                     <span className="text-xs font-heading font-bold text-white block">+18 Anos de Acervo</span>
                     <span className="text-[10px] font-editorial italic text-orange-400">Curadoria Homologada</span>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco Inferior em Baixo do Gestor: Alinhado na mesma linha horizontal que os 3 blocos da esquerda */}
+            <div className="w-full max-w-sm sm:max-w-md mx-auto pt-6 lg:pt-8 z-30">
+              <div className="p-3 rounded-xl bg-[#0a0e17]/95 backdrop-blur-xl border border-white/15 shadow-2xl flex items-center gap-3 text-white min-h-[52px]">
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#ff3d03] to-[#df3500] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#ff3d03]/30">
+                  <Award className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 text-left">
+                  <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block truncate">
+                    MundoLogística Educação Corporativa
+                  </span>
+                  <p className="text-xs font-heading font-bold text-white leading-tight">
+                    Formando os líderes das maiores cadeias do país
+                  </p>
                 </div>
               </div>
             </div>
