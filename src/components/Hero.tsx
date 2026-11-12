@@ -117,8 +117,8 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Sistema 2: Deslocado em baixo para direita (atrás do gestor) */}
-              <div className="absolute bottom-10 sm:bottom-8 -right-4 sm:-right-8 lg:-right-10 w-[58%] sm:w-[64%] lg:w-[68%] max-w-[320px] z-10 pointer-events-none animate-hero-system-2">
+              {/* Sistema 2: Deslocado em baixo para direita (mais projetado para fora, revelando o sistema) */}
+              <div className="absolute bottom-14 sm:bottom-12 -right-8 sm:-right-14 lg:-right-20 xl:-right-24 w-[64%] sm:w-[70%] lg:w-[74%] max-w-[340px] sm:max-w-[390px] z-10 pointer-events-none animate-hero-system-2">
                 <div className="animate-float-subtle-2">
                   <img
                     src="/images/sistema-2.webp"
@@ -132,34 +132,32 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Imagem do Gestor (em primeiro plano, centralizado) */}
-              <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] animate-hero-gestor">
-                <div className="animate-float-gestor">
-                  <img
-                    src="/images/gestor.webp"
-                    alt="Líder e Gestor de Supply Chain"
-                    width={800}
-                    height={1000}
-                    fetchPriority="high"
-                    decoding="async"
-                    className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.9)]"
-                  />
-                </div>
-              </div>
+              {/* Imagem do Gestor (em primeiro plano, centralizado, sem movimento contínuo - apenas entrada) */}
+              <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] animate-hero-gestor flex flex-col items-center">
+                <img
+                  src="/images/gestor.webp"
+                  alt="Líder e Gestor de Supply Chain"
+                  width={800}
+                  height={1000}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.9)] block"
+                />
 
-              {/* Bloco Inferior em Baixo do Gestor: Formando os líderes das maiores cadeias do país */}
-              <div className="relative z-30 mx-auto max-w-sm sm:max-w-md -mt-6 sm:-mt-8 px-2 animate-hero-card">
-                <div className="p-3.5 sm:p-4 rounded-2xl bg-[#0a0e17]/95 backdrop-blur-xl border border-white/15 shadow-2xl flex items-center gap-3.5 text-white">
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#df3500] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#ff3d03]/30">
-                    <Award className="w-4 h-4" />
-                  </div>
-                  <div className="min-w-0 text-left">
-                    <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block truncate">
-                      MundoLogística Educação Corporativa
-                    </span>
-                    <p className="text-xs sm:text-sm font-heading font-bold text-white leading-tight">
-                      Formando os líderes das maiores cadeias do país
-                    </p>
+                {/* Bloco Inferior Encostado na Base do Gestor (topo do bloco junto à parte de baixo do gestor) */}
+                <div className="w-full max-w-sm sm:max-w-md px-1 mt-0 relative z-30">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-[#0a0e17]/95 backdrop-blur-xl border border-white/15 shadow-2xl flex items-center gap-3.5 text-white">
+                    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#ff3d03] to-[#df3500] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#ff3d03]/30">
+                      <Award className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0 text-left">
+                      <span className="text-[10px] font-mono-tech uppercase tracking-widest text-[#ff3d03] font-bold block truncate">
+                        MundoLogística Educação Corporativa
+                      </span>
+                      <p className="text-xs sm:text-sm font-heading font-bold text-white leading-tight">
+                        Formando os líderes das maiores cadeias do país
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -182,8 +180,8 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Elemento Flutuante 2 (Esquerda / Meio-Topo): Acervo Técnico */}
-              <div className="absolute top-16 sm:top-20 -left-2 sm:-left-6 lg:-left-10 z-30 animate-hero-chip-2">
+              {/* Elemento Flutuante 2 (Inferior Esquerdo): Acervo Técnico posicionado abaixo do sistema-1, sem cobri-lo */}
+              <div className="absolute bottom-16 sm:bottom-20 -left-2 sm:-left-6 lg:-left-10 z-30 animate-hero-chip-2">
                 <div className="bg-black/95 backdrop-blur-xl border border-[#ff3d03]/50 rounded-2xl p-3 shadow-2xl animate-float-reverse hidden sm:flex items-center gap-3">
                   <div className="w-9 h-9 rounded-xl bg-[#ff3d03]/20 border border-[#ff3d03]/40 flex items-center justify-center text-[#ff3d03] font-bold shrink-0">
                     <ShieldCheck className="w-4 h-4" />
