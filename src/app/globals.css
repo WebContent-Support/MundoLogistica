@@ -33,6 +33,32 @@
   --color-text-subtle: #94a3b8;
   --color-border-subtle: rgba(255, 255, 255, 0.1);
   --color-border-hover: rgba(255, 61, 3, 0.4);
+
+  /* =========================================================================
+     FAMÍLIAS DE FONTES (DESIGN TOKENS DE TIPOGRAFIA)
+     Altere aqui para trocar as fontes em todo o site ou por tema
+     ========================================================================= */
+  --font-family-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'Syne', sans-serif;
+  --font-family-heading: 'Space Grotesk', sans-serif;
+  --font-family-editorial: 'Newsreader', 'Playfair Display', Georgia, serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+
+  /* =========================================================================
+     ESCALA DE TAMANHOS DE FONTE (FONT SIZES)
+     Altere aqui para ajustar a escala proporcional de texto
+     ========================================================================= */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  --font-size-5xl: 3rem;       /* 48px */
+  --font-size-6xl: 3.75rem;    /* 60px */
+  --font-size-7xl: 4.5rem;     /* 72px */
 }
 
 html {
@@ -53,7 +79,7 @@ section[id] {
   body {
     background-color: var(--color-bg-page);
     color: var(--color-text-muted);
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-family-sans);
     overflow-x: hidden;
   }
 }
@@ -118,11 +144,25 @@ section[id] {
 @theme {
   --animate-marquee: partnerMarquee 28s linear infinite;
 
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-display: 'Syne', sans-serif;
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-editorial: 'Newsreader', 'Playfair Display', Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Mapeamento de Fontes para Utilitários Tailwind (ex: font-sans, font-display, font-heading) */
+  --font-sans: var(--font-family-sans);
+  --font-display: var(--font-family-display);
+  --font-heading: var(--font-family-heading);
+  --font-editorial: var(--font-family-editorial);
+  --font-mono: var(--font-family-mono);
+
+  /* Mapeamento de Escala Tipográfica para Utilitários Tailwind (ex: text-xs, text-lg, text-4xl) */
+  --text-xs: var(--font-size-xs);
+  --text-sm: var(--font-size-sm);
+  --text-base: var(--font-size-base);
+  --text-lg: var(--font-size-lg);
+  --text-xl: var(--font-size-xl);
+  --text-2xl: var(--font-size-2xl);
+  --text-3xl: var(--font-size-3xl);
+  --text-4xl: var(--font-size-4xl);
+  --text-5xl: var(--font-size-5xl);
+  --text-6xl: var(--font-size-6xl);
+  --text-7xl: var(--font-size-7xl);
 
   /* Cores Globais Mapeadas para Classes Utilitárias (ex: bg-brand-primary, text-brand-secondary) */
   --color-brand-primary: var(--color-brand-primary);
@@ -146,29 +186,29 @@ section[id] {
   }
 }
 
-/* Classes utilitárias de tipografia refinada (antídoto ao design genérico de IA) */
+/* Classes utilitárias de tipografia refinada vinculadas às variáveis CSS */
 .font-display {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-family-display);
   letter-spacing: -0.025em;
 }
 
 .font-heading {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-family-heading);
   letter-spacing: -0.03em;
 }
 
 .font-editorial {
-  font-family: 'Newsreader', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-family-editorial);
   font-style: italic;
 }
 
 .font-editorial-normal {
-  font-family: 'Newsreader', 'Playfair Display', Georgia, serif;
+  font-family: var(--font-family-editorial);
   font-style: normal;
 }
 
 .font-mono-tech {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-family-mono);
   font-feature-settings: "tnum" 1, "zero" 1;
   letter-spacing: -0.01em;
 }

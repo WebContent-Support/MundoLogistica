@@ -23,10 +23,14 @@
   --home2-radius-none: 0px;
   --home2-radius-sm: 4px;
   --home2-radius-md: 10px;
+
+  /* Tipografia Customizada da Home 2 */
+  --home2-font-editorial: 'Syne', sans-serif;
+  --home2-font-mono: 'Space Grotesk', sans-serif;
 }
 
 .home2-theme .font-editorial {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--home2-font-editorial, 'Syne', sans-serif);
   font-style: italic;
   font-weight: bold;
   letter-spacing: -1px;
@@ -34,7 +38,7 @@
 }
 
 .home2-theme .font-mono-tech {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--home2-font-mono, 'Space Grotesk', sans-serif);
 }
 
 .home2-theme .bg-black\/95 {
