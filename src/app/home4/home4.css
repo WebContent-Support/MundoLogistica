@@ -18,8 +18,16 @@
 }
 
 .home4-theme #proposta {
-  background-color: var(--home2-accent-earth);
+  background-color: #000000;
   box-shadow: 0px 12px 20px #0000002b;
+  z-index: 1;
+}
+
+.home4-theme.home2-theme .glass-panel-glow,
+.home4-theme .glass-panel-glow {
+  background: #60160059;
+  backdrop-filter: blur(6px);
+  border: 1px solid #f039026b;
 }
 
 .home4-theme .bg-\[\#040609\] {

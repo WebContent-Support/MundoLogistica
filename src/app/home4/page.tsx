@@ -57,7 +57,7 @@ export default function Home4() {
         <CoursesSection variant="home4" ctaBannerImage={cta2Img} />
 
         {/* 7ª DOBRA - FORMULÁRIO */}
-        <LeadForm />
+        <LeadForm variant="home4" />
       </main>
       {/* RODAPÉ */}
       <Footer variant="home4" bgImage={footerBg} />

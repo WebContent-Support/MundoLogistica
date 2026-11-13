@@ -3,7 +3,12 @@
 import { useState } from 'react';
 import { Send, CheckCircle2, ShieldCheck, Phone, Mail, Clock, Sparkles } from 'lucide-react';
 
-export default function LeadForm() {
+interface LeadFormProps {
+  variant?: 'default' | 'home4';
+}
+
+export default function LeadForm({ variant = 'default' }: LeadFormProps) {
+  const isHome4 = variant === 'home4';
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -54,9 +59,12 @@ export default function LeadForm() {
         <img
           src="/images/warehouse-tech.jpg"
           alt="Operação Logística e Centro de Distribuição"
-          className="w-full h-full object-cover opacity-60"
+          className={`w-full h-full object-cover ${isHome4 ? 'opacity-30' : 'opacity-60'}`}
         />
-        <div className="absolute inset-0 bg-black/75" />
+        <div
+          className="absolute inset-0 bg-black/75"
+          style={isHome4 ? { background: 'linear-gradient( 21deg, #881f0061, #5100213b)' } : undefined}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
