@@ -45,5 +45,7 @@ deploy-apache.zip
 # local backend environment (MySQL + phpMyAdmin + PHP API)
 /backend-local/
 docker-compose.override.yml
+hostinger.env
+
 
 

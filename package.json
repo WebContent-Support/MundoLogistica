@@ -7,12 +7,13 @@
   },
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
-    "build": "next build",
-    "build:export": "NEXT_OUTPUT_EXPORT=true next build",
+    "build": "next build --webpack",
+    "build:export": "NEXT_OUTPUT_EXPORT=true next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

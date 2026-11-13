@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    webpackBuildWorker: false,
+    cpus: 1,
   },
   webpack: (config) => {
     config.resolve = config.resolve || {};
@@ -31,12 +33,6 @@ const nextConfig: NextConfig = {
     resolveAlias: {
       "../build/polyfills/polyfill-module": "./src/empty.js",
       "@next/polyfill-module": "./src/empty.js",
-    },
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
     },
   },
 };
