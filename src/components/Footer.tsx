@@ -132,20 +132,12 @@ export default function Footer({ variant = 'default', bgImage }: FooterProps) {
           <p>© {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.</p>
           <div className="flex items-center gap-6">
             <a
-              href="https://mundologistica.com.br/politica-privacidade"
+              href="https://webcontent.com.br"
               target="_blank"
               rel="noopener noreferrer"
               className={isHome4 ? 'text-white hover:text-white/80 transition-colors' : 'hover:text-gray-200 transition-colors'}
             >
-              Política de Privacidade
-            </a>
-            <a
-              href="https://mundologistica.com.br/contato"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={isHome4 ? 'text-white hover:text-white/80 transition-colors' : 'hover:text-gray-200 transition-colors'}
-            >
-              Central de Atendimento
+              Desenvolvido por WebContent
             </a>
           </div>
         </div>
