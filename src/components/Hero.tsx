@@ -15,8 +15,18 @@ const PARTNERS = [
   { name: 'Dafiti', logo: '/partners/dafiti.svg' },
 ];
 
-export default function Hero() {
+interface HeroProps {
+  variant?: 'default' | 'home4';
+  gestorImage?: string;
+  heroBgImage?: string;
+}
+
+export default function Hero({ variant = 'default', gestorImage, heroBgImage }: HeroProps) {
   const [mounted, setMounted] = useState(false);
+  const resolvedGestorImg =
+    gestorImage || (variant === 'home4' ? '/images/home4/gestor2.webp' : '/images/gestor.webp');
+  const resolvedHeroBg =
+    heroBgImage || (variant === 'home4' ? '/images/home4/fundo-grande-1.png' : '/images/hero-bg.jpg');
 
   useEffect(() => {
     setMounted(true);
@@ -30,7 +40,7 @@ export default function Hero() {
       {/* FOTOGRAFIA REAL DE FUNDO: Centro de Distribuição Logístico de Grande Porte */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
-          src="/images/hero-bg.jpg"
+          src={resolvedHeroBg}
           alt="Fotografia de Centro de Distribuição e Galpão Logístico"
           width={1920}
           height={1080}
@@ -137,7 +147,7 @@ export default function Hero() {
               {/* Imagem do Gestor (em primeiro plano, centralizado, sem movimento contínuo - apenas entrada) */}
               <div className="relative z-20 mx-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[360px] xl:max-w-[380px] animate-hero-gestor">
                 <img
-                  src="/images/gestor.webp"
+                  src={resolvedGestorImg}
                   alt="Líder e Gestor de Supply Chain"
                   width={800}
                   height={1000}

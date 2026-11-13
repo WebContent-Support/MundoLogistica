@@ -42,3 +42,8 @@ yarn-error.log*
 next-env.d.ts
 deploy-apache.zip
 
+# local backend environment (MySQL + phpMyAdmin + PHP API)
+/backend-local/
+docker-compose.override.yml
+
+

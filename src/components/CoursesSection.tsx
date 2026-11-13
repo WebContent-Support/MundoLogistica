@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Clock,
@@ -12,13 +12,55 @@ import {
   ArrowRight,
   ExternalLink,
 } from 'lucide-react';
-import { Course, COURSES_DATA } from '@/data/courses';
+import { Course, COURSES_DATA, fetchCoursesFromApi } from '@/data/courses';
 
-export default function CoursesSection() {
+const HOME4_COURSE_COVERS = [
+  '/images/home4/curso-1.png',
+  '/images/home4/curso-2.png',
+  '/images/home4/curso-3.png',
+  '/images/home4/curso-4.png',
+  '/images/home4/curso-5.png',
+  '/images/home4/curso-6.png',
+];
+
+interface CoursesSectionProps {
+  variant?: 'default' | 'home4';
+  ctaBannerImage?: string;
+}
+
+export default function CoursesSection({ variant = 'default', ctaBannerImage }: CoursesSectionProps) {
+  const isHome4 = variant === 'home4';
+  const [courses, setCourses] = useState<Course[]>(COURSES_DATA);
   const [activeCourse, setActiveCourse] = useState<Course | null>(null);
 
+  useEffect(() => {
+    if (!isHome4) return;
+    let isMounted = true;
+    fetchCoursesFromApi()
+      .then(({ courses: apiCourses }) => {
+        if (isMounted && apiCourses.length > 0) {
+          setCourses(apiCourses);
+        }
+      })
+      .catch(() => {
+        // Mantém fallback estático caso a API esteja offline
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, [isHome4]);
+
   // 6 cursos de destaque na homepage
-  const homepageCourses = COURSES_DATA.slice(0, 6);
+  const featured = courses.filter((c) => c.featuredHome);
+  const rawHomepageCourses = (featured.length > 0 ? featured : courses).slice(0, 6);
+  const homepageCourses = isHome4
+    ? rawHomepageCourses.map((c, idx) => ({
+        ...c,
+        image: HOME4_COURSE_COVERS[idx % HOME4_COURSE_COVERS.length] || c.image,
+      }))
+    : rawHomepageCourses;
+  const resolvedCtaBanner =
+    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-2.png' : '/images/directional-highway.jpg');
 
   return (
     <section
@@ -61,7 +103,7 @@ export default function CoursesSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 text-xs font-mono-tech font-bold text-gray-700 hover:text-[#df3500] transition-all shadow-sm"
             >
-              <span>Ver Catálogo Completo ({COURSES_DATA.length} cursos)</span>
+              <span>Ver Catálogo Completo ({courses.length} cursos)</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -93,18 +135,22 @@ export default function CoursesSection() {
                   <span className="text-[10px] font-mono-tech font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
                     {course.category}
                   </span>
-                  <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
-                    {course.level}
-                  </span>
+                  {course.level && (
+                    <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                      {course.level}
+                    </span>
+                  )}
                 </div>
 
                 {/* Duração & Certificado Flutuantes na Base da Foto */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono-tech">
-                  <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
-                    <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
-                    {course.duration}
-                  </span>
-                  <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 text-amber-300 font-bold">
+                  {course.duration && (
+                    <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
+                      <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
+                      {course.duration}
+                    </span>
+                  )}
+                  <span className="ml-auto flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 text-amber-300 font-bold">
                     <Award className="w-3.5 h-3.5" />
                     Certificado
                   </span>
@@ -143,12 +189,16 @@ export default function CoursesSection() {
                     <h4 className="text-xs sm:text-sm font-heading font-bold text-gray-900 truncate">
                       {course.instructor.name}
                     </h4>
-                    <p className="text-[11px] font-sans text-gray-600 truncate">
-                      {course.instructor.role}
-                    </p>
-                    <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
-                      {course.instructor.companyOrExperience}
-                    </p>
+                    {course.instructor.role && (
+                      <p className="text-[11px] font-sans text-gray-600 truncate">
+                        {course.instructor.role}
+                      </p>
+                    )}
+                    {course.instructor.companyOrExperience && (
+                      <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
+                        {course.instructor.companyOrExperience}
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -172,7 +222,7 @@ export default function CoursesSection() {
           {/* Imagem de Fundo de Rodovia Noturna com Ponto de Fuga no Centro */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/directional-highway.jpg"
+              src={resolvedCtaBanner}
               alt="Transporte Rodoviário com Linhas de Luz em Alta Velocidade"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />
@@ -259,9 +309,11 @@ export default function CoursesSection() {
                 <span className="text-xs font-mono font-bold bg-[#df3500] px-3 py-1 rounded-full uppercase tracking-wider">
                   {activeCourse.category}
                 </span>
-                <span className="text-xs font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20">
-                  {activeCourse.level}
-                </span>
+                {activeCourse.level && (
+                  <span className="text-xs font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20">
+                    {activeCourse.level}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -292,37 +344,56 @@ export default function CoursesSection() {
                   Especialista Responsável
                 </span>
                 <h4 className="text-base font-heading font-bold text-gray-950">{activeCourse.instructor.name}</h4>
-                <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
-                <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                {activeCourse.instructor.role && (
+                  <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
+                )}
+                {activeCourse.instructor.companyOrExperience && (
+                  <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                )}
               </div>
             </div>
 
-            {/* Módulos do Curso / Ementa */}
-            <div className="mb-8">
-              <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
-                Módulos e Conteúdos Abordados:
-              </h4>
-              <ul className="space-y-2.5">
-                {activeCourse.modules.map((mod, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
-                  >
-                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      {index + 1}
-                    </span>
-                    <span>{mod}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* O que você vai aprender (da API / Planilha) */}
+            {activeCourse.whatYouWillLearn && (
+              <div className="mb-8">
+                <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
+                  O que você vai aprender:
+                </h4>
+                <div className="text-sm font-sans text-gray-700 leading-relaxed p-4 rounded-2xl bg-gray-50 border border-gray-100 whitespace-pre-line">
+                  {activeCourse.whatYouWillLearn}
+                </div>
+              </div>
+            )}
+
+            {/* Módulos do Curso / Ementa (Apenas quando retornado pela API) */}
+            {activeCourse.modules && activeCourse.modules.length > 0 && (
+              <div className="mb-8">
+                <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
+                  Módulos e Conteúdos Abordados:
+                </h4>
+                <ul className="space-y-2.5">
+                  {activeCourse.modules.map((mod, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
+                    >
+                      <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        {index + 1}
+                      </span>
+                      <span>{mod}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Detalhes Rápidos */}
             <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono-tech font-bold text-gray-800">
-              <span>Carga Horária: {activeCourse.duration}</span>
-              <span>Nível: {activeCourse.level}</span>
-              <span className="text-[#df3500]">Certificado Incluso</span>
+              {activeCourse.duration && <span>Carga Horária: {activeCourse.duration}</span>}
+              {activeCourse.level && <span>Nível: {activeCourse.level}</span>}
+              <span className="text-[#df3500] ml-auto">Certificado Incluso</span>
             </div>
 
               {/* CTA do Modal */}

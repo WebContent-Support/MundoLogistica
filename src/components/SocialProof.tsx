@@ -30,7 +30,16 @@ const TESTIMONIALS = [
   },
 ];
 
-export default function SocialProof() {
+interface SocialProofProps {
+  variant?: 'default' | 'home4';
+  bgImage?: string;
+}
+
+export default function SocialProof({ variant = 'default', bgImage }: SocialProofProps) {
+  const isHome4 = variant === 'home4';
+  const resolvedBg =
+    bgImage || (isHome4 ? '/images/home4/fundo-grande-1.png' : '/images/control-tower.jpg');
+
   return (
     <section
       id="depoimentos"
@@ -40,7 +49,7 @@ export default function SocialProof() {
       {/* FOTOGRAFIA REAL DE FUNDO: Torre de Controle e Sala de Operações Logísticas */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
-          src="/images/control-tower.jpg"
+          src={resolvedBg}
           alt="Torre de Controle Logística e Telemetria Operacional"
           className="w-full h-full object-cover opacity-65 object-center"
         />
@@ -73,7 +82,13 @@ export default function SocialProof() {
                   ))}
                 </div>
                 <Quote className="w-8 h-8 text-[#ff3d03]/40 mb-3" />
-                <p className="text-slate-100 font-editorial text-base sm:text-lg leading-relaxed italic mb-8">
+                <p
+                  className={
+                    isHome4
+                      ? 'text-slate-100 text-base sm:text-lg leading-relaxed italic mb-8'
+                      : 'text-slate-100 font-editorial text-base sm:text-lg leading-relaxed italic mb-8'
+                  }
+                >
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>

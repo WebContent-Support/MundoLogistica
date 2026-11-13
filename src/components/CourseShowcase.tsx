@@ -281,7 +281,7 @@ export default function CourseShowcase() {
                 Módulos e Conteúdos Abordados:
               </h4>
               <ul className="space-y-2.5">
-                {activeCourse.modules.map((mod, index) => (
+                {(activeCourse.modules ?? []).map((mod, index) => (
                   <li key={index} className="flex items-start gap-3 text-sm text-gray-700 p-3 rounded-xl bg-gray-50 border border-gray-100">
                     <span className="w-6 h-6 rounded-full bg-orange-100 text-[#ff3d03] font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
                       {index + 1}

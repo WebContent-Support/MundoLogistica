@@ -1,18 +1,111 @@
 export interface Course {
   id: string;
+  slug?: string;
   title: string;
-  category: 'Transporte & Frotas' | 'Armazenagem & WMS' | 'Supply Chain Estratégico' | 'Tecnologia & IA' | 'Tributário & Custos' | 'Liderança & ESG';
-  duration: string;
-  level: 'Iniciante' | 'Intermediário' | 'Avançado' | 'Executivo';
+  category: string;
+  duration?: string | null;
+  level?: string | null;
   image: string;
   instructor: {
     name: string;
-    role: string;
-    companyOrExperience: string;
+    role?: string | null;
+    companyOrExperience?: string | null;
     avatar: string;
   };
   summary: string;
-  modules: string[];
+  whatYouWillLearn?: string | null;
+  modules?: string[] | null;
+  featuredHome?: boolean;
+}
+
+export interface ApiCourseItem {
+  id: number | string;
+  slug: string;
+  tema: string;
+  professor: string;
+  cargo: string | null;
+  resumo: string;
+  o_que_vai_aprender: string | null;
+  categoria: string;
+  foto_professor: string | null;
+  foto_capa: string | null;
+  duracao: string | null;
+  nivel: string | null;
+  experiencia_professor: string | null;
+  modulos: string[] | null;
+  destaque_home?: boolean;
+  ordem?: number;
+}
+
+export interface ApiCoursesResponse {
+  success: boolean;
+  total: number;
+  categorias: string[];
+  data: ApiCourseItem[];
+}
+
+export function getApiBaseUrl(): string {
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host !== 'localhost' && host !== '127.0.0.1') {
+      return `${window.location.origin}/api`;
+    }
+  }
+  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+}
+
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+
+export function mapApiCourseToCourse(item: ApiCourseItem): Course {
+  return {
+    id: String(item.id),
+    slug: item.slug,
+    title: item.tema,
+    category: item.categoria,
+    duration: item.duracao || null,
+    level: item.nivel || null,
+    image: item.foto_capa || '/images/course-centricity.jpg',
+    instructor: {
+      name: item.professor,
+      role: item.cargo || null,
+      companyOrExperience: item.experiencia_professor || null,
+      avatar: item.foto_professor || '/instructors/ricardo-mello.jpg',
+    },
+    summary: item.resumo,
+    whatYouWillLearn: item.o_que_vai_aprender || null,
+    modules: Array.isArray(item.modulos) && item.modulos.length > 0 ? item.modulos : null,
+    featuredHome: Boolean(item.destaque_home),
+  };
+}
+
+export async function fetchCoursesFromApi(): Promise<{
+  courses: Course[];
+  categories: string[];
+}> {
+  const baseUrl = getApiBaseUrl();
+  const response = await fetch(`${baseUrl}/courses.php`, {
+    cache: 'no-store',
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error ${response.status}`);
+  }
+
+  const json: ApiCoursesResponse = await response.json();
+  if (!json.success || !Array.isArray(json.data)) {
+    throw new Error('Formato de resposta inválido da API');
+  }
+
+  const courses = json.data.map(mapApiCourseToCourse);
+  const apiCategories =
+    Array.isArray(json.categorias) && json.categorias.length > 0
+      ? json.categorias
+      : Array.from(new Set(courses.map((c) => c.category).filter(Boolean)));
+
+  return {
+    courses,
+    categories: ['Todos os Cursos', ...apiCategories],
+  };
 }
 
 export const COURSES_DATA: Course[] = [

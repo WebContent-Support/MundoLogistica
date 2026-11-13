@@ -1,0 +1,28 @@
+/* =========================================================================
+   HOME PAGE 4 (/home4) — CÓPIA DA HOME 3 COM AJUSTES DE TESTE ISOLADOS
+   Mantém Home 1 (/), Home 2 (/home2) e Home 3 (/home3) 100% preservadas.
+   ========================================================================= */
+
+@import '../home3/home3.css';
+
+.home4-theme .to-black\/35 {
+  background: linear-gradient(45deg, #821e00, #0000005e);
+}
+
+.home4-theme .rounded-full {
+  border-radius: 8px !important;
+}
+
+.home4-theme .bg-\[\#090d16\] {
+  background: linear-gradient(335deg, #000000, #6c240e);
+}
+
+.home4-theme #proposta {
+  background-color: var(--home2-accent-earth);
+  box-shadow: 0px 12px 20px #0000002b;
+}
+
+.home4-theme .bg-\[\#040609\] {
+  background: linear-gradient(171deg, #b42b00, #17191d);
+  padding: 3% 0 1% 0;
+}

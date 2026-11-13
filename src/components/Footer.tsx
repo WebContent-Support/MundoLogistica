@@ -1,14 +1,31 @@
 import Link from 'next/link';
 import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  variant?: 'default' | 'home4';
+  bgImage?: string | null;
+}
+
+export default function Footer({ variant = 'default', bgImage }: FooterProps) {
+  const isHome4 = variant === 'home4';
+
   return (
-    <footer data-theme="dark" className="bg-[#040609] text-white pt-16 pb-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer data-theme="dark" className="bg-[#040609] text-white pt-16 pb-12 border-t border-white/10 relative overflow-hidden">
+      {isHome4 && bgImage && (
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src={bgImage}
+            alt="Fundo do Rodapé"
+            className="w-full h-full object-cover opacity-30 object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#b42b00]/75 to-[#17191d]/90" />
+        </div>
+      )}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10 items-start">
           {/* Logo Oficial e Redes Sociais (Foco da Simplificação da Cliente) */}
           <div className="lg:col-span-6 space-y-5">
-            <Link href="/" className="inline-block py-1">
+            <Link href={isHome4 ? '/home4' : '/'} className="inline-block py-1">
               <img
                 src="/logo-white.png"
                 alt="MundoLogística"
@@ -20,13 +37,13 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-sm font-sans text-gray-300 max-w-md leading-relaxed">
+            <p className={`text-sm font-sans ${isHome4 ? 'text-white' : 'text-gray-300'} max-w-md leading-relaxed`}>
               O maior ecossistema de capacitação, inteligência artificial e formação continuada para líderes e profissionais de logística e supply chain do Brasil.
             </p>
 
             {/* Redes Sociais Oficiais em Destaque */}
             <div className="pt-2">
-              <span className="text-xs font-mono-tech font-bold uppercase tracking-wider text-gray-400 block mb-3">
+              <span className={`text-xs font-mono-tech font-bold uppercase tracking-wider ${isHome4 ? 'text-white' : 'text-gray-400'} block mb-3`}>
                 Siga a MundoLogística:
               </span>
               <div className="flex items-center gap-3">
@@ -35,7 +52,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/mundologistica"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 ${isHome4 ? 'text-white' : 'text-gray-300'} hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer`}
                   aria-label="LinkedIn da MundoLogística"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -47,7 +64,7 @@ export default function Footer() {
                   href="https://www.instagram.com/mundologistica"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 ${isHome4 ? 'text-white' : 'text-gray-300'} hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer`}
                   aria-label="Instagram da MundoLogística"
                 >
                   <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
@@ -61,7 +78,7 @@ export default function Footer() {
                   href="https://www.youtube.com/@mundologistica"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 ${isHome4 ? 'text-white' : 'text-gray-300'} hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer`}
                   aria-label="YouTube da MundoLogística"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -73,7 +90,7 @@ export default function Footer() {
                   href="https://www.facebook.com/revistamundologistica"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 text-gray-300 hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer"
+                  className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:border-[#ff3d03] hover:bg-[#ff3d03]/10 ${isHome4 ? 'text-white' : 'text-gray-300'} hover:text-[#ff3d03] flex items-center justify-center transition-all cursor-pointer`}
                   aria-label="Facebook da MundoLogística"
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -89,7 +106,7 @@ export default function Footer() {
             <h3 className="text-xs font-mono-tech font-bold uppercase tracking-wider text-white">
               Atendimento Corporativo B2B
             </h3>
-            <ul className="space-y-3 text-xs sm:text-sm font-sans text-gray-300">
+            <ul className={`space-y-3 text-xs sm:text-sm font-sans ${isHome4 ? 'text-white' : 'text-gray-300'}`}>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#ff3d03] shrink-0 mt-0.5" />
                 <span>Av. São Paulo, 620 - Sala 11 - Zona 01, Maringá - PR</span>
@@ -111,14 +128,14 @@ export default function Footer() {
         </div>
 
         {/* Rodapé inferior com Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
+        <div className={`pt-8 flex flex-col sm:flex-row items-center justify-between text-xs ${isHome4 ? 'text-white' : 'text-gray-400'} gap-4`}>
           <p>© {new Date().getFullYear()} MundoLogística. Todos os direitos reservados.</p>
           <div className="flex items-center gap-6">
             <a
               href="https://mundologistica.com.br/politica-privacidade"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-200 transition-colors"
+              className={isHome4 ? 'text-white hover:text-white/80 transition-colors' : 'hover:text-gray-200 transition-colors'}
             >
               Política de Privacidade
             </a>
@@ -126,7 +143,7 @@ export default function Footer() {
               href="https://mundologistica.com.br/contato"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-200 transition-colors"
+              className={isHome4 ? 'text-white hover:text-white/80 transition-colors' : 'hover:text-gray-200 transition-colors'}
             >
               Central de Atendimento
             </a>

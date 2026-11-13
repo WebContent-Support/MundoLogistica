@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Search,
@@ -18,16 +18,35 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Course, COURSES_DATA, CATEGORIES } from '@/data/courses';
+import { Course, COURSES_DATA, CATEGORIES, fetchCoursesFromApi } from '@/data/courses';
 
 export default function VitrineCursosPage() {
+  const [courses, setCourses] = useState<Course[]>(COURSES_DATA);
+  const [categories, setCategories] = useState<string[]>([...CATEGORIES]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Todos os Cursos');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeCourse, setActiveCourse] = useState<Course | null>(null);
 
+  useEffect(() => {
+    let isMounted = true;
+    fetchCoursesFromApi()
+      .then(({ courses: apiCourses, categories: apiCategories }) => {
+        if (isMounted && apiCourses.length > 0) {
+          setCourses(apiCourses);
+          setCategories(apiCategories);
+        }
+      })
+      .catch(() => {
+        // Mantém fallback estático caso a API esteja indisponível
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   // Filtragem inteligente em tempo real
   const filteredCourses = useMemo(() => {
-    return COURSES_DATA.filter((course) => {
+    return courses.filter((course) => {
       const matchesCategory =
         selectedCategory === 'Todos os Cursos' || course.category === selectedCategory;
 
@@ -37,11 +56,12 @@ export default function VitrineCursosPage() {
         course.title.toLowerCase().includes(query) ||
         course.instructor.name.toLowerCase().includes(query) ||
         course.summary.toLowerCase().includes(query) ||
+        (course.whatYouWillLearn && course.whatYouWillLearn.toLowerCase().includes(query)) ||
         course.category.toLowerCase().includes(query);
 
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [courses, selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#06080d] text-white selection:bg-[#ff3d03] selection:text-white">
@@ -123,7 +143,7 @@ export default function VitrineCursosPage() {
                 <div className="bg-gray-50 px-4 py-2.5 rounded-2xl border border-gray-200 text-xs font-mono-tech font-bold text-gray-600 flex items-center gap-2 shrink-0 self-start md:self-auto">
                   <span className="w-2 h-2 rounded-full bg-[#ff3d03] animate-pulse" />
                   <span>
-                    Exibindo <strong className="text-gray-900 text-sm font-mono-tech">{filteredCourses.length}</strong> de {COURSES_DATA.length} cursos
+                    Exibindo <strong className="text-gray-900 text-sm font-mono-tech">{filteredCourses.length}</strong> de {courses.length} cursos
                   </span>
                 </div>
               </div>
@@ -134,7 +154,7 @@ export default function VitrineCursosPage() {
                   <Filter className="w-3.5 h-3.5 text-[#df3500]" />
                   TRILHA:
                 </div>
-                {CATEGORIES.map((category) => {
+                {categories.map((category) => {
                   const isSelected = selectedCategory === category;
                   return (
                     <button
@@ -195,18 +215,22 @@ export default function VitrineCursosPage() {
                         <span className="text-[10px] font-mono-tech font-bold text-white bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider border border-white/20">
                           {course.category}
                         </span>
-                        <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
-                          {course.level}
-                        </span>
+                        {course.level && (
+                          <span className="text-[10px] font-mono-tech text-white font-bold bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/20">
+                            {course.level}
+                          </span>
+                        )}
                       </div>
 
                       {/* Duração & Certificado Flutuantes na Base da Foto */}
                       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono-tech">
-                        <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
-                          <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
-                          {course.duration}
-                        </span>
-                        <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 text-amber-300 font-bold">
+                        {course.duration && (
+                          <span className="flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 font-bold">
+                            <Clock className="w-3.5 h-3.5 text-[#ff3d03]" />
+                            {course.duration}
+                          </span>
+                        )}
+                        <span className="ml-auto flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/10 text-amber-300 font-bold">
                           <Award className="w-3.5 h-3.5" />
                           Certificado
                         </span>
@@ -245,12 +269,16 @@ export default function VitrineCursosPage() {
                           <h4 className="text-xs sm:text-sm font-heading font-bold text-gray-900 truncate">
                             {course.instructor.name}
                           </h4>
-                          <p className="text-[11px] font-sans text-gray-600 truncate">
-                            {course.instructor.role}
-                          </p>
-                          <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
-                            {course.instructor.companyOrExperience}
-                          </p>
+                          {course.instructor.role && (
+                            <p className="text-[11px] font-sans text-gray-600 truncate">
+                              {course.instructor.role}
+                            </p>
+                          )}
+                          {course.instructor.companyOrExperience && (
+                            <p className="text-[10px] font-mono-tech text-[#df3500] font-bold truncate">
+                              {course.instructor.companyOrExperience}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -343,9 +371,11 @@ export default function VitrineCursosPage() {
                 <span className="text-xs font-mono font-bold bg-[#df3500] px-3 py-1 rounded-full uppercase tracking-wider">
                   {activeCourse.category}
                 </span>
-                <span className="text-xs font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20">
-                  {activeCourse.level}
-                </span>
+                {activeCourse.level && (
+                  <span className="text-xs font-mono font-bold bg-white/20 backdrop-blur-md px-3 py-1 rounded-md border border-white/20">
+                    {activeCourse.level}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -376,37 +406,56 @@ export default function VitrineCursosPage() {
                   Especialista Responsável
                 </span>
                 <h4 className="text-base font-heading font-bold text-gray-950">{activeCourse.instructor.name}</h4>
-                <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
-                <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                {activeCourse.instructor.role && (
+                  <p className="text-xs font-sans text-gray-600 font-medium">{activeCourse.instructor.role}</p>
+                )}
+                {activeCourse.instructor.companyOrExperience && (
+                  <p className="text-xs font-mono-tech text-[#df3500] font-bold">{activeCourse.instructor.companyOrExperience}</p>
+                )}
               </div>
             </div>
 
+            {/* O que você vai aprender */}
+            {activeCourse.whatYouWillLearn && (
+              <div className="mb-8">
+                <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
+                  O que você vai aprender:
+                </h4>
+                <div className="text-sm font-sans text-gray-700 leading-relaxed p-4 rounded-2xl bg-gray-50 border border-gray-100 whitespace-pre-line">
+                  {activeCourse.whatYouWillLearn}
+                </div>
+              </div>
+            )}
+
             {/* Módulos */}
-            <div className="mb-8">
-              <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
-                Módulos e Conteúdos Abordados:
-              </h4>
-              <ul className="space-y-2.5">
-                {activeCourse.modules.map((mod, index) => (
-                  <li
-                    key={index}
-                    className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
-                  >
-                    <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
-                      {index + 1}
-                    </span>
-                    <span>{mod}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {activeCourse.modules && activeCourse.modules.length > 0 && (
+              <div className="mb-8">
+                <h4 className="text-xs font-mono-tech font-bold text-gray-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#df3500]" />
+                  Módulos e Conteúdos Abordados:
+                </h4>
+                <ul className="space-y-2.5">
+                  {activeCourse.modules.map((mod, index) => (
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 text-sm font-sans text-gray-700 p-3.5 rounded-xl bg-gray-50 border border-gray-100"
+                    >
+                      <span className="w-6 h-6 rounded-full bg-orange-100 text-[#df3500] font-mono-tech font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        {index + 1}
+                      </span>
+                      <span>{mod}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* Detalhes Rápidos */}
             <div className="flex items-center justify-between p-4 rounded-xl bg-orange-50 border border-orange-200/80 mb-8 text-xs font-mono-tech font-bold text-gray-800">
-              <span>Carga Horária: {activeCourse.duration}</span>
-              <span>Nível: {activeCourse.level}</span>
-              <span className="text-[#df3500]">Certificado Incluso</span>
+              {activeCourse.duration && <span>Carga Horária: {activeCourse.duration}</span>}
+              {activeCourse.level && <span>Nível: {activeCourse.level}</span>}
+              <span className="text-[#df3500] ml-auto">Certificado Incluso</span>
             </div>
 
             {/* CTA do Modal */}

@@ -27,11 +27,18 @@ const AI_PROMPTS = [
 ];
 
 interface EcosystemProps {
-  variant?: 'default' | 'home2';
+  variant?: 'default' | 'home2' | 'home4';
+  ctaBannerImage?: string;
 }
 
-export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
-  const isHome2 = variant === 'home2';
+export default function Ecosystem({ variant = 'default', ctaBannerImage }: EcosystemProps) {
+  const isHome2 = variant === 'home2' || variant === 'home4';
+  const isHome4 = variant === 'home4';
+  const block1Image = isHome4 ? '/images/home4/card-inicial-1.png' : '/images/team-learning.jpg';
+  const block2Image = isHome4 ? '/images/home4/card-inicial-2.png' : '/images/warehouse-tech.jpg';
+  const magazineImage = isHome4 ? '/images/home4/card-revista.png' : '/images/magazine-open.jpg';
+  const resolvedCtaBanner =
+    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-1.png' : '/images/directional-highway.jpg');
   const cardBaseClasses = isHome2
     ? 'bg-white p-8 sm:p-10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden'
     : 'bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden';
@@ -178,7 +185,7 @@ export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
               {/* Composição Fotográfica Rica com Badge Flutuante */}
               <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/90 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
                 <img
-                  src="/images/team-learning.jpg"
+                  src={block1Image}
                   alt="Equipe de Logística em Treinamento"
                   width={800}
                   height={450}
@@ -239,7 +246,7 @@ export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
                       {/* Showcase Fotográfico Real da Revista */}
                       <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-md aspect-[16/9] group/mag">
                         <img
-                          src="/images/magazine-open.jpg"
+                          src={magazineImage}
                           alt="Revista MundoLogística Impressa e Digital"
                           width={600}
                           height={340}
@@ -303,7 +310,7 @@ export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
               {/* Composição Fotográfica Rica com Badge Flutuante */}
               <div className="relative mb-8 rounded-2xl overflow-hidden border border-gray-200/90 shadow-md aspect-[16/9] group-hover:shadow-lg transition-shadow">
                 <img
-                  src="/images/warehouse-tech.jpg"
+                  src={block2Image}
                   alt="Tecnologia e Operações de Logística"
                   width={800}
                   height={450}
@@ -433,7 +440,7 @@ export default function Ecosystem({ variant = 'default' }: EcosystemProps) {
           {/* Imagem de Fundo com Linhas de Perspectiva que Convergem ao Centro */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/directional-highway.jpg"
+              src={resolvedCtaBanner}
               alt="Transporte Logístico em Alta Velocidade"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />
