@@ -118,7 +118,7 @@ export default function Hero({ variant = 'default', gestorImage, heroBgImage }: 
               <div className="absolute -top-4 sm:-top-8 -left-4 sm:-left-8 lg:-left-12 w-[62%] sm:w-[68%] lg:w-[72%] max-w-[340px] z-10 pointer-events-none animate-hero-system-1">
                 <div className="animate-float-subtle-1">
                   <img
-                    src="/images/sistema-1.webp"
+                    src="/images/sistema-1v2.webp"
                     alt="Sistema de Gestão Logística 1"
                     width={750}
                     height={400}
