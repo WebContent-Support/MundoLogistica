@@ -6,6 +6,7 @@ import { Send, CheckCircle2, ShieldCheck, Phone, Mail, Clock, Sparkles } from 'l
 export default function LeadForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,14 +16,35 @@ export default function LeadForm() {
     teamSize: '6 a 15 colaboradores',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setErrorMsg(null);
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || 'Erro ao enviar solicitação.');
+      }
+
       setSubmitted(true);
-    }, 900);
+    } catch (err) {
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : 'Não foi possível enviar sua solicitação agora. Tente novamente.'
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -196,6 +218,12 @@ export default function LeadForm() {
                   <div className="pt-3 relative">
                     {/* Spotlight cônico atrás do botão de envio */}
                     <div className="absolute inset-0 cta-spotlight pointer-events-none rounded-2xl" />
+
+                    {errorMsg && (
+                      <div className="mb-3 p-3 rounded-xl bg-red-500/15 border border-red-500/40 text-xs font-sans text-red-200 text-center">
+                        {errorMsg}
+                      </div>
+                    )}
 
                     <div className="relative">
                       {/* Onda de Radar */}
