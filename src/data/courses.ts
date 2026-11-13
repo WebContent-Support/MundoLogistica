@@ -45,13 +45,31 @@ export interface ApiCoursesResponse {
 }
 
 export function getApiBaseUrl(): string {
+  const configuredEndpoint = process.env.NEXT_PUBLIC_COURSES_API_URL?.trim();
+  if (configuredEndpoint) {
+    return configuredEndpoint.replace(/\/courses\.php\/?$/i, '').replace(/\/$/, '');
+  }
+
+  const configuredBase = process.env.NEXT_PUBLIC_API_URL?.trim();
   if (typeof window !== 'undefined') {
     const host = window.location.hostname;
-    if (host !== 'localhost' && host !== '127.0.0.1') {
+    const isLocalHost = host === 'localhost' || host === '127.0.0.1';
+    if (!isLocalHost) {
+      if (configuredBase && !configuredBase.includes('localhost')) {
+        return configuredBase.replace(/\/$/, '');
+      }
       return `${window.location.origin}/api`;
     }
   }
-  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
+  return (configuredBase || 'http://localhost:8080').replace(/\/$/, '');
+}
+
+export function getCoursesEndpointUrl(): string {
+  const configuredEndpoint = process.env.NEXT_PUBLIC_COURSES_API_URL?.trim();
+  if (configuredEndpoint) {
+    return configuredEndpoint;
+  }
+  return `${getApiBaseUrl()}/courses.php`;
 }
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080';
@@ -82,8 +100,8 @@ export async function fetchCoursesFromApi(): Promise<{
   courses: Course[];
   categories: string[];
 }> {
-  const baseUrl = getApiBaseUrl();
-  const response = await fetch(`${baseUrl}/courses.php`, {
+  const endpointUrl = getCoursesEndpointUrl();
+  const response = await fetch(endpointUrl, {
     cache: 'no-store',
   });
 
