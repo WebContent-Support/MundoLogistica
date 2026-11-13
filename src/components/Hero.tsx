@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Sparkles, CheckCircle2, TrendingUp, Bot, ShieldCheck, Award } from 'lucide-react';
 
 const PARTNERS = [
@@ -22,15 +21,16 @@ interface HeroProps {
 }
 
 export default function Hero({ variant = 'default', gestorImage, heroBgImage }: HeroProps) {
-  const [mounted, setMounted] = useState(false);
   const resolvedGestorImg =
     gestorImage || (variant === 'home4' ? '/images/home4/gestor2.webp' : '/images/gestor.webp');
   const resolvedHeroBg =
-    heroBgImage || (variant === 'home4' ? '/images/home4/fundo-grande-1.png' : '/images/hero-bg.jpg');
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+    heroBgImage || (variant === 'home4' ? '/images/home4/fundo-grande-1.webp' : '/images/hero-bg.jpg');
+  const heroBgSrcSet =
+    resolvedHeroBg === '/images/home4/fundo-grande-1.webp'
+      ? '/images/home4/fundo-grande-1-sm.webp 768w, /images/home4/fundo-grande-1.webp 1366w'
+      : resolvedHeroBg === '/images/home4/fundo-grande-2.webp'
+        ? '/images/home4/fundo-grande-2-sm.webp 768w, /images/home4/fundo-grande-2.webp 1366w'
+        : undefined;
 
   return (
     <section
@@ -41,9 +41,11 @@ export default function Hero({ variant = 'default', gestorImage, heroBgImage }: 
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src={resolvedHeroBg}
+          srcSet={heroBgSrcSet}
+          sizes={heroBgSrcSet ? '100vw' : undefined}
           alt="Fotografia de Centro de Distribuição e Galpão Logístico"
-          width={1920}
-          height={1080}
+          width={1366}
+          height={790}
           fetchPriority="high"
           decoding="async"
           className="w-full h-full object-cover object-center opacity-75"
@@ -120,9 +122,8 @@ export default function Hero({ variant = 'default', gestorImage, heroBgImage }: 
                   <img
                     src="/images/sistema-1v2.webp"
                     alt="Sistema de Gestão Logística 1"
-                    width={750}
-                    height={400}
-                    loading="eager"
+                    width={360}
+                    height={192}
                     decoding="async"
                     className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.7)]"
                   />
@@ -135,9 +136,8 @@ export default function Hero({ variant = 'default', gestorImage, heroBgImage }: 
                   <img
                     src="/images/sistema-2.webp"
                     alt="Sistema de Gestão Logística 2"
-                    width={672}
-                    height={400}
-                    loading="eager"
+                    width={360}
+                    height={214}
                     decoding="async"
                     className="w-full h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.75)]"
                   />
@@ -149,8 +149,8 @@ export default function Hero({ variant = 'default', gestorImage, heroBgImage }: 
                 <img
                   src={resolvedGestorImg}
                   alt="Líder e Gestor de Supply Chain"
-                  width={800}
-                  height={1000}
+                  width={420}
+                  height={525}
                   fetchPriority="high"
                   decoding="async"
                   className="w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.9)] block"

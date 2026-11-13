@@ -38,7 +38,7 @@ interface SocialProofProps {
 export default function SocialProof({ variant = 'default', bgImage }: SocialProofProps) {
   const isHome4 = variant === 'home4';
   const resolvedBg =
-    bgImage || (isHome4 ? '/images/home4/fundo-grande-1.png' : '/images/control-tower.jpg');
+    bgImage || (isHome4 ? '/images/home4/fundo-grande-1.webp' : '/images/control-tower.jpg');
 
   return (
     <section
@@ -50,6 +50,10 @@ export default function SocialProof({ variant = 'default', bgImage }: SocialProo
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src={resolvedBg}
+          width={1366}
+          height={790}
+          loading="lazy"
+          decoding="async"
           alt="Torre de Controle Logística e Telemetria Operacional"
           className="w-full h-full object-cover opacity-65 object-center"
         />

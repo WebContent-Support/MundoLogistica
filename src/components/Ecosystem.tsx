@@ -34,11 +34,11 @@ interface EcosystemProps {
 export default function Ecosystem({ variant = 'default', ctaBannerImage }: EcosystemProps) {
   const isHome2 = variant === 'home2' || variant === 'home4';
   const isHome4 = variant === 'home4';
-  const block1Image = isHome4 ? '/images/home4/card-inicial-1.png' : '/images/team-learning.jpg';
-  const block2Image = isHome4 ? '/images/home4/card-inicial-2.png' : '/images/warehouse-tech.jpg';
-  const magazineImage = isHome4 ? '/images/home4/card-revista.png' : '/images/magazine-open.jpg';
+  const block1Image = isHome4 ? '/images/home4/card-inicial-1.webp' : '/images/team-learning.jpg';
+  const block2Image = isHome4 ? '/images/home4/card-inicial-2.webp' : '/images/warehouse-tech.jpg';
+  const magazineImage = isHome4 ? '/images/home4/card-revista.webp' : '/images/magazine-open.jpg';
   const resolvedCtaBanner =
-    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-1.png' : '/images/directional-highway.jpg');
+    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-1.webp' : '/images/directional-highway.jpg');
   const cardBaseClasses = isHome2
     ? 'bg-white p-8 sm:p-10 hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden'
     : 'bg-white rounded-3xl p-8 sm:p-10 border border-gray-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group overflow-hidden';
@@ -92,12 +92,13 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
     return () => cancelAnimationFrame(frameId);
   }, [hasAnimatedBars]);
 
-  // Efeito Máquina de Escrever do LogGPT
+  // Efeito Máquina de Escrever do LogGPT (inicia somente quando visível na tela)
   const [promptIndex, setPromptIndex] = useState(0);
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState(AI_PROMPTS[0]);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    if (!hasAnimatedBars) return;
     const fullText = AI_PROMPTS[promptIndex];
     let timeout: NodeJS.Timeout;
 
@@ -123,7 +124,7 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
     }
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, promptIndex]);
+  }, [displayText, isDeleting, promptIndex, hasAnimatedBars]);
 
   return (
     <section
@@ -135,6 +136,12 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/warehouse-tech.jpg"
+          srcSet="/images/warehouse-tech.webp 640w"
+          sizes="100vw"
+          width={640}
+          height={426}
+          loading="lazy"
+          decoding="async"
           alt="Fotografia de Centro Logístico e Operações"
           className="w-full h-full object-cover opacity-35"
         />
@@ -187,8 +194,8 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
                 <img
                   src={block1Image}
                   alt="Equipe de Logística em Treinamento"
-                  width={800}
-                  height={450}
+                  width={540}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover img-zoom group-hover:scale-105 transition-transform duration-700"
@@ -248,9 +255,10 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
                         <img
                           src={magazineImage}
                           alt="Revista MundoLogística Impressa e Digital"
-                          width={600}
-                          height={340}
+                          width={460}
+                          height={306}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover img-zoom group-hover/mag:scale-105 transition-transform duration-700"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -312,8 +320,8 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
                 <img
                   src={block2Image}
                   alt="Tecnologia e Operações de Logística"
-                  width={800}
-                  height={450}
+                  width={540}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover img-zoom group-hover:scale-105 transition-transform duration-700"
@@ -441,6 +449,10 @@ export default function Ecosystem({ variant = 'default', ctaBannerImage }: Ecosy
           <div className="absolute inset-0 z-0">
             <img
               src={resolvedCtaBanner}
+              width={960}
+              height={315}
+              loading="lazy"
+              decoding="async"
               alt="Transporte Logístico em Alta Velocidade"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />

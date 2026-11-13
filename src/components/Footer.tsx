@@ -15,6 +15,10 @@ export default function Footer({ variant = 'default', bgImage }: FooterProps) {
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img
             src={bgImage}
+            width={1366}
+            height={790}
+            loading="lazy"
+            decoding="async"
             alt="Fundo do Rodapé"
             className="w-full h-full object-cover opacity-30 object-center"
           />

@@ -127,6 +127,12 @@ export default function SpecialistsSection() {
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/executive-boardroom.jpg"
+          srcSet="/images/executive-boardroom.webp 800w"
+          sizes="100vw"
+          width={800}
+          height={533}
+          loading="lazy"
+          decoding="async"
           alt="Fotografia de Sala de Diretoria e Liderança"
           className="w-full h-full object-cover opacity-20"
         />

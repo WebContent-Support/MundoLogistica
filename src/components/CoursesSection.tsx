@@ -15,12 +15,12 @@ import {
 import { Course, COURSES_DATA, fetchCoursesFromApi } from '@/data/courses';
 
 const HOME4_COURSE_COVERS = [
-  '/images/home4/curso-1.png',
-  '/images/home4/curso-2.png',
-  '/images/home4/curso-3.png',
-  '/images/home4/curso-4.png',
-  '/images/home4/curso-5.png',
-  '/images/home4/curso-6.png',
+  '/images/home4/curso-1.webp',
+  '/images/home4/curso-2.webp',
+  '/images/home4/curso-3.webp',
+  '/images/home4/curso-4.webp',
+  '/images/home4/curso-5.webp',
+  '/images/home4/curso-6.webp',
 ];
 
 interface CoursesSectionProps {
@@ -60,7 +60,7 @@ export default function CoursesSection({ variant = 'default', ctaBannerImage }: 
       }))
     : rawHomepageCourses;
   const resolvedCtaBanner =
-    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-2.png' : '/images/directional-highway.jpg');
+    ctaBannerImage || (isHome4 ? '/images/home4/banner-cta-2.webp' : '/images/directional-highway.jpg');
 
   return (
     <section
@@ -72,6 +72,12 @@ export default function CoursesSection({ variant = 'default', ctaBannerImage }: 
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="/images/logistics-fleet.jpg"
+          srcSet="/images/logistics-fleet.webp 720w"
+          sizes="100vw"
+          width={720}
+          height={477}
+          loading="lazy"
+          decoding="async"
           alt="Fotografia de Frotas de Transporte e Distribuição"
           className="w-full h-full object-cover opacity-20"
         />
@@ -122,8 +128,8 @@ export default function CoursesSection({ variant = 'default', ctaBannerImage }: 
                 <img
                   src={course.image}
                   alt={course.title}
-                  width={600}
-                  height={375}
+                  width={520}
+                  height={346}
                   loading="lazy"
                   decoding="async"
                   className="w-full h-full object-cover img-zoom group-hover:scale-108 transition-transform duration-700"
@@ -223,6 +229,10 @@ export default function CoursesSection({ variant = 'default', ctaBannerImage }: 
           <div className="absolute inset-0 z-0">
             <img
               src={resolvedCtaBanner}
+              width={960}
+              height={315}
+              loading="lazy"
+              decoding="async"
               alt="Transporte Rodoviário com Linhas de Luz em Alta Velocidade"
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
             />

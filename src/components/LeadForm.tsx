@@ -58,6 +58,12 @@ export default function LeadForm({ variant = 'default' }: LeadFormProps) {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img
           src="/images/warehouse-tech.jpg"
+          srcSet="/images/warehouse-tech.webp 640w"
+          sizes="100vw"
+          width={640}
+          height={426}
+          loading="lazy"
+          decoding="async"
           alt="Operação Logística e Centro de Distribuição"
           className={`w-full h-full object-cover ${isHome4 ? 'opacity-30' : 'opacity-60'}`}
         />

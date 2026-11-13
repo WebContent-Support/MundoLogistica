@@ -14,25 +14,25 @@ import Footer from '@/components/Footer';
 import './home4.css';
 
 const CTA_BANNERS = [
-  { label: 'CTA (1)', src: '/images/home4/banner-cta-1.png' },
-  { label: 'CTA (2)', src: '/images/home4/banner-cta-2.png' },
-  { label: 'CTA (3)', src: '/images/home4/banner-cta-3.png' },
-  { label: 'CTA (4)', src: '/images/home4/banner-cta-4.png' },
+  { label: 'CTA (1)', src: '/images/home4/banner-cta-1.webp' },
+  { label: 'CTA (2)', src: '/images/home4/banner-cta-2.webp' },
+  { label: 'CTA (3)', src: '/images/home4/banner-cta-3.webp' },
+  { label: 'CTA (4)', src: '/images/home4/banner-cta-4.webp' },
 ];
 
 const LARGE_BGS = [
-  { label: 'Fundo (1)', src: '/images/home4/fundo-grande-1.png' },
-  { label: 'Fundo (2)', src: '/images/home4/fundo-grande-2.png' },
+  { label: 'Fundo (1)', src: '/images/home4/fundo-grande-1.webp' },
+  { label: 'Fundo (2)', src: '/images/home4/fundo-grande-2.webp' },
 ];
 
 export default function Home4() {
   const [panelOpen, setPanelOpen] = useState(false);
-  const [heroBg, setHeroBg] = useState('/images/home4/fundo-grande-1.png');
+  const [heroBg, setHeroBg] = useState('/images/home4/fundo-grande-1.webp');
   const [gestorImg, setGestorImg] = useState('/images/home4/gestor2.webp');
-  const [cta1Img, setCta1Img] = useState('/images/home4/banner-cta-1.png');
-  const [cta2Img, setCta2Img] = useState('/images/home4/banner-cta-2.png');
-  const [depoimentosBg, setDepoimentosBg] = useState('/images/home4/fundo-grande-1.png');
-  const [footerBg, setFooterBg] = useState<string | null>('/images/home4/fundo-grande-2.png');
+  const [cta1Img, setCta1Img] = useState('/images/home4/banner-cta-1.webp');
+  const [cta2Img, setCta2Img] = useState('/images/home4/banner-cta-2.webp');
+  const [depoimentosBg, setDepoimentosBg] = useState('/images/home4/fundo-grande-1.webp');
+  const [footerBg, setFooterBg] = useState<string | null>('/images/home4/fundo-grande-2.webp');
 
   return (
     <div className="home2-theme home3-theme home4-theme min-h-screen flex flex-col bg-[#06080d] text-white selection:bg-[#ff3d03] selection:text-white">
